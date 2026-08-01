@@ -24,9 +24,9 @@ export const es: Dictionary = {
   },
   nav: [
     { label: "Aeropuertos", href: "/es/aeropuertos/" },
-    { label: "Ciudades", href: "/es/ciudades/" },
-    { label: "Servicios", href: "/es/servicios/" },
-    { label: "Rutas", href: "/es/rutas/" },
+    { label: "Ciudades", href: "/es/#destinations" },
+    { label: "Servicios", href: "/es/#services" },
+    { label: "Rutas", href: "/es/aeropuertos/" },
     { label: "Blog", href: "/es/blog/" },
     { label: "Sobre Nosotros", href: "/es/sobre-nosotros/" },
   ],

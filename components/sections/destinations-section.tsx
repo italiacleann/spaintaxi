@@ -8,7 +8,7 @@ import { SectionHeading } from "@/components/shared/section-heading";
 
 export function DestinationsSection({ dict }: { dict: Dictionary }) {
   return (
-    <section aria-labelledby="destinations-heading" className="bg-muted/40 py-20 sm:py-28">
+    <section id="destinations" aria-labelledby="destinations-heading" className="scroll-mt-20 bg-muted/40 py-20 sm:py-28">
       <Container className="flex flex-col gap-12">
         <SectionHeading
           eyebrow={dict.destinationsSection.eyebrow}
