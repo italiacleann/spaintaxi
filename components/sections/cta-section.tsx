@@ -1,7 +1,5 @@
 import Image from "next/image";
-import { PhoneIcon } from "lucide-react";
 
-import { contactInfo } from "@/lib/data";
 import type { Dictionary } from "@/lib/i18n/types";
 import { Container } from "@/components/shared/container";
 import { buttonVariants } from "@/components/ui/button";
@@ -37,13 +35,6 @@ export function CtaSection({ dict }: { dict: Dictionary }) {
             )}
           >
             {dict.ctaSection.cta}
-          </a>
-          <a
-            href={`tel:${contactInfo.phone.replace(/\s+/g, "")}`}
-            className="inline-flex items-center gap-2 text-base font-medium text-white hover:underline"
-          >
-            <PhoneIcon className="size-5" />
-            {contactInfo.phone}
           </a>
         </div>
       </Container>

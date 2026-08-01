@@ -7,6 +7,10 @@ import type { ServicePageDictionary } from "@/lib/i18n/service-types";
 import type { AirportHubDictionary } from "@/lib/airports/hub-types";
 import type { AirportRecord } from "@/lib/airports/types";
 import { getAirportPath } from "@/lib/airports/data";
+import type { CityHubDictionary } from "@/lib/cities/hub-types";
+import type { CityRecord } from "@/lib/cities/types";
+import { getCityPath } from "@/lib/cities/data";
+import type { QuotePageDictionary } from "@/lib/quote/types";
 import { contactInfo, socialLinks } from "@/lib/data";
 
 function buildOrganization(homeUrl: string, description: string) {
@@ -319,5 +323,133 @@ export function buildAirportHubJsonLd(
   return {
     "@context": "https://schema.org",
     "@graph": [organization, webPage, breadcrumb, itemList],
+  };
+}
+
+export function buildCityHubJsonLd(
+  locale: Locale,
+  dict: CityHubDictionary,
+  path: string,
+  cities: CityRecord[]
+) {
+  const homeUrl = absoluteUrl(localeHome(locale));
+  const pageUrl = absoluteUrl(path);
+
+  const organization = buildOrganization(homeUrl, dict.meta.description);
+
+  const webPage = {
+    "@type": "CollectionPage",
+    "@id": `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: dict.meta.title,
+    description: dict.meta.description,
+    inLanguage: locale === "es" ? "es-ES" : "en",
+    isPartOf: { "@id": `${homeUrl}#website` },
+    breadcrumb: { "@id": `${pageUrl}#breadcrumb` },
+  };
+
+  const breadcrumb = {
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: dict.breadcrumb.home,
+        item: homeUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: dict.breadcrumb.current,
+        item: pageUrl,
+      },
+    ],
+  };
+
+  const itemList = {
+    "@type": "ItemList",
+    itemListElement: cities.map((city, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Service",
+        name: locale === "es" ? city.nameEs : city.nameEn,
+        url: absoluteUrl(getCityPath(locale, city)),
+        provider: { "@id": `${homeUrl}#organization` },
+        areaServed: "ES",
+      },
+    })),
+  };
+
+  const faq = {
+    "@type": "FAQPage",
+    mainEntity: dict.faq.items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [organization, webPage, breadcrumb, itemList, faq],
+  };
+}
+
+export function buildQuoteJsonLd(locale: Locale, dict: QuotePageDictionary, path: string) {
+  const homeUrl = absoluteUrl(localeHome(locale));
+  const pageUrl = absoluteUrl(path);
+
+  const organization = buildOrganization(homeUrl, dict.meta.description);
+
+  const webPage = {
+    "@type": "WebPage",
+    "@id": `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: dict.meta.title,
+    description: dict.meta.description,
+    inLanguage: locale === "es" ? "es-ES" : "en",
+    isPartOf: { "@id": `${homeUrl}#website` },
+    breadcrumb: { "@id": `${pageUrl}#breadcrumb` },
+  };
+
+  const breadcrumb = {
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: dict.breadcrumb.home,
+        item: homeUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: dict.breadcrumb.current,
+        item: pageUrl,
+      },
+    ],
+  };
+
+  const faq = {
+    "@type": "FAQPage",
+    mainEntity: dict.faq.items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [organization, webPage, breadcrumb, faq],
   };
 }

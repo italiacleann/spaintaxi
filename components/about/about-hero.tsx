@@ -56,6 +56,7 @@ export function AboutHero({
         <div className="flex flex-wrap items-center gap-4 pt-2">
           <QuoteDialog
             dict={homeDict}
+            locale={locale}
             trigger={
               <Button
                 id="quote"

@@ -158,8 +158,8 @@ export const privacyEs: LegalPageDictionary = {
   ],
   cta: {
     title: "¿Dudas Sobre tu Privacidad?",
-    description: "Ponte en contacto con nuestro equipo para cualquier cuestión relacionada con tus datos personales o esta política.",
-    button: "Contáctanos",
-    href: "/es/contacto/",
+    description: "Solicita un presupuesto o ponte en contacto con nuestro equipo para cualquier cuestión sobre tus datos personales o esta política.",
+    button: "Solicitar Presupuesto",
+    href: "/es/solicitar-presupuesto/",
   },
 };

@@ -1,16 +1,18 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { type FormEvent } from "react";
+import { useRouter } from "next/navigation";
 import {
   CalendarIcon,
   ClockIcon,
   MapPinIcon,
   NavigationIcon,
   UsersIcon,
-  CheckCircle2Icon,
 } from "lucide-react";
 
 import type { Dictionary } from "@/lib/i18n/types";
+import { type Locale } from "@/lib/i18n/config";
+import { getQuotePagePath } from "@/lib/quote/config";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -22,42 +24,44 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
+const passengerRangeToCount: Record<string, string> = {
+  "1-2": "2",
+  "3-4": "4",
+  "5-6": "6",
+  "7-8": "7+",
+};
+
 export function QuoteForm({
   dict,
+  locale,
   className,
 }: {
   dict: Dictionary;
+  locale: Locale;
   className?: string;
 }) {
-  const [submitted, setSubmitted] = useState(false);
+  const router = useRouter();
   const t = dict.quoteForm;
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSubmitted(true);
-  }
+    const data = new FormData(event.currentTarget);
+    const passengerRange = String(data.get("passengers") ?? "");
 
-  if (submitted) {
-    return (
-      <div className={className}>
-        <div className="flex flex-col items-center gap-3 py-10 text-center">
-          <span className="flex size-12 items-center justify-center rounded-full bg-secondary/15 text-secondary">
-            <CheckCircle2Icon className="size-6" />
-          </span>
-          <h3 className="font-heading text-lg font-semibold text-foreground">
-            {t.successTitle}
-          </h3>
-          <p className="max-w-xs text-sm text-muted-foreground">{t.successMessage}</p>
-          <Button
-            variant="outline"
-            className="mt-2"
-            onClick={() => setSubmitted(false)}
-          >
-            {t.requestAnother}
-          </Button>
-        </div>
-      </div>
-    );
+    const params = new URLSearchParams();
+    const pickup = String(data.get("pickup") ?? "");
+    const dropoff = String(data.get("dropoff") ?? "");
+    const date = String(data.get("date") ?? "");
+    const time = String(data.get("time") ?? "");
+    if (pickup) params.set("pickup", pickup);
+    if (dropoff) params.set("dropoff", dropoff);
+    if (date) params.set("pickupDate", date);
+    if (time) params.set("pickupTime", time);
+    if (passengerRange in passengerRangeToCount) {
+      params.set("passengers", passengerRangeToCount[passengerRange]);
+    }
+
+    router.push(`${getQuotePagePath(locale)}?${params.toString()}`);
   }
 
   return (

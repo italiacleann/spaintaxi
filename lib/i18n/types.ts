@@ -117,9 +117,6 @@ export interface Dictionary {
     passengersLabel: string;
     passengerOptions: { value: string; label: string }[];
     submit: string;
-    successTitle: string;
-    successMessage: string;
-    requestAnother: string;
   };
   trustBar: { icon: TrustIconKey; title: string; description: string }[];
   airportsSection: {

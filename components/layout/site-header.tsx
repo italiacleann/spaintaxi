@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { MenuIcon, PhoneIcon } from "lucide-react";
+import { MenuIcon } from "lucide-react";
 
-import { contactInfo } from "@/lib/data";
 import { locales, localeHome, type Locale } from "@/lib/i18n/config";
+import { getQuotePagePath } from "@/lib/quote/config";
 import type { Dictionary } from "@/lib/i18n/types";
 import { cn } from "@/lib/utils";
 import { Container } from "@/components/shared/container";
@@ -100,7 +100,7 @@ export function SiteHeader({ locale, dict }: { locale: Locale; dict: Dictionary 
         <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
           {dict.nav.map((link) => (
             <Link
-              key={link.href}
+              key={link.label}
               href={link.href}
               className={cn(
                 "rounded-md px-3 py-2 text-sm font-medium transition-colors",
@@ -116,27 +116,15 @@ export function SiteHeader({ locale, dict }: { locale: Locale; dict: Dictionary 
 
         <div className="flex items-center gap-2">
           <LanguageSwitcher locale={locale} transparent={transparent} className="hidden md:flex" />
-          <a
-            href={`tel:${contactInfo.phone.replace(/\s+/g, "")}`}
-            className={cn(
-              "hidden items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors xl:inline-flex",
-              transparent
-                ? "text-white/90 hover:text-white"
-                : "text-muted-foreground hover:text-primary"
-            )}
-          >
-            <PhoneIcon className="size-4" />
-            {contactInfo.phone}
-          </a>
-          <a
-            href="#quote"
+          <Link
+            href={getQuotePagePath(locale)}
             className={cn(
               buttonVariants({ size: "lg" }),
               "hidden bg-cta text-cta-foreground hover:bg-cta/90 sm:inline-flex"
             )}
           >
             {dict.header.getQuote}
-          </a>
+          </Link>
 
           <Sheet>
             <SheetTrigger
@@ -161,7 +149,7 @@ export function SiteHeader({ locale, dict }: { locale: Locale; dict: Dictionary 
               <nav aria-label="Mobile" className="flex flex-col gap-1 px-4">
                 {dict.nav.map((link) => (
                   <SheetClose
-                    key={link.href}
+                    key={link.label}
                     render={
                       <Link
                         href={link.href}
@@ -175,17 +163,10 @@ export function SiteHeader({ locale, dict }: { locale: Locale; dict: Dictionary 
               </nav>
               <div className="mt-auto flex flex-col gap-3 border-t border-border p-4">
                 <LanguageSwitcher locale={locale} transparent={false} />
-                <a
-                  href={`tel:${contactInfo.phone.replace(/\s+/g, "")}`}
-                  className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground"
-                >
-                  <PhoneIcon className="size-4" />
-                  {contactInfo.phone}
-                </a>
                 <SheetClose
                   render={
-                    <a
-                      href="#quote"
+                    <Link
+                      href={getQuotePagePath(locale)}
                       className={cn(
                         buttonVariants(),
                         "w-full bg-cta text-cta-foreground hover:bg-cta/90"

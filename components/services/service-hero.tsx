@@ -18,7 +18,7 @@ export function ServiceHero({
   locale,
   breadcrumbHome,
 }: {
-  dict: ServicePageDictionary;
+  dict: Pick<ServicePageDictionary, "hero" | "breadcrumb">;
   homeDict: Dictionary;
   shared: ServiceSharedContent;
   locale: Locale;
@@ -87,7 +87,7 @@ export function ServiceHero({
               {homeDict.hero.formTitle}
             </h2>
             <p className="mt-1 text-sm text-muted-foreground">{homeDict.hero.formSubtitle}</p>
-            <QuoteForm dict={homeDict} className="mt-5" />
+            <QuoteForm dict={homeDict} locale={locale} className="mt-5" />
           </div>
         </div>
       </Container>

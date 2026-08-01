@@ -23,7 +23,7 @@ export const en: Dictionary = {
   },
   nav: [
     { label: "Airports", href: "/airports/" },
-    { label: "Cities", href: "/#destinations" },
+    { label: "Cities", href: "/cities/" },
     { label: "Services", href: "/#services" },
     { label: "Routes", href: "/airports/" },
     { label: "Blog", href: "/blog/" },
@@ -54,11 +54,7 @@ export const en: Dictionary = {
       { value: "5-6", label: "5-6 passengers" },
       { value: "7-8", label: "7-8 passengers" },
     ],
-    submit: "Get My Instant Quote",
-    successTitle: "Request received",
-    successMessage:
-      "We're preparing your fixed-price quote now and will email it to you shortly.",
-    requestAnother: "Request another quote",
+    submit: "Continue Booking",
   },
   trustBar: [
     {
@@ -463,17 +459,17 @@ export const en: Dictionary = {
     citiesTitle: "Cities",
     companyTitle: "Company",
     quickLinks: [
-      { label: "Get a Quote", href: "#quote" },
+      { label: "Get a Quote", href: "/get-a-quote/" },
       { label: "Fleet", href: "#fleet" },
       { label: "How It Works", href: "#how-it-works" },
       { label: "FAQ", href: "#faq" },
-      { label: "Contact Us", href: "/contact/" },
+      { label: "Contact", href: "/get-a-quote/" },
     ],
     company: [
       { label: "About Us", href: "/about-us/" },
       { label: "Blog", href: "/blog/" },
       { label: "Careers", href: "/careers/" },
-      { label: "Contact", href: "/contact/" },
+      { label: "Contact", href: "/get-a-quote/" },
     ],
     legal: [
       { label: "Privacy Policy", href: "/privacy-policy/" },

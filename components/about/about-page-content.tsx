@@ -46,7 +46,7 @@ export function AboutPageContent({
       <AboutProcess dict={dict} />
       <AboutTrust dict={dict} />
       <AboutFaq dict={dict} />
-      <AboutCta dict={dict} homeDict={homeDict} />
+      <AboutCta dict={dict} homeDict={homeDict} locale={locale} />
     </>
   );
 }

@@ -28,7 +28,7 @@ export function AirportHubContent({
       />
       <AirportHubHero dict={dict} locale={locale} />
       <AirportDirectory airports={airports} dict={dict} locale={locale} />
-      <AirportHubCta dict={dict} />
+      <AirportHubCta dict={dict} locale={locale} />
     </>
   );
 }

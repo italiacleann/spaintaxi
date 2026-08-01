@@ -14,7 +14,7 @@ import { ServiceFleet } from "@/components/services/service-fleet";
 import { ServiceProcess } from "@/components/services/service-process";
 import { ServiceTestimonials } from "@/components/services/service-testimonials";
 import { ServiceFaq } from "@/components/services/service-faq";
-import { AirportRelatedServices } from "@/components/airports/airport-related-services";
+import { RelatedServicesSection } from "@/components/shared/related-services-section";
 import { ServiceCta } from "@/components/services/service-cta";
 
 export function AirportPageContent({
@@ -55,7 +55,7 @@ export function AirportPageContent({
       <ServiceProcess shared={shared} />
       <ServiceTestimonials testimonials={homeDict.testimonials} />
       <ServiceFaq dict={dict} shared={shared} />
-      <AirportRelatedServices dict={dict} />
+      <RelatedServicesSection title={dict.relatedServices.title} items={dict.relatedServices.items} />
       <ServiceCta dict={dict} />
     </>
   );

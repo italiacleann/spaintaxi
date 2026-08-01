@@ -30,7 +30,7 @@ export default async function Home({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <HeroSection dict={dict} />
+      <HeroSection dict={dict} locale={locale} />
       <TrustBar dict={dict} />
       <AirportsSection dict={dict} />
       <DestinationsSection dict={dict} />

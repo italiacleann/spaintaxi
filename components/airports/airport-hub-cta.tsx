@@ -1,12 +1,13 @@
-import { PhoneIcon } from "lucide-react";
+import Link from "next/link";
 
-import { contactInfo } from "@/lib/data";
 import type { AirportHubDictionary } from "@/lib/airports/hub-types";
+import { getQuotePagePath } from "@/lib/quote/config";
+import type { Locale } from "@/lib/i18n/config";
 import { Container } from "@/components/shared/container";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-export function AirportHubCta({ dict }: { dict: AirportHubDictionary }) {
+export function AirportHubCta({ dict, locale }: { dict: AirportHubDictionary; locale: Locale }) {
   const t = dict.cta;
 
   return (
@@ -23,24 +24,15 @@ export function AirportHubCta({ dict }: { dict: AirportHubDictionary }) {
         <p className="max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
           {t.description}
         </p>
-        <div className="flex flex-col items-center gap-4 pt-2 sm:flex-row">
-          <a
-            href={`tel:${contactInfo.phone.replace(/\s+/g, "")}`}
-            className={cn(
-              buttonVariants({ size: "lg" }),
-              "h-12 bg-cta px-8 text-base text-cta-foreground hover:bg-cta/90"
-            )}
-          >
-            {t.button}
-          </a>
-          <a
-            href={`tel:${contactInfo.phone.replace(/\s+/g, "")}`}
-            className="inline-flex items-center gap-2 text-base font-medium text-white hover:underline"
-          >
-            <PhoneIcon className="size-5" />
-            {contactInfo.phone}
-          </a>
-        </div>
+        <Link
+          href={getQuotePagePath(locale)}
+          className={cn(
+            buttonVariants({ size: "lg" }),
+            "h-12 bg-cta px-8 text-base text-cta-foreground hover:bg-cta/90"
+          )}
+        >
+          {t.button}
+        </Link>
       </Container>
     </section>
   );

@@ -158,8 +158,8 @@ export const privacyEn: LegalPageDictionary = {
   ],
   cta: {
     title: "Questions About Your Privacy?",
-    description: "Reach out to our team for anything related to your personal data or this policy.",
-    button: "Contact Us",
-    href: "/contact/",
+    description: "Request a quote or reach out to our team for anything related to your personal data or this policy.",
+    button: "Request a Quote",
+    href: "/get-a-quote/",
   },
 };

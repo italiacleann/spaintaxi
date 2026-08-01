@@ -160,8 +160,8 @@ export const termsEs: LegalPageDictionary = {
   ],
   cta: {
     title: "¿Necesitas Ayuda?",
-    description: "¿Tienes alguna duda sobre una reserva o sobre estos términos? Nuestro equipo de soporte está aquí para ayudarte.",
-    button: "Contáctanos",
-    href: "/es/contacto/",
+    description: "¿Tienes alguna duda sobre una reserva o sobre estos términos? Solicita un presupuesto y nuestro equipo te ayudará.",
+    button: "Solicitar Presupuesto",
+    href: "/es/solicitar-presupuesto/",
   },
 };

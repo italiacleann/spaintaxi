@@ -328,7 +328,7 @@ export const aboutEs: AboutDictionary = {
       {
         icon: "headset",
         title: "Soporte Profesional",
-        description: "Un equipo de soporte real, disponible por teléfono o correo, día y noche.",
+        description: "Un equipo de soporte real, disponible por correo electrónico día y noche, con respuestas rápidas a tu presupuesto.",
       },
     ],
   },
@@ -379,7 +379,7 @@ export const aboutEs: AboutDictionary = {
       {
         question: "¿Cómo puedo contactar con atención al cliente?",
         answer:
-          "Nuestro equipo de soporte está disponible 24/7 por teléfono y correo electrónico, y cada confirmación de reserva incluye los datos de contacto directo de tu conductor.",
+          "Nuestro equipo de soporte está disponible 24/7 por correo electrónico, y cada confirmación de reserva incluye los datos de contacto directo de tu conductor.",
       },
     ],
   },
@@ -398,6 +398,6 @@ export const aboutEs: AboutDictionary = {
     popularAirports: "/es/aeropuertos/",
     popularCities: "/es/ciudades/",
     blog: "/es/blog/",
-    contact: "/es/contacto/",
+    contact: "/es/solicitar-presupuesto/",
   },
 };

@@ -1,19 +1,22 @@
 import Link from "next/link";
 import { ArrowRightIcon } from "lucide-react";
 
-import type { AirportPageDictionary } from "@/lib/airports/airport-page-types";
 import { Container } from "@/components/shared/container";
 import { SectionHeading } from "@/components/shared/section-heading";
 
-export function AirportRelatedServices({ dict }: { dict: AirportPageDictionary }) {
-  const t = dict.relatedServices;
-
+export function RelatedServicesSection({
+  title,
+  items,
+}: {
+  title: string;
+  items: { label: string; href: string }[];
+}) {
   return (
     <section aria-labelledby="related-services-heading" className="py-20 sm:py-28">
       <Container className="flex flex-col gap-12">
-        <SectionHeading title={t.title} headingId="related-services-heading" />
+        <SectionHeading title={title} headingId="related-services-heading" />
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {t.items.map((item) => (
+          {items.map((item) => (
             <Link
               key={item.href}
               href={item.href}

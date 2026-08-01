@@ -11,6 +11,7 @@ import {
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import type { Dictionary } from "@/lib/i18n/types";
 import { airports, getAirportPath } from "@/lib/airports/data";
+import { cities, getCityPath } from "@/lib/cities/data";
 
 const dictionaries: Record<Locale, Dictionary> = {
   en: getDictionary("en"),
@@ -82,6 +83,25 @@ function airportPageEntries(): MetadataRoute.Sitemap {
   });
 }
 
+function cityPageEntries(): MetadataRoute.Sitemap {
+  return cities.map((city) => {
+    const pathsByLocale = locales.reduce(
+      (acc, locale) => {
+        acc[locale] = getCityPath(locale, city);
+        return acc;
+      },
+      {} as Record<Locale, string>
+    );
+
+    return {
+      url: `${siteUrl}${pathsByLocale[defaultLocale]}`,
+      changeFrequency: "monthly",
+      priority: city.isFeatured ? 0.8 : 0.6,
+      alternates: { languages: alternatesFor(pathsByLocale) },
+    };
+  });
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const homeEntries: MetadataRoute.Sitemap = locales.map((locale) => {
     const pathsByLocale = locales.reduce(
@@ -120,14 +140,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     0.8,
     "weekly"
   );
+  const cityHubEntries = pairEntries(
+    { en: "/cities/", es: "/es/ciudades/" },
+    0.8,
+    "weekly"
+  );
+  const quoteEntries = pairEntries(
+    { en: "/get-a-quote/", es: "/es/solicitar-presupuesto/" },
+    0.9,
+    "monthly"
+  );
 
   return [
     ...homeEntries,
     ...aboutEntries,
     ...termsEntries,
     ...privacyEntries,
+    ...quoteEntries,
     ...airportHubEntries,
     ...airportPageEntries(),
+    ...cityHubEntries,
+    ...cityPageEntries(),
     ...collectionEntries("destinations"),
     ...collectionEntries("services", 0.8),
   ];

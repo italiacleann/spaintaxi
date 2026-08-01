@@ -2,12 +2,13 @@ import Image from "next/image";
 import { StarIcon } from "lucide-react";
 
 import type { Dictionary } from "@/lib/i18n/types";
+import type { Locale } from "@/lib/i18n/config";
 import { Container } from "@/components/shared/container";
 import { HeroSlider } from "@/components/sections/hero-slider";
 import { QuoteDialog } from "@/components/sections/quote-dialog";
 import { Button } from "@/components/ui/button";
 
-export function HeroSection({ dict }: { dict: Dictionary }) {
+export function HeroSection({ dict, locale }: { dict: Dictionary; locale: Locale }) {
   const t = dict.hero;
 
   return (
@@ -51,6 +52,7 @@ export function HeroSection({ dict }: { dict: Dictionary }) {
           <div className="pt-2">
             <QuoteDialog
               dict={dict}
+              locale={locale}
               trigger={
                 <Button
                   id="quote"

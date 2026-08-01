@@ -160,8 +160,8 @@ export const termsEn: LegalPageDictionary = {
   ],
   cta: {
     title: "Need Assistance?",
-    description: "Have a question about a booking or these terms? Our support team is here to help.",
-    button: "Contact Us",
-    href: "/contact/",
+    description: "Have a question about a booking or these terms? Request a quote and our team will help.",
+    button: "Request a Quote",
+    href: "/get-a-quote/",
   },
 };

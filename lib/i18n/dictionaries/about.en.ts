@@ -321,7 +321,7 @@ export const aboutEn: AboutDictionary = {
       {
         icon: "headset",
         title: "Professional Support",
-        description: "A real support team reachable by phone or email, day or night.",
+        description: "A real support team reachable by email, day or night, with fast quote responses.",
       },
     ],
   },
@@ -372,7 +372,7 @@ export const aboutEn: AboutDictionary = {
       {
         question: "How can I contact customer support?",
         answer:
-          "Our support team is available 24/7 by phone and email, and every booking confirmation includes direct contact details for your driver.",
+          "Our support team is available 24/7 by email, and every booking confirmation includes direct contact details for your driver.",
       },
     ],
   },
@@ -391,6 +391,6 @@ export const aboutEn: AboutDictionary = {
     popularAirports: "/airports/",
     popularCities: "/cities/",
     blog: "/blog/",
-    contact: "/contact/",
+    contact: "/get-a-quote/",
   },
 };

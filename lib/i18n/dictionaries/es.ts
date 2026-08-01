@@ -24,7 +24,7 @@ export const es: Dictionary = {
   },
   nav: [
     { label: "Aeropuertos", href: "/es/aeropuertos/" },
-    { label: "Ciudades", href: "/es/#destinations" },
+    { label: "Ciudades", href: "/es/ciudades/" },
     { label: "Servicios", href: "/es/#services" },
     { label: "Rutas", href: "/es/aeropuertos/" },
     { label: "Blog", href: "/es/blog/" },
@@ -56,11 +56,7 @@ export const es: Dictionary = {
       { value: "5-6", label: "5-6 pasajeros" },
       { value: "7-8", label: "7-8 pasajeros" },
     ],
-    submit: "Obtener Mi Presupuesto al Instante",
-    successTitle: "Solicitud recibida",
-    successMessage:
-      "Estamos preparando tu presupuesto con precio cerrado y te lo enviaremos por correo electrónico en breve.",
-    requestAnother: "Solicitar otro presupuesto",
+    submit: "Continuar con la Reserva",
   },
   trustBar: [
     {
@@ -465,17 +461,17 @@ export const es: Dictionary = {
     citiesTitle: "Ciudades",
     companyTitle: "Empresa",
     quickLinks: [
-      { label: "Solicitar Presupuesto", href: "#quote" },
+      { label: "Solicitar Presupuesto", href: "/es/solicitar-presupuesto/" },
       { label: "Flota", href: "#fleet" },
       { label: "Cómo Funciona", href: "#how-it-works" },
       { label: "Preguntas Frecuentes", href: "#faq" },
-      { label: "Contacto", href: "/es/contacto/" },
+      { label: "Contacto", href: "/es/solicitar-presupuesto/" },
     ],
     company: [
       { label: "Sobre Nosotros", href: "/es/sobre-nosotros/" },
       { label: "Blog", href: "/es/blog/" },
       { label: "Empleo", href: "/es/empleo/" },
-      { label: "Contacto", href: "/es/contacto/" },
+      { label: "Contacto", href: "/es/solicitar-presupuesto/" },
     ],
     legal: [
       { label: "Política de Privacidad", href: "/es/politica-de-privacidad/" },

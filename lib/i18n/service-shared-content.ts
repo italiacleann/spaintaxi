@@ -4,6 +4,7 @@ import type {
   ServiceFleetVehicle,
   ServiceProcessStep,
 } from "@/lib/i18n/service-types";
+import { getQuotePagePath } from "@/lib/quote/config";
 
 const benefitsEn: ServiceBenefitItem[] = [
   { icon: "badge-euro", title: "Fixed Prices", description: "No meters, no surprises. Your fare is locked in at booking." },
@@ -145,7 +146,7 @@ const sharedEn: ServiceSharedContent = {
   fleetCatalog: fleetCatalogEn,
   faqSectionTitle: "Frequently Asked Questions",
   faqSectionDescription: "Everything travelers ask us most about this service.",
-  ctaSecondaryHref: "/contact/",
+  ctaSecondaryHref: getQuotePagePath("en"),
 };
 
 const sharedEs: ServiceSharedContent = {
@@ -158,7 +159,7 @@ const sharedEs: ServiceSharedContent = {
   fleetCatalog: fleetCatalogEs,
   faqSectionTitle: "Preguntas Frecuentes",
   faqSectionDescription: "Todo lo que más nos preguntan los viajeros sobre este servicio.",
-  ctaSecondaryHref: "/es/contacto/",
+  ctaSecondaryHref: getQuotePagePath("es"),
 };
 
 export function getServiceSharedContent(locale: Locale): ServiceSharedContent {

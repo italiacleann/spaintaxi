@@ -1,8 +1,6 @@
-import { PhoneIcon } from "lucide-react";
-
-import { contactInfo } from "@/lib/data";
 import type { AboutDictionary } from "@/lib/i18n/about-types";
 import type { Dictionary } from "@/lib/i18n/types";
+import type { Locale } from "@/lib/i18n/config";
 import { Container } from "@/components/shared/container";
 import { QuoteDialog } from "@/components/sections/quote-dialog";
 import { Button } from "@/components/ui/button";
@@ -10,9 +8,11 @@ import { Button } from "@/components/ui/button";
 export function AboutCta({
   dict,
   homeDict,
+  locale,
 }: {
   dict: AboutDictionary;
   homeDict: Dictionary;
+  locale: Locale;
 }) {
   const t = dict.cta;
 
@@ -31,6 +31,7 @@ export function AboutCta({
         <div className="flex flex-col items-center gap-4 pt-2 sm:flex-row">
           <QuoteDialog
             dict={homeDict}
+            locale={locale}
             trigger={
               <Button
                 size="lg"
@@ -40,13 +41,6 @@ export function AboutCta({
               </Button>
             }
           />
-          <a
-            href={`tel:${contactInfo.phone.replace(/\s+/g, "")}`}
-            className="inline-flex items-center gap-2 text-base font-medium text-white hover:underline"
-          >
-            <PhoneIcon className="size-5" />
-            {contactInfo.phone}
-          </a>
         </div>
       </Container>
     </section>
