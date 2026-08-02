@@ -15,5 +15,5 @@ export function getFromAddress(): string {
 }
 
 export function getAdminNotificationEmail(): string | null {
-  return process.env.ADMIN_NOTIFICATION_EMAIL || null;
+  return process.env.ADMIN_NOTIFICATION_EMAIL || "spainprivatetransfer@gmail.com";
 }

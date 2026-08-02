@@ -6,6 +6,8 @@ import { locales, localeConfig, defaultLocale, siteUrl, isLocale, localeHome } f
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { WhatsAppButton } from "@/components/shared/whatsapp-button";
+import { StickyQuoteBar } from "@/components/shared/sticky-quote-bar";
 
 const manrope = Manrope({
   variable: "--font-heading",
@@ -91,10 +93,12 @@ export default async function LocaleLayout({
       lang={localeConfig[locale].htmlLang}
       className={`${manrope.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <body className="flex min-h-full flex-col bg-background pb-20 text-foreground sm:pb-0">
         <SiteHeader locale={locale} dict={dict} />
         <main className="flex-1">{children}</main>
         <SiteFooter locale={locale} dict={dict} />
+        <WhatsAppButton label={locale === "es" ? "Chatear por WhatsApp" : "Chat on WhatsApp"} />
+        <StickyQuoteBar locale={locale} label={dict.header.getQuote} />
       </body>
     </html>
   );

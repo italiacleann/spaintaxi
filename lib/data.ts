@@ -1,6 +1,6 @@
 export const contactInfo = {
-  phone: "+34 900 123 456",
-  email: "hello@spainprivatetransfer.com",
+  whatsapp: "923148932631",
+  email: "spainprivatetransfer@gmail.com",
   address: "Calle Gran Vía 28, 28013 Madrid, Spain",
 };
 

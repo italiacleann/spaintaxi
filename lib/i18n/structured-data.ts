@@ -22,7 +22,7 @@ function buildOrganization(homeUrl: string, description: string) {
     logo: absoluteUrl("/opengraph-image"),
     image: absoluteUrl("/opengraph-image"),
     description,
-    telephone: contactInfo.phone,
+    telephone: `+${contactInfo.whatsapp}`,
     email: contactInfo.email,
     address: {
       "@type": "PostalAddress",
