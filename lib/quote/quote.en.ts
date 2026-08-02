@@ -30,6 +30,8 @@ export const quoteEn: QuotePageDictionary = {
     continueButton: "Continue",
     backButton: "Back",
     errorMessage: "Something went wrong submitting your request. Please try again.",
+    requiredFieldTemplate: "{field} is required.",
+    privacyRequiredError: "Please accept the Privacy Policy to continue.",
     pickupLabel: "Pickup Location *",
     pickupPlaceholder: "Airport, hotel, or address",
     dropoffLabel: "Drop-off Location *",

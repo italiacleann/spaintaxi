@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import {
@@ -67,7 +67,6 @@ export function DetailedQuoteForm({
   className?: string;
 }) {
   const searchParams = useSearchParams();
-  const formRef = useRef<HTMLFormElement>(null);
 
   const [step, setStep] = useState<1 | 2>(() =>
     searchParams.get("pickup") && searchParams.get("dropoff") ? 2 : 1
@@ -92,29 +91,51 @@ export function DetailedQuoteForm({
     privacyAccepted: false,
   }));
   const [status, setStatus] = useState<"idle" | "submitting" | "error" | "success">("idle");
+  const [formError, setFormError] = useState<string | null>(null);
 
   function update<K extends keyof QuoteFormValues>(key: K, value: QuoteFormValues[K]) {
     setValues((current) => ({ ...current, [key]: value }));
+    setFormError(null);
+  }
+
+  function buildRequiredError(fieldLabel: string): string {
+    return dict.requiredFieldTemplate.replace("{field}", fieldLabel.replace(" *", ""));
+  }
+
+  function validateStep1(): string | null {
+    if (!values.pickup.trim()) return buildRequiredError(dict.pickupLabel);
+    if (!values.dropoff.trim()) return buildRequiredError(dict.dropoffLabel);
+    if (!values.pickupDate) return buildRequiredError(dict.pickupDateLabel);
+    if (!values.pickupTime) return buildRequiredError(dict.pickupTimeLabel);
+    return null;
+  }
+
+  function validateStep2(): string | null {
+    if (!values.fullName.trim()) return buildRequiredError(dict.fullNameLabel);
+    if (!values.email.trim()) return buildRequiredError(dict.emailLabel);
+    if (!values.whatsapp.trim()) return buildRequiredError(dict.whatsappLabel);
+    if (!values.country.trim()) return buildRequiredError(dict.countryLabel);
+    if (!values.privacyAccepted) return dict.privacyRequiredError;
+    return null;
   }
 
   function handleContinue() {
-    const form = formRef.current;
-    if (form && !form.checkValidity()) {
-      form.reportValidity();
+    const error = validateStep1();
+    if (error) {
+      setFormError(error);
       return;
     }
+    setFormError(null);
     setStep(2);
   }
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-
-    const form = formRef.current;
-    if (form && !form.checkValidity()) {
-      form.reportValidity();
+  async function submitForm() {
+    const error = validateStep2();
+    if (error) {
+      setFormError(error);
       return;
     }
-
+    setFormError(null);
     setStatus("submitting");
 
     try {
@@ -146,12 +167,22 @@ export function DetailedQuoteForm({
 
       if (!response.ok) {
         const body = await response.json().catch(() => null);
-        throw new Error(body?.error || "Submission failed");
+        throw new Error(body?.error || dict.errorMessage);
       }
       setStatus("success");
     } catch (submitError) {
       console.error("Quote request submission failed:", submitError);
+      setFormError(submitError instanceof Error ? submitError.message : dict.errorMessage);
       setStatus("error");
+    }
+  }
+
+  function handleFormSubmit(event: FormEvent<HTMLFormElement>) {
+    // Safety net for native form submission (e.g. pressing Enter in a text
+    // field). The primary path is the submit button's onClick below.
+    event.preventDefault();
+    if (step === 2) {
+      void submitForm();
     }
   }
 
@@ -215,6 +246,7 @@ export function DetailedQuoteForm({
             variant="outline"
             onClick={() => {
               setStatus("idle");
+              setFormError(null);
               setStep(1);
             }}
           >
@@ -254,7 +286,7 @@ export function DetailedQuoteForm({
         {step === 1 ? dict.stepOneTitle : dict.stepTwoTitle}
       </h3>
 
-      <form ref={formRef} onSubmit={handleSubmit} noValidate>
+      <form onSubmit={handleFormSubmit} noValidate>
         {step === 1 ? (
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="flex flex-col gap-1.5 sm:col-span-2">
@@ -520,10 +552,13 @@ export function DetailedQuoteForm({
           </div>
         )}
 
-        {status === "error" ? (
-          <p className="mt-4 flex items-center gap-2 rounded-lg bg-destructive/10 px-3.5 py-2.5 text-sm text-destructive">
+        {formError ? (
+          <p
+            role="alert"
+            className="mt-4 flex items-center gap-2 rounded-lg bg-destructive/10 px-3.5 py-2.5 text-sm text-destructive"
+          >
             <AlertCircleIcon className="size-4 shrink-0" />
-            {dict.errorMessage}
+            {formError}
           </p>
         ) : null}
 
@@ -544,10 +579,11 @@ export function DetailedQuoteForm({
             </Button>
           ) : (
             <Button
-              type="submit"
+              type="button"
               size="lg"
               disabled={status === "submitting"}
               className="flex-1 bg-cta text-cta-foreground hover:bg-cta/90"
+              onClick={submitForm}
             >
               {status === "submitting" ? "..." : dict.submit}
             </Button>

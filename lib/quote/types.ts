@@ -8,6 +8,8 @@ export interface QuoteFormDictionary {
   continueButton: string;
   backButton: string;
   errorMessage: string;
+  requiredFieldTemplate: string;
+  privacyRequiredError: string;
   pickupLabel: string;
   pickupPlaceholder: string;
   dropoffLabel: string;

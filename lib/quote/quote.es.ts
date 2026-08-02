@@ -30,6 +30,8 @@ export const quoteEs: QuotePageDictionary = {
     continueButton: "Continuar",
     backButton: "Atrás",
     errorMessage: "Ha ocurrido un error al enviar tu solicitud. Inténtalo de nuevo.",
+    requiredFieldTemplate: "{field} es obligatorio.",
+    privacyRequiredError: "Debes aceptar la Política de Privacidad para continuar.",
     pickupLabel: "Lugar de Recogida *",
     pickupPlaceholder: "Aeropuerto, hotel o dirección",
     dropoffLabel: "Lugar de Destino *",
