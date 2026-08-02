@@ -134,7 +134,7 @@ export const aboutEs: AboutDictionary = {
         icon: "building",
         title: "Traslados de Hotel",
         description: "Trayectos puerta a puerta entre tu hotel y cualquier destino que necesites.",
-        href: "/es/traslado-hotel/",
+        href: "/es/traslados-aeropuerto/",
       },
       {
         icon: "map-pinned",
@@ -158,7 +158,7 @@ export const aboutEs: AboutDictionary = {
         icon: "car-front",
         title: "Chófer Privado de Lujo",
         description: "Un conductor dedicado y un vehículo premium, enteramente a tu servicio.",
-        href: "/es/servicio-con-conductor/",
+        href: "/es/chauffeur-por-horas/",
       },
       {
         icon: "timer",
@@ -171,13 +171,13 @@ export const aboutEs: AboutDictionary = {
         icon: "route",
         title: "Traslados de Larga Distancia",
         description: "Traslados cómodos y directos entre ciudades y regiones.",
-        href: "/es/traslados-larga-distancia/",
+        href: "/es/traslados-entre-ciudades/",
       },
       {
         icon: "flag",
         title: "Traslados Fronterizos",
         description: "Trayectos privados transfronterizos hacia Portugal, Francia y más allá.",
-        href: "/es/traslado-fronterizo/",
+        href: "/es/traslados-entre-ciudades/",
       },
       {
         icon: "users",

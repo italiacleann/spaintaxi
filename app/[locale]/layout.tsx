@@ -68,6 +68,10 @@ export async function generateMetadata({
       index: true,
       follow: true,
     },
+    icons: {
+      icon: "/favicon.png",
+      apple: "/apple-touch-icon.png",
+    },
   };
 }
 

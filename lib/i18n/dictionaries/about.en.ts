@@ -131,7 +131,7 @@ export const aboutEn: AboutDictionary = {
         icon: "building",
         title: "Hotel Transfers",
         description: "Door-to-door rides between your hotel and anywhere you need to be.",
-        href: "/hotel-transfer/",
+        href: "/airport-transfers/",
       },
       {
         icon: "map-pinned",
@@ -155,7 +155,7 @@ export const aboutEn: AboutDictionary = {
         icon: "car-front",
         title: "Luxury Chauffeur",
         description: "A dedicated driver and premium vehicle, entirely at your service.",
-        href: "/luxury-chauffeur/",
+        href: "/hourly-chauffeur/",
       },
       {
         icon: "timer",
@@ -167,13 +167,13 @@ export const aboutEn: AboutDictionary = {
         icon: "route",
         title: "Long Distance Transfers",
         description: "Comfortable, direct transfers between cities and regions.",
-        href: "/long-distance-transfer/",
+        href: "/city-to-city-transfers/",
       },
       {
         icon: "flag",
         title: "Border Transfers",
         description: "Private cross-border rides into Portugal, France, and beyond.",
-        href: "/border-transfer/",
+        href: "/city-to-city-transfers/",
       },
       {
         icon: "users",

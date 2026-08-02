@@ -12,7 +12,7 @@ export const localeConfig: Record<
   es: { htmlLang: "es", hreflang: "es-ES", label: "Español", ogLocale: "es_ES" },
 };
 
-export const siteUrl = "https://www.spainprivatetransfers.com";
+export const siteUrl = "https://spainprivatetransfer.com";
 
 /** Returns the root path for a locale ("" for the default/unprefixed locale). */
 export function localePrefix(locale: Locale): string {

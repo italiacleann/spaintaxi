@@ -19,7 +19,6 @@ import {
 
 import type { QuoteFormDictionary } from "@/lib/quote/types";
 import { type Locale } from "@/lib/i18n/config";
-import { submitQuoteRequest } from "@/lib/supabase/quote-requests";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -112,27 +111,33 @@ export function DetailedQuoteForm({
     setStatus("submitting");
 
     try {
-      await submitQuoteRequest({
-        locale,
-        pickupLocation: values.pickup,
-        dropoffLocation: values.dropoff,
-        pickupDate: values.pickupDate,
-        pickupTime: values.pickupTime,
-        isReturnTrip: values.isReturnTrip,
-        returnDate: values.isReturnTrip ? values.returnDate || null : null,
-        returnTime: values.isReturnTrip ? values.returnTime || null : null,
-        passengers: values.passengers,
-        suitcases: values.suitcases,
-        vehiclePreference: values.vehicle,
-        flightNumber: values.flightNumber || null,
-        fullName: values.fullName,
-        email: values.email,
-        whatsappNumber: values.whatsapp,
-        country: values.country,
-        specialRequests: values.specialRequests || null,
-        privacyAccepted: values.privacyAccepted,
-        sourcePath: typeof window !== "undefined" ? window.location.pathname : null,
+      const response = await fetch("/api/quote-requests", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          locale,
+          pickupLocation: values.pickup,
+          dropoffLocation: values.dropoff,
+          pickupDate: values.pickupDate,
+          pickupTime: values.pickupTime,
+          isReturnTrip: values.isReturnTrip,
+          returnDate: values.isReturnTrip ? values.returnDate || null : null,
+          returnTime: values.isReturnTrip ? values.returnTime || null : null,
+          passengers: values.passengers,
+          luggage: values.suitcases,
+          vehicleType: values.vehicle,
+          flightNumber: values.flightNumber || null,
+          customerName: values.fullName,
+          email: values.email,
+          phone: values.whatsapp,
+          country: values.country,
+          notes: values.specialRequests || null,
+          privacyAccepted: values.privacyAccepted,
+          sourcePath: typeof window !== "undefined" ? window.location.pathname : null,
+        }),
       });
+
+      if (!response.ok) throw new Error("Submission failed");
       setStatus("success");
     } catch {
       setStatus("error");
@@ -140,17 +145,63 @@ export function DetailedQuoteForm({
   }
 
   if (status === "success") {
+    const passengerLabel =
+      dict.passengerOptions.find((option) => option.value === values.passengers)?.label ??
+      values.passengers;
+    const suitcaseLabel =
+      dict.suitcaseOptions.find((option) => option.value === values.suitcases)?.label ??
+      values.suitcases;
+    const vehicleLabel =
+      dict.vehicleOptions.find((option) => option.value === values.vehicle)?.label ?? values.vehicle;
+
+    const summaryRows: [string, string][] = [
+      [dict.pickupLabel.replace(" *", ""), values.pickup],
+      [dict.dropoffLabel.replace(" *", ""), values.dropoff],
+      [dict.pickupDateLabel.replace(" *", ""), values.pickupDate],
+      [dict.pickupTimeLabel.replace(" *", ""), values.pickupTime],
+      ...(values.isReturnTrip
+        ? ([
+            [dict.returnDateLabel, values.returnDate],
+            [dict.returnTimeLabel, values.returnTime],
+          ] as [string, string][])
+        : []),
+      [dict.passengersLabel.replace(" *", ""), passengerLabel],
+      [dict.suitcasesLabel, suitcaseLabel],
+      [dict.vehicleLabel, vehicleLabel],
+      ...(values.flightNumber ? ([[dict.flightNumberLabel, values.flightNumber]] as [string, string][]) : []),
+      [dict.fullNameLabel.replace(" *", ""), values.fullName],
+      [dict.emailLabel.replace(" *", ""), values.email],
+      [dict.whatsappLabel.replace(" *", ""), values.whatsapp],
+      [dict.countryLabel.replace(" *", ""), values.country],
+      ...(values.specialRequests
+        ? ([[dict.specialRequestsLabel, values.specialRequests]] as [string, string][])
+        : []),
+    ];
+
     return (
       <div className={className}>
-        <div className="flex flex-col items-center gap-3 py-14 text-center">
+        <div className="flex flex-col items-center gap-3 pt-10 pb-6 text-center">
           <span className="flex size-14 items-center justify-center rounded-full bg-secondary/15 text-secondary">
             <CheckCircle2Icon className="size-7" />
           </span>
           <h3 className="font-heading text-xl font-semibold text-foreground">{dict.successTitle}</h3>
           <p className="max-w-sm text-sm text-muted-foreground">{dict.successMessage}</p>
+        </div>
+
+        <div className="rounded-xl bg-muted/50 p-4">
+          <dl className="flex flex-col gap-2.5">
+            {summaryRows.map(([label, value]) => (
+              <div key={label} className="flex items-start justify-between gap-4 text-sm">
+                <dt className="text-muted-foreground">{label}</dt>
+                <dd className="text-right font-medium text-foreground">{value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+
+        <div className="flex justify-center pt-6">
           <Button
             variant="outline"
-            className="mt-2"
             onClick={() => {
               setStatus("idle");
               setStep(1);
