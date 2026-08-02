@@ -108,10 +108,17 @@ export function DetailedQuoteForm({
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    const form = formRef.current;
+    if (form && !form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
     setStatus("submitting");
 
     try {
-      const response = await fetch("/api/quote-requests", {
+      const response = await fetch("/api/quote-requests/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -137,9 +144,13 @@ export function DetailedQuoteForm({
         }),
       });
 
-      if (!response.ok) throw new Error("Submission failed");
+      if (!response.ok) {
+        const body = await response.json().catch(() => null);
+        throw new Error(body?.error || "Submission failed");
+      }
       setStatus("success");
-    } catch {
+    } catch (submitError) {
+      console.error("Quote request submission failed:", submitError);
       setStatus("error");
     }
   }
