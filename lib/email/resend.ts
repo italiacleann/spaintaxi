@@ -1,11 +1,12 @@
 import { Resend } from "resend";
+import { firstEnv } from "@/lib/env";
 
 let cachedClient: Resend | null | undefined;
 
 export function getResendClient(): Resend | null {
   if (cachedClient !== undefined) return cachedClient;
 
-  const apiKey = process.env.RESEND_API_KEY;
+  const apiKey = firstEnv("RESEND_API_KEY", "RESEND_API");
   cachedClient = apiKey ? new Resend(apiKey) : null;
   return cachedClient;
 }
