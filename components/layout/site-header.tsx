@@ -11,6 +11,7 @@ import type { Dictionary } from "@/lib/i18n/types";
 import { cn } from "@/lib/utils";
 import { Container } from "@/components/shared/container";
 import { Button, buttonVariants } from "@/components/ui/button";
+import { ServicesNavDropdown } from "@/components/layout/services-nav-dropdown";
 import {
   Sheet,
   SheetClose,
@@ -98,20 +99,29 @@ export function SiteHeader({ locale, dict }: { locale: Locale; dict: Dictionary 
         <Logo locale={locale} />
 
         <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
-          {dict.nav.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className={cn(
-                "rounded-md px-3 py-2 text-sm font-medium transition-colors",
-                transparent
-                  ? "text-white/90 hover:bg-white/10 hover:text-white"
-                  : "text-muted-foreground hover:bg-accent hover:text-primary"
-              )}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {dict.nav.map((link) =>
+            link.href.endsWith("#services") ? (
+              <ServicesNavDropdown
+                key={link.label}
+                services={dict.services}
+                label={link.label}
+                transparent={transparent}
+              />
+            ) : (
+              <Link
+                key={link.label}
+                href={link.href}
+                className={cn(
+                  "rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                  transparent
+                    ? "text-white/90 hover:bg-white/10 hover:text-white"
+                    : "text-muted-foreground hover:bg-accent hover:text-primary"
+                )}
+              >
+                {link.label}
+              </Link>
+            )
+          )}
         </nav>
 
         <div className="flex items-center gap-2">
@@ -147,19 +157,40 @@ export function SiteHeader({ locale, dict }: { locale: Locale; dict: Dictionary 
                 <SheetTitle>{dict.header.menuTitle}</SheetTitle>
               </SheetHeader>
               <nav aria-label="Mobile" className="flex flex-col gap-1 px-4">
-                {dict.nav.map((link) => (
-                  <SheetClose
-                    key={link.label}
-                    render={
-                      <Link
-                        href={link.href}
-                        className="rounded-md px-3 py-3 text-base font-medium text-foreground transition-colors hover:bg-accent hover:text-primary"
-                      />
-                    }
-                  >
-                    {link.label}
-                  </SheetClose>
-                ))}
+                {dict.nav.map((link) =>
+                  link.href.endsWith("#services") ? (
+                    <div key={link.label} className="flex flex-col gap-1">
+                      <span className="px-3 pt-2 text-xs font-semibold tracking-wide text-muted-foreground uppercase">
+                        {link.label}
+                      </span>
+                      {dict.services.map((service) => (
+                        <SheetClose
+                          key={service.href}
+                          render={
+                            <Link
+                              href={service.href}
+                              className="rounded-md px-3 py-3 text-base font-medium text-foreground transition-colors hover:bg-accent hover:text-primary"
+                            />
+                          }
+                        >
+                          {service.title}
+                        </SheetClose>
+                      ))}
+                    </div>
+                  ) : (
+                    <SheetClose
+                      key={link.label}
+                      render={
+                        <Link
+                          href={link.href}
+                          className="rounded-md px-3 py-3 text-base font-medium text-foreground transition-colors hover:bg-accent hover:text-primary"
+                        />
+                      }
+                    >
+                      {link.label}
+                    </SheetClose>
+                  )
+                )}
               </nav>
               <div className="mt-auto flex flex-col gap-3 border-t border-border p-4">
                 <LanguageSwitcher locale={locale} transparent={false} />

@@ -26,7 +26,6 @@ export const es: Dictionary = {
     { label: "Aeropuertos", href: "/es/aeropuertos/" },
     { label: "Ciudades", href: "/es/ciudades/" },
     { label: "Servicios", href: "/es/#services" },
-    { label: "Rutas", href: "/es/aeropuertos/" },
     { label: "Blog", href: "/es/blog/" },
     { label: "Sobre Nosotros", href: "/es/sobre-nosotros/" },
   ],
