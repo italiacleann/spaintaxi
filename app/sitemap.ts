@@ -12,6 +12,7 @@ import { getDictionary } from "@/lib/i18n/get-dictionary";
 import type { Dictionary } from "@/lib/i18n/types";
 import { airports, getAirportPath } from "@/lib/airports/data";
 import { cities, getCityPath } from "@/lib/cities/data";
+import { getAllSlugsForStaticParams, getBlogPostPath } from "@/lib/blog/queries";
 
 const dictionaries: Record<Locale, Dictionary> = {
   en: getDictionary("en"),
@@ -102,7 +103,16 @@ function cityPageEntries(): MetadataRoute.Sitemap {
   });
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+async function blogPostEntries(): Promise<MetadataRoute.Sitemap> {
+  const slugs = await getAllSlugsForStaticParams();
+  return slugs.map(({ locale, slug }) => ({
+    url: `${siteUrl}${getBlogPostPath(locale, slug)}`,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+}
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const homeEntries: MetadataRoute.Sitemap = locales.map((locale) => {
     const pathsByLocale = locales.reduce(
       (acc, l) => {
@@ -150,6 +160,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     0.9,
     "monthly"
   );
+  const blogHubEntries = pairEntries({ en: "/blog/", es: "/es/blog/" }, 0.7, "weekly");
 
   return [
     ...homeEntries,
@@ -161,6 +172,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...airportPageEntries(),
     ...cityHubEntries,
     ...cityPageEntries(),
+    ...blogHubEntries,
+    ...(await blogPostEntries()),
     ...collectionEntries("destinations"),
     ...collectionEntries("services", 0.8),
   ];

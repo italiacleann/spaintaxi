@@ -468,7 +468,6 @@ export const en: Dictionary = {
     company: [
       { label: "About Us", href: "/about-us/" },
       { label: "Blog", href: "/blog/" },
-      { label: "Careers", href: "/careers/" },
       { label: "Contact", href: "/get-a-quote/" },
     ],
     legal: [

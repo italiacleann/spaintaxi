@@ -470,7 +470,6 @@ export const es: Dictionary = {
     company: [
       { label: "Sobre Nosotros", href: "/es/sobre-nosotros/" },
       { label: "Blog", href: "/es/blog/" },
-      { label: "Empleo", href: "/es/empleo/" },
       { label: "Contacto", href: "/es/solicitar-presupuesto/" },
     ],
     legal: [

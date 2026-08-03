@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -152,4 +153,52 @@
 
 @utility animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+.blog-prose {
+  --tw-prose-body: var(--foreground);
+  --tw-prose-headings: var(--foreground);
+  --tw-prose-links: var(--primary);
+  --tw-prose-bold: var(--foreground);
+  --tw-prose-bullets: var(--secondary);
+  --tw-prose-counters: var(--secondary);
+  --tw-prose-quotes: var(--foreground);
+  --tw-prose-quote-borders: var(--secondary);
+  --tw-prose-th-borders: var(--border);
+  --tw-prose-td-borders: var(--border);
+  --tw-prose-hr: var(--border);
+}
+
+.blog-prose :is(h2, h3, h4) {
+  font-family: var(--font-heading);
+  scroll-margin-top: 5.5rem;
+}
+
+.blog-prose a {
+  font-weight: 500;
+  text-decoration-line: underline;
+  text-decoration-color: color-mix(in oklch, var(--primary), transparent 60%);
+  text-underline-offset: 3px;
+}
+
+.blog-prose blockquote {
+  border-left-color: var(--secondary);
+  font-style: normal;
+  background-color: var(--accent);
+  padding: 1rem 1.25rem;
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+}
+
+.blog-prose blockquote p:first-of-type::before,
+.blog-prose blockquote p:last-of-type::after {
+  content: none;
+}
+
+.blog-prose table {
+  font-size: 0.9rem;
+}
+
+.blog-prose thead th {
+  font-family: var(--font-heading);
+  color: var(--primary);
 }

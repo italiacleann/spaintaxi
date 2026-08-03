@@ -11,6 +11,9 @@ import type { CityHubDictionary } from "@/lib/cities/hub-types";
 import type { CityRecord } from "@/lib/cities/types";
 import { getCityPath } from "@/lib/cities/data";
 import type { QuotePageDictionary } from "@/lib/quote/types";
+import type { BlogHubDictionary } from "@/lib/blog/hub-types";
+import type { LocalizedBlogPost } from "@/lib/blog/types";
+import { getBlogPostPath } from "@/lib/blog/queries";
 import { contactInfo, socialLinks } from "@/lib/data";
 
 function buildOrganization(homeUrl: string, description: string) {
@@ -451,5 +454,141 @@ export function buildQuoteJsonLd(locale: Locale, dict: QuotePageDictionary, path
   return {
     "@context": "https://schema.org",
     "@graph": [organization, webPage, breadcrumb, faq],
+  };
+}
+
+export function buildBlogHubJsonLd(
+  locale: Locale,
+  dict: BlogHubDictionary,
+  path: string,
+  posts: LocalizedBlogPost[]
+) {
+  const homeUrl = absoluteUrl(localeHome(locale));
+  const pageUrl = absoluteUrl(path);
+
+  const organization = buildOrganization(homeUrl, dict.meta.description);
+
+  const webPage = {
+    "@type": "CollectionPage",
+    "@id": `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: dict.meta.title,
+    description: dict.meta.description,
+    inLanguage: locale === "es" ? "es-ES" : "en",
+    isPartOf: { "@id": `${homeUrl}#website` },
+    breadcrumb: { "@id": `${pageUrl}#breadcrumb` },
+  };
+
+  const breadcrumb = {
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: dict.breadcrumb.home,
+        item: homeUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: dict.breadcrumb.current,
+        item: pageUrl,
+      },
+    ],
+  };
+
+  const itemList = {
+    "@type": "ItemList",
+    itemListElement: posts.map((post, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "BlogPosting",
+        headline: post.title,
+        url: absoluteUrl(getBlogPostPath(locale, post.slug)),
+      },
+    })),
+  };
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [organization, webPage, breadcrumb, itemList],
+  };
+}
+
+export function buildBlogPostJsonLd(
+  locale: Locale,
+  post: LocalizedBlogPost,
+  path: string,
+  breadcrumbHome: string,
+  blogHubLabel: string
+) {
+  const homeUrl = absoluteUrl(localeHome(locale));
+  const pageUrl = absoluteUrl(path);
+  const blogHubUrl = absoluteUrl(locale === "es" ? "/es/blog/" : "/blog/");
+
+  const organization = buildOrganization(homeUrl, post.metaDescription);
+
+  const author = {
+    "@type": "Person",
+    "@id": `${homeUrl}#author-${post.authorName.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
+    name: post.authorName,
+    ...(post.authorTitle ? { jobTitle: post.authorTitle } : {}),
+  };
+
+  const article = {
+    "@type": "BlogPosting",
+    "@id": `${pageUrl}#article`,
+    headline: post.title,
+    description: post.metaDescription,
+    url: pageUrl,
+    inLanguage: locale === "es" ? "es-ES" : "en",
+    datePublished: post.publishedAt ?? undefined,
+    dateModified: post.publishedAt ?? undefined,
+    author: { "@id": author["@id"] },
+    publisher: { "@id": `${homeUrl}#organization` },
+    ...(post.featuredImageUrl ? { image: post.featuredImageUrl } : {}),
+    mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
+  };
+
+  const webPage = {
+    "@type": "WebPage",
+    "@id": `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: post.seoTitle,
+    description: post.metaDescription,
+    inLanguage: locale === "es" ? "es-ES" : "en",
+    isPartOf: { "@id": `${homeUrl}#website` },
+    about: { "@id": `${pageUrl}#article` },
+    breadcrumb: { "@id": `${pageUrl}#breadcrumb` },
+  };
+
+  const breadcrumb = {
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: breadcrumbHome, item: homeUrl },
+      { "@type": "ListItem", position: 2, name: blogHubLabel, item: blogHubUrl },
+      { "@type": "ListItem", position: 3, name: post.title, item: pageUrl },
+    ],
+  };
+
+  const graph: Record<string, unknown>[] = [organization, author, article, webPage, breadcrumb];
+
+  if (post.faq.length > 0) {
+    graph.push({
+      "@type": "FAQPage",
+      mainEntity: post.faq.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: { "@type": "Answer", text: item.answer },
+      })),
+    });
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": graph,
   };
 }
