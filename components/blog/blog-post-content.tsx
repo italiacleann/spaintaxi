@@ -1,15 +1,15 @@
 import type { LocalizedBlogPost } from "@/lib/blog/types";
 import type { BlogHubDictionary } from "@/lib/blog/hub-types";
 import { buildBlogPostJsonLd } from "@/lib/i18n/structured-data";
-import { processContentHtml } from "@/lib/blog/content";
+import { processContentHtml } from "@/lib/shared/html-content";
 import { absoluteUrl, type Locale } from "@/lib/i18n/config";
 import { Container } from "@/components/shared/container";
+import { ProseContent } from "@/components/shared/prose-content";
 import { BlogPostHero } from "@/components/blog/blog-post-hero";
 import { BlogProgressBar } from "@/components/blog/blog-progress-bar";
 import { BlogToc } from "@/components/blog/blog-toc";
 import { BlogSocialShare } from "@/components/blog/blog-social-share";
-import { BlogContent } from "@/components/blog/blog-content";
-import { BlogFaq } from "@/components/blog/blog-faq";
+import { FaqAccordion } from "@/components/shared/faq-accordion";
 import { BlogAuthorBox } from "@/components/blog/blog-author-box";
 import { BlogRelatedPosts } from "@/components/blog/blog-related-posts";
 import { BlogPrevNext } from "@/components/blog/blog-prev-next";
@@ -48,8 +48,8 @@ export function BlogPostContent({
         <Container className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_260px]">
           <div className="flex min-w-0 flex-col gap-10">
             <BlogSocialShare url={url} title={post.title} dict={dict.post} />
-            <BlogContent html={post.contentHtml} />
-            <BlogFaq items={post.faq} title={dict.post.faqTitle} />
+            <ProseContent html={post.contentHtml} />
+            <FaqAccordion items={post.faq} title={dict.post.faqTitle} />
             <BlogAuthorBox post={post} dict={dict.post} />
             <BlogPrevNext previous={previous} next={next} dict={dict.post} locale={locale} />
             <BlogRelatedPosts posts={relatedPosts} dict={dict.directory} locale={locale} title={dict.post.relatedTitle} />

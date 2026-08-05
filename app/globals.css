@@ -155,7 +155,7 @@
   animation: float 6s ease-in-out infinite;
 }
 
-.blog-prose {
+.site-prose {
   --tw-prose-body: var(--foreground);
   --tw-prose-headings: var(--foreground);
   --tw-prose-links: var(--primary);
@@ -169,19 +169,19 @@
   --tw-prose-hr: var(--border);
 }
 
-.blog-prose :is(h2, h3, h4) {
+.site-prose :is(h2, h3, h4) {
   font-family: var(--font-heading);
   scroll-margin-top: 5.5rem;
 }
 
-.blog-prose a {
+.site-prose a {
   font-weight: 500;
   text-decoration-line: underline;
   text-decoration-color: color-mix(in oklch, var(--primary), transparent 60%);
   text-underline-offset: 3px;
 }
 
-.blog-prose blockquote {
+.site-prose blockquote {
   border-left-color: var(--secondary);
   font-style: normal;
   background-color: var(--accent);
@@ -189,16 +189,16 @@
   border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
 }
 
-.blog-prose blockquote p:first-of-type::before,
-.blog-prose blockquote p:last-of-type::after {
+.site-prose blockquote p:first-of-type::before,
+.site-prose blockquote p:last-of-type::after {
   content: none;
 }
 
-.blog-prose table {
+.site-prose table {
   font-size: 0.9rem;
 }
 
-.blog-prose thead th {
+.site-prose thead th {
   font-family: var(--font-heading);
   color: var(--primary);
 }

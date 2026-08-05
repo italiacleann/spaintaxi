@@ -1,7 +1,12 @@
-import type { BlogFaqItem } from "@/lib/blog/types";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
-export function BlogFaq({ items, title }: { items: BlogFaqItem[]; title: string }) {
+export function FaqAccordion({
+  items,
+  title,
+}: {
+  items: { question: string; answer: string }[];
+  title: string;
+}) {
   if (items.length === 0) return null;
 
   return (

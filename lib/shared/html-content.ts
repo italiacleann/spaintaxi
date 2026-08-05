@@ -18,12 +18,12 @@ function stripTags(html: string): string {
 }
 
 /**
- * Walks the article HTML for <h2>/<h3> tags, injects deduped slug ids for
- * anchor-linking (used by the table of contents), and wraps <table> elements
- * so wide comparison tables scroll instead of breaking the layout on mobile.
- * Regex-based on purpose: this content is authored by us (seed script/DB),
- * not third-party input, so a targeted match for exactly these two patterns
- * is safe and avoids pulling in a full HTML parser dependency.
+ * Walks HTML for <h2>/<h3> tags, injects deduped slug ids for anchor-linking
+ * (used by tables of contents), and wraps <table> elements so wide
+ * comparison tables scroll instead of breaking layout on mobile.
+ * Regex-based on purpose: this content is authored by us (seed scripts/data
+ * files), not third-party input, so a targeted match for exactly these two
+ * patterns is safe and avoids pulling in a full HTML parser dependency.
  */
 export function processContentHtml(html: string): { html: string; toc: TocEntry[] } {
   const toc: TocEntry[] = [];
@@ -50,10 +50,4 @@ export function processContentHtml(html: string): { html: string; toc: TocEntry[
   );
 
   return { html: withScrollableTables, toc };
-}
-
-/** Word-count-based reading time, used by the seed script when authoring posts. */
-export function computeReadingTimeMinutes(html: string): number {
-  const words = stripTags(html).split(/\s+/).filter(Boolean).length;
-  return Math.max(1, Math.round(words / 200));
 }

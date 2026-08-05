@@ -15,6 +15,7 @@ import { ServiceProcess } from "@/components/services/service-process";
 import { ServiceTestimonials } from "@/components/services/service-testimonials";
 import { ServiceFaq } from "@/components/services/service-faq";
 import { RelatedServicesSection } from "@/components/shared/related-services-section";
+import { RouteRelatedTransfersSection } from "@/components/routes/route-related-transfers-section";
 import { ServiceCta } from "@/components/services/service-cta";
 
 export function CityPageContent({
@@ -23,12 +24,14 @@ export function CityPageContent({
   homeDict,
   path,
   breadcrumbHome,
+  citySlug,
 }: {
   locale: Locale;
   dict: CityPageDictionary;
   homeDict: Dictionary;
   path: string;
   breadcrumbHome: string;
+  citySlug?: string;
 }) {
   const shared = getServiceSharedContent(locale);
   const jsonLd = buildServiceJsonLd(locale, dict, path, breadcrumbHome);
@@ -56,6 +59,7 @@ export function CityPageContent({
       <ServiceTestimonials testimonials={homeDict.testimonials} />
       <ServiceFaq dict={dict} shared={shared} />
       <RelatedServicesSection title={dict.relatedServices.title} items={dict.relatedServices.items} />
+      {citySlug ? <RouteRelatedTransfersSection citySlug={citySlug} locale={locale} /> : null}
       <ServiceCta dict={dict} />
     </>
   );

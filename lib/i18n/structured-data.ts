@@ -14,6 +14,7 @@ import type { QuotePageDictionary } from "@/lib/quote/types";
 import type { BlogHubDictionary } from "@/lib/blog/hub-types";
 import type { LocalizedBlogPost } from "@/lib/blog/types";
 import { getBlogPostPath } from "@/lib/blog/queries";
+import type { RouteRecord } from "@/lib/routes/types";
 import { contactInfo, socialLinks } from "@/lib/data";
 
 function buildOrganization(homeUrl: string, description: string) {
@@ -454,6 +455,69 @@ export function buildQuoteJsonLd(locale: Locale, dict: QuotePageDictionary, path
   return {
     "@context": "https://schema.org",
     "@graph": [organization, webPage, breadcrumb, faq],
+  };
+}
+
+export function buildRouteJsonLd(locale: Locale, route: RouteRecord, path: string, breadcrumbHome: string) {
+  const homeUrl = absoluteUrl(localeHome(locale));
+  const pageUrl = absoluteUrl(path);
+  const isEs = locale === "es";
+
+  const title = isEs ? route.seoTitleEs : route.seoTitleEn;
+  const description = isEs ? route.metaDescriptionEs : route.metaDescriptionEn;
+  const originName = isEs ? route.originNameEs : route.originNameEn;
+  const destinationName = isEs ? route.destinationNameEs : route.destinationNameEn;
+  const faqItems = isEs ? route.faqEs : route.faqEn;
+
+  const organization = buildOrganization(homeUrl, description);
+
+  const service = {
+    "@type": "Service",
+    "@id": `${pageUrl}#service`,
+    name: `${originName} → ${destinationName}`,
+    description,
+    url: pageUrl,
+    provider: { "@id": `${homeUrl}#organization` },
+    areaServed: "ES",
+  };
+
+  const webPage = {
+    "@type": "WebPage",
+    "@id": `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: title,
+    description,
+    inLanguage: isEs ? "es-ES" : "en",
+    isPartOf: { "@id": `${homeUrl}#website` },
+    about: { "@id": `${pageUrl}#service` },
+    breadcrumb: { "@id": `${pageUrl}#breadcrumb` },
+  };
+
+  const breadcrumb = {
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: breadcrumbHome, item: homeUrl },
+      { "@type": "ListItem", position: 2, name: title, item: pageUrl },
+    ],
+  };
+
+  const graph: Record<string, unknown>[] = [organization, service, webPage, breadcrumb];
+
+  if (faqItems.length > 0) {
+    graph.push({
+      "@type": "FAQPage",
+      mainEntity: faqItems.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: { "@type": "Answer", text: item.answer },
+      })),
+    });
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": graph,
   };
 }
 

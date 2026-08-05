@@ -1,6 +1,6 @@
 import type { Locale } from "@/lib/i18n/config";
 import { createSupabasePublicClient } from "@/lib/supabase/public";
-import { processContentHtml } from "@/lib/blog/content";
+import { processContentHtml } from "@/lib/shared/html-content";
 import type { BlogPost, LocalizedBlogPost } from "@/lib/blog/types";
 
 const SELECT_COLUMNS = "*";

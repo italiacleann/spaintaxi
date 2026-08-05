@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import type { TocEntry } from "@/lib/blog/content";
+import type { TocEntry } from "@/lib/shared/html-content";
 import { cn } from "@/lib/utils";
 
 export function BlogToc({ toc, title }: { toc: TocEntry[]; title: string }) {
