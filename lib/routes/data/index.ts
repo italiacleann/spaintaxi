@@ -1,7 +1,8 @@
 import type { RouteRecord } from "@/lib/routes/types";
 import { barcelonaRoutes } from "@/lib/routes/data/barcelona";
+import { madridRoutes } from "@/lib/routes/data/madrid";
 
-export const routes: RouteRecord[] = [...barcelonaRoutes];
+export const routes: RouteRecord[] = [...barcelonaRoutes, ...madridRoutes];
 
 export function findRouteBySlug(locale: "en" | "es", slug: string): RouteRecord | undefined {
   return routes.find((route) => (locale === "es" ? route.slugEs : route.slugEn) === slug);
