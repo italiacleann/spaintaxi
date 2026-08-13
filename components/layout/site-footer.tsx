@@ -6,6 +6,7 @@ import { contactInfo, socialLinks } from "@/lib/data";
 import { localeHome, type Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/types";
 import { Container } from "@/components/shared/container";
+import { FooterEmailLink } from "@/components/shared/footer-email-link";
 import {
   FacebookGlyph,
   InstagramGlyph,
@@ -83,9 +84,7 @@ export function SiteFooter({ locale, dict }: { locale: Locale; dict: Dictionary 
             </li>
             <li className="flex items-center gap-2">
               <MailIcon className="size-4 shrink-0" />
-              <a href={`mailto:${contactInfo.email}`} className="hover:text-white">
-                {contactInfo.email}
-              </a>
+              <FooterEmailLink email={contactInfo.email} className="hover:text-white" />
             </li>
           </ul>
           <div className="flex items-center gap-2 pt-1">

@@ -58,6 +58,7 @@ function mapRow(row: Record<string, unknown>): BlogPost {
 /** Resolves a BlogPost into the locale-specific shape the rendering layer uses. Returns null if this post has no content in that locale. */
 export function localizePost(post: BlogPost, locale: Locale): LocalizedBlogPost | null {
   const slug = locale === "es" ? post.slugEs : post.slugEn;
+  const otherLocaleSlug = locale === "es" ? post.slugEn : post.slugEs;
   const title = locale === "es" ? post.titleEs : post.titleEn;
   const content = locale === "es" ? post.contentEs : post.contentEn;
   if (!slug || !title || !content) return null;
@@ -72,6 +73,7 @@ export function localizePost(post: BlogPost, locale: Locale): LocalizedBlogPost 
     categoryLabel: (locale === "es" ? post.categoryLabelEs : post.categoryLabelEn) ?? post.categoryLabelEn,
     tags: post.tags,
     slug,
+    otherLocaleSlug,
     title,
     seoTitle: (locale === "es" ? post.seoTitleEs : post.seoTitleEn) ?? title,
     metaDescription: (locale === "es" ? post.metaDescriptionEs : post.metaDescriptionEn) ?? (locale === "es" ? post.excerptEs : post.excerptEn) ?? "",

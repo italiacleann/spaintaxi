@@ -71,6 +71,8 @@ export interface LocalizedBlogPost {
   categoryLabel: string;
   tags: string[];
   slug: string;
+  /** This post's slug in the other locale, or null if it has no content there. */
+  otherLocaleSlug: string | null;
   title: string;
   seoTitle: string;
   metaDescription: string;

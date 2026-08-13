@@ -11,6 +11,7 @@ import {
   getRelatedPosts,
   getAllSlugsForStaticParams,
 } from "@/lib/blog/queries";
+import { getBlogHubPath } from "@/lib/blog/config";
 import { getAboutDictionary } from "@/lib/i18n/get-about-dictionary";
 import { BlogPostContent } from "@/components/blog/blog-post-content";
 
@@ -33,8 +34,10 @@ export async function generateMetadata({
   if (!post) notFound();
 
   const path = getBlogPostPath(locale, post.slug);
-  const enPath = "/blog/" + slug + "/";
-  const esPath = "/es/blog/" + slug + "/";
+  const enSlug = locale === "en" ? post.slug : post.otherLocaleSlug;
+  const esSlug = locale === "es" ? post.slug : post.otherLocaleSlug;
+  const enPath = enSlug ? getBlogPostPath("en", enSlug) : getBlogHubPath("en");
+  const esPath = esSlug ? getBlogPostPath("es", esSlug) : getBlogHubPath("es");
 
   return buildBlogPostMetadata({ post, locale, path, enPath, esPath });
 }
