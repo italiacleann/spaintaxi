@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
 import { createSupabaseServerClient } from "@/lib/supabase/server";
-import { AdminNav } from "@/components/admin/admin-nav";
+import { AdminMobileHeader, AdminSidebar } from "@/components/admin/admin-sidebar";
 
 export default async function AdminDashboardLayout({
   children,
@@ -24,10 +24,17 @@ export default async function AdminDashboardLayout({
     redirect("/admin/login");
   }
 
+  const email = user.email ?? "";
+
   return (
-    <div className="min-h-screen">
-      <AdminNav email={user.email ?? ""} />
-      <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">{children}</main>
+    <div className="min-h-screen bg-muted/30">
+      <AdminSidebar email={email} />
+      <div className="flex min-h-screen flex-col lg:pl-64">
+        <AdminMobileHeader email={email} />
+        <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+          {children}
+        </main>
+      </div>
     </div>
   );
 }

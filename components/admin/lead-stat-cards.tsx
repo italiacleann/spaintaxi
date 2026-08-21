@@ -1,28 +1,29 @@
-import { CheckCircle2Icon, ClipboardListIcon, FlagIcon, InboxIcon } from "lucide-react";
+import { CalendarClockIcon, CheckCircle2Icon, InboxIcon, XCircleIcon } from "lucide-react";
 
 import type { Lead } from "@/lib/leads/types";
+import { isUpcomingLead } from "@/lib/leads/upcoming";
 
 export function LeadStatCards({ leads }: { leads: Lead[] }) {
   const stats = [
     {
-      label: "Total Leads",
-      value: leads.length,
-      icon: ClipboardListIcon,
+      label: "Upcoming Leads",
+      value: leads.filter((lead) => isUpcomingLead(lead)).length,
+      icon: CalendarClockIcon,
     },
     {
-      label: "New Leads",
+      label: "Pending Leads",
       value: leads.filter((lead) => lead.status === "new_request").length,
       icon: InboxIcon,
     },
     {
-      label: "Confirmed Leads",
-      value: leads.filter((lead) => lead.status === "confirmed").length,
+      label: "Completed Leads",
+      value: leads.filter((lead) => lead.status === "completed").length,
       icon: CheckCircle2Icon,
     },
     {
-      label: "Completed Leads",
-      value: leads.filter((lead) => lead.status === "completed").length,
-      icon: FlagIcon,
+      label: "Cancelled Leads",
+      value: leads.filter((lead) => lead.status === "cancelled").length,
+      icon: XCircleIcon,
     },
   ];
 
