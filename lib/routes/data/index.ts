@@ -5,6 +5,7 @@ import { malagaRoutes } from "@/lib/routes/data/malaga";
 import { valenciaRoutes } from "@/lib/routes/data/valencia";
 import { alicanteRoutes } from "@/lib/routes/data/alicante";
 import { sevilleRoutes } from "@/lib/routes/data/seville";
+import { granadaRoutes } from "@/lib/routes/data/granada";
 
 export const routes: RouteRecord[] = [
   ...barcelonaRoutes,
@@ -13,6 +14,7 @@ export const routes: RouteRecord[] = [
   ...valenciaRoutes,
   ...alicanteRoutes,
   ...sevilleRoutes,
+  ...granadaRoutes,
 ];
 
 export function findRouteBySlug(locale: "en" | "es", slug: string): RouteRecord | undefined {
