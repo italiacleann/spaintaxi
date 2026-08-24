@@ -48,7 +48,7 @@ type Collection = "destinations" | "services";
 
 function collectionEntries(collection: Collection, priority = 0.6): MetadataRoute.Sitemap {
   const referenceItems = dictionaries[defaultLocale][collection];
-  return referenceItems.map((_, index) => {
+  return referenceItems.flatMap((_, index) => {
     const pathsByLocale = locales.reduce(
       (acc, locale) => {
         acc[locale] = dictionaries[locale][collection][index].href;
@@ -57,17 +57,12 @@ function collectionEntries(collection: Collection, priority = 0.6): MetadataRout
       {} as Record<Locale, string>
     );
 
-    return {
-      url: `${siteUrl}${pathsByLocale[defaultLocale]}`,
-      changeFrequency: "monthly",
-      priority,
-      alternates: { languages: alternatesFor(pathsByLocale) },
-    };
+    return pairEntries(pathsByLocale, priority, "monthly");
   });
 }
 
 function airportPageEntries(): MetadataRoute.Sitemap {
-  return airports.map((airport) => {
+  return airports.flatMap((airport) => {
     const pathsByLocale = locales.reduce(
       (acc, locale) => {
         acc[locale] = getAirportPath(locale, airport);
@@ -76,17 +71,12 @@ function airportPageEntries(): MetadataRoute.Sitemap {
       {} as Record<Locale, string>
     );
 
-    return {
-      url: `${siteUrl}${pathsByLocale[defaultLocale]}`,
-      changeFrequency: "monthly",
-      priority: airport.isMajor ? 0.8 : 0.6,
-      alternates: { languages: alternatesFor(pathsByLocale) },
-    };
+    return pairEntries(pathsByLocale, airport.isMajor ? 0.8 : 0.6, "monthly");
   });
 }
 
 function cityPageEntries(): MetadataRoute.Sitemap {
-  return cities.map((city) => {
+  return cities.flatMap((city) => {
     const pathsByLocale = locales.reduce(
       (acc, locale) => {
         acc[locale] = getCityPath(locale, city);
@@ -95,17 +85,12 @@ function cityPageEntries(): MetadataRoute.Sitemap {
       {} as Record<Locale, string>
     );
 
-    return {
-      url: `${siteUrl}${pathsByLocale[defaultLocale]}`,
-      changeFrequency: "monthly",
-      priority: city.isFeatured ? 0.8 : 0.6,
-      alternates: { languages: alternatesFor(pathsByLocale) },
-    };
+    return pairEntries(pathsByLocale, city.isFeatured ? 0.8 : 0.6, "monthly");
   });
 }
 
 function routePageEntries(): MetadataRoute.Sitemap {
-  return routes.map((route) => {
+  return routes.flatMap((route) => {
     const pathsByLocale = locales.reduce(
       (acc, locale) => {
         acc[locale] = getRoutePath(locale, route);
@@ -114,12 +99,7 @@ function routePageEntries(): MetadataRoute.Sitemap {
       {} as Record<Locale, string>
     );
 
-    return {
-      url: `${siteUrl}${pathsByLocale[defaultLocale]}`,
-      changeFrequency: "monthly",
-      priority: 0.6,
-      alternates: { languages: alternatesFor(pathsByLocale) },
-    };
+    return pairEntries(pathsByLocale, 0.6, "monthly");
   });
 }
 
@@ -182,7 +162,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   );
   const blogHubEntries = pairEntries({ en: "/blog/", es: "/es/blog/" }, 0.7, "weekly");
 
-  return [
+  const allEntries: MetadataRoute.Sitemap = [
     ...homeEntries,
     ...aboutEntries,
     ...termsEntries,
@@ -198,4 +178,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...collectionEntries("destinations"),
     ...collectionEntries("services", 0.8),
   ];
+
+  // The homepage "destinations" collection overlaps with the full city list
+  // (e.g. Barcelona, Madrid appear in both) — dedupe by URL, keeping the
+  // first (more specific) entry rather than emitting the same page twice.
+  const seen = new Set<string>();
+  return allEntries.filter((entry) => {
+    if (seen.has(entry.url)) return false;
+    seen.add(entry.url);
+    return true;
+  });
 }
