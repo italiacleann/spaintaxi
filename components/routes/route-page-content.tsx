@@ -1,5 +1,4 @@
 import type { RouteRecord } from "@/lib/routes/types";
-import { getRoutesForCity } from "@/lib/routes/data";
 import { getRoutePageDictionary } from "@/lib/routes/dictionary";
 import { buildRouteRelatedLinks } from "@/lib/routes/related-links";
 import { buildRouteJsonLd } from "@/lib/i18n/structured-data";
@@ -19,6 +18,7 @@ import { RelatedServicesSection } from "@/components/shared/related-services-sec
 import { RouteHero } from "@/components/routes/route-hero";
 import { RouteFactsPanel } from "@/components/routes/route-facts-panel";
 import { RouteVehicleOptions } from "@/components/routes/route-vehicle-options";
+import { ContextualRouteLink } from "@/components/routes/contextual-route-link";
 
 export function RoutePageContent({
   locale,
@@ -47,11 +47,9 @@ export function RoutePageContent({
   const airportHref = airport ? getAirportPath(locale, airport) : undefined;
   const airportLabel = airport ? (isEs ? airport.shortNameEs : airport.shortNameEn) : undefined;
 
-  const otherRoutes = getRoutesForCity(route.originCitySlug);
   const relatedItems = buildRouteRelatedLinks({
     locale,
     route,
-    otherRoutes,
     cityHref,
     cityLabel,
     airportHref,
@@ -74,6 +72,7 @@ export function RoutePageContent({
             <div className="flex flex-col gap-4">
               <h2 className="font-heading text-2xl font-semibold text-foreground">{dict.aboutTitle}</h2>
               <ProseContent html={contentHtml} />
+              <ContextualRouteLink route={route} locale={locale} />
             </div>
             <RouteVehicleOptions shared={shared} title={dict.vehiclesTitle} description={dict.vehiclesDescription} />
             <FaqAccordion items={isEs ? route.faqEs : route.faqEn} title={dict.faqTitle} />

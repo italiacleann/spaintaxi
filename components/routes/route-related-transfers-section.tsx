@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { ArrowRightIcon, MapPinIcon } from "lucide-react";
 
-import { getRoutesForCity, getRoutePath } from "@/lib/routes/data";
+import { getRoutePath } from "@/lib/routes/data";
+import { getHubRouteSelection } from "@/lib/routes/coverage";
 import type { Locale } from "@/lib/i18n/config";
 import { Container } from "@/components/shared/container";
 import { SectionHeading } from "@/components/shared/section-heading";
@@ -18,7 +19,10 @@ const copy: Record<Locale, { title: string; description: string }> = {
 };
 
 export function RouteRelatedTransfersSection({ citySlug, locale }: { citySlug: string; locale: Locale }) {
-  const cityRoutes = getRoutesForCity(citySlug).slice(0, 9);
+  // Guarantees every route not already linked from another route's own
+  // sidebar gets included here — the hub page is every route's link of
+  // last resort. See lib/routes/coverage.ts.
+  const cityRoutes = getHubRouteSelection(citySlug, 12);
   if (cityRoutes.length === 0) return null;
 
   const t = copy[locale];

@@ -1,5 +1,6 @@
 import type { RouteRecord } from "@/lib/routes/types";
 import { getRoutePath } from "@/lib/routes/data";
+import { getRelatedRoutes } from "@/lib/routes/related";
 import type { RoutePageDictionary } from "@/lib/routes/dictionary";
 import { getQuotePagePath } from "@/lib/quote/config";
 import { localeHome, type Locale } from "@/lib/i18n/config";
@@ -24,7 +25,6 @@ const RELATED_BLOG_LINKS: Record<Locale, { label: string; href: string }[]> = {
 export function buildRouteRelatedLinks({
   locale,
   route,
-  otherRoutes,
   cityHref,
   cityLabel,
   airportHref,
@@ -34,7 +34,6 @@ export function buildRouteRelatedLinks({
 }: {
   locale: Locale;
   route: RouteRecord;
-  otherRoutes: RouteRecord[];
   cityHref?: string;
   cityLabel?: string;
   airportHref?: string;
@@ -59,7 +58,11 @@ export function buildRouteRelatedLinks({
     { label: dict.airportHub, href: locale === "es" ? "/es/aeropuertos/" : "/airports/" }
   );
 
-  const related = otherRoutes.filter((candidate) => candidate !== route).slice(0, 4);
+  // Context-aware, priority-ranked related routes (reverse pair, same
+  // origin, same destination [including cross-cluster], same airport/hub,
+  // same-cluster filler, cross-cluster fallback) — see lib/routes/related.ts.
+  // Capped at 6: highly relevant links, not a long tail.
+  const related = getRelatedRoutes(route, { count: 6 });
   for (const candidate of related) {
     const label = locale === "es" ? candidate.titleEs : candidate.titleEn;
     items.push({ label, href: getRoutePath(locale, candidate) });
