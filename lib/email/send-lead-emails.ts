@@ -28,6 +28,7 @@ export async function sendLeadEmails(lead: LeadInput) {
       resend.emails.send({
         from,
         to: adminEmail,
+        replyTo: lead.email,
         subject: admin.subject,
         html: admin.html,
       })
