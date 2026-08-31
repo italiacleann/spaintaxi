@@ -202,3 +202,30 @@
   font-family: var(--font-heading);
   color: var(--primary);
 }
+
+/*
+ * Ibiza cluster theme — a distinct Mediterranean/"White Isle" palette
+ * (dusk-plum + turquoise + warm sand) scoped to a wrapper class rather than
+ * a global override, so every existing shared component (buttons, badges,
+ * cards, the facts panel, vehicle cards) re-skins automatically wherever
+ * this class wraps them, with zero component-level changes. The coral CTA
+ * color is intentionally left untouched so "Get a Quote" stays on-brand
+ * site-wide.
+ */
+.ibiza-theme {
+  --background: #fffbf5;
+  --foreground: #241a2e;
+  --card: #ffffff;
+  --card-foreground: #241a2e;
+  --primary: #7c2d5c;
+  --primary-foreground: #ffffff;
+  --secondary: #00a99d;
+  --secondary-foreground: #ffffff;
+  --muted: #fbeee0;
+  --muted-foreground: #6b5a63;
+  --accent: #fdf3e7;
+  --accent-foreground: #7c2d5c;
+  --border: #f0e0d0;
+  --input: #f0e0d0;
+  --ring: #7c2d5c;
+}

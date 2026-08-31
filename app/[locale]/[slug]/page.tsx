@@ -16,6 +16,7 @@ import { buildServiceMetadata } from "@/lib/i18n/service-metadata";
 import { AirportPageContent } from "@/components/airports/airport-page-content";
 import { CityPageContent } from "@/components/cities/city-page-content";
 import { RoutePageContent } from "@/components/routes/route-page-content";
+import { IbizaRoutePageContent } from "@/components/routes/ibiza/ibiza-route-page-content";
 
 export function generateStaticParams() {
   const airportParams = airports.flatMap((airport) => [
@@ -117,6 +118,21 @@ export default async function SlugPage({
   const route = findRouteBySlug(locale as Locale, slug);
   if (route) {
     const path = getRoutePath(locale as Locale, route);
+    // Ibiza uses a distinct visual template (components/routes/ibiza) —
+    // presentation-layer only; the underlying route data and the generic
+    // relationship engine (getRelatedRoutes, coverage.ts) are unchanged and
+    // carry no city-specific branching.
+    if (route.originCitySlug === "ibiza") {
+      return (
+        <IbizaRoutePageContent
+          locale={locale as Locale}
+          route={route}
+          homeDict={homeDict}
+          breadcrumbHome={breadcrumbHome}
+          path={path}
+        />
+      );
+    }
     return (
       <RoutePageContent
         locale={locale as Locale}
