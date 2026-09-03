@@ -1,4 +1,10 @@
 import type { CityRecord } from "@/lib/cities/types";
+import {
+  ZARAGOZA_RICH_CONTENT_EN,
+  ZARAGOZA_RICH_CONTENT_ES,
+  ZARAGOZA_FAQ_EN,
+  ZARAGOZA_FAQ_ES,
+} from "@/lib/cities/zaragoza-content";
 
 export const cities: CityRecord[] = [
   // Featured cities
@@ -234,13 +240,19 @@ export const cities: CityRecord[] = [
     mainAirportIata: "ZAZ",
     airportDriveTime: "20 min",
     destinations: [
-      { nameEn: "Monasterio de Piedra", nameEs: "Monasterio de Piedra", driveTime: "1 hr 20 min" },
+      { nameEn: "Monasterio de Piedra", nameEs: "Monasterio de Piedra", driveTime: "1 hr 30 min" },
       { nameEn: "Huesca", nameEs: "Huesca", driveTime: "1 hr" },
       { nameEn: "Tarazona", nameEs: "Tarazona", driveTime: "1 hr" },
     ],
     imageSeed: 11,
     blurbEn: "A historic Aragonese capital, well placed between Madrid and Barcelona.",
     blurbEs: "Una histórica capital aragonesa, bien situada entre Madrid y Barcelona.",
+    richContentTitleEn: "Your Complete Guide to Getting Around Zaragoza",
+    richContentTitleEs: "Guía Completa para Moverse por Zaragoza",
+    richContentEn: ZARAGOZA_RICH_CONTENT_EN,
+    richContentEs: ZARAGOZA_RICH_CONTENT_ES,
+    customFaqEn: ZARAGOZA_FAQ_EN,
+    customFaqEs: ZARAGOZA_FAQ_ES,
   },
 
   // Additional cities

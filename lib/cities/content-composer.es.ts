@@ -246,7 +246,7 @@ export function composeCityEs(city: CityRecord): CityPageDictionary {
       vehicleKeys: ["business-sedan", "premium-suv", "mercedes-vclass"],
     },
     faq: {
-      items: buildFaq(city, airportName),
+      items: city.customFaqEs ?? buildFaq(city, airportName),
     },
     cta: {
       title: pick(ctaTitleTemplates, seed, 13)(name),
@@ -265,5 +265,9 @@ export function composeCityEs(city: CityRecord): CityPageDictionary {
       title: "Descubre Más Servicios",
       items: relatedItems,
     },
+    richContent:
+      city.richContentEs && city.richContentTitleEs
+        ? { title: city.richContentTitleEs, html: city.richContentEs }
+        : undefined,
   };
 }

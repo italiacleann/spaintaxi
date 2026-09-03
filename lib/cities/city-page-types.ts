@@ -11,4 +11,9 @@ export interface CityPageDictionary extends ServicePageDictionary {
     title: string;
     items: { label: string; href: string }[];
   };
+  /** Optional bespoke long-form section (see CityRecord.richContentEn/Es) — absent for the vast majority of cities. */
+  richContent?: {
+    title: string;
+    html: string;
+  };
 }
