@@ -1,4 +1,4 @@
-// Seeds the 10 cornerstone blog articles directly into Supabase.
+// Seeds the cornerstone blog articles directly into Supabase.
 //
 // Usage: node --env-file=.env scripts/seed-blog.mjs
 //
@@ -11,6 +11,8 @@ import { createClient } from "@supabase/supabase-js";
 import { articles as batch1 } from "./blog-content/batch-1.mjs";
 import { articles as batch2 } from "./blog-content/batch-2.mjs";
 import { articles as batch3 } from "./blog-content/batch-3.mjs";
+import { articles as batch4Madrid } from "./blog-content/batch-4-madrid.mjs";
+import { articles as batch4Barcelona } from "./blog-content/batch-4-barcelona.mjs";
 
 function firstEnv(...names) {
   for (const name of names) {
@@ -43,7 +45,7 @@ const supabase = createClient(url, serviceRoleKey, {
   auth: { autoRefreshToken: false, persistSession: false },
 });
 
-const articles = [...batch1, ...batch2, ...batch3];
+const articles = [...batch1, ...batch2, ...batch3, ...batch4Madrid, ...batch4Barcelona];
 
 console.log(`Seeding ${articles.length} blog posts...`);
 
