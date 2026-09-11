@@ -13,6 +13,7 @@ import { articles as batch2 } from "./blog-content/batch-2.mjs";
 import { articles as batch3 } from "./blog-content/batch-3.mjs";
 import { articles as batch4Madrid } from "./blog-content/batch-4-madrid.mjs";
 import { articles as batch4Barcelona } from "./blog-content/batch-4-barcelona.mjs";
+import { articles as batch5ValenciaPalma } from "./blog-content/batch-5-valencia-palma.mjs";
 
 function firstEnv(...names) {
   for (const name of names) {
@@ -45,7 +46,7 @@ const supabase = createClient(url, serviceRoleKey, {
   auth: { autoRefreshToken: false, persistSession: false },
 });
 
-const articles = [...batch1, ...batch2, ...batch3, ...batch4Madrid, ...batch4Barcelona];
+const articles = [...batch1, ...batch2, ...batch3, ...batch4Madrid, ...batch4Barcelona, ...batch5ValenciaPalma];
 
 console.log(`Seeding ${articles.length} blog posts...`);
 

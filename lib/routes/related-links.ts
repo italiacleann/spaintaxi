@@ -6,21 +6,73 @@ import { getQuotePagePath } from "@/lib/quote/config";
 import { localeHome, type Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/types";
 
-// A small, static set of the most broadly relevant existing articles, linked
-// from every Barcelona route page. Hardcoded rather than queried at render
-// time so these pages stay fully static (no Supabase fetch per route page).
-const RELATED_BLOG_LINKS: Record<Locale, { label: string; href: string }[]> = {
+// Small, static sets of the most relevant blog posts, linked from every
+// route page. Hardcoded rather than queried at render time so these pages
+// stay fully static (no Supabase fetch per route page).
+//
+// Keyed by originCitySlug so each city's route pages surface blog posts
+// actually about that city/airport once one exists, rather than the same
+// three generic Spain-wide posts on every one of the ~656 route pages
+// regardless of topic. Cities with no dedicated post yet fall back to
+// GENERIC_BLOG_LINKS below — update this map as each new cluster post from
+// docs/seo-topic-clusters-plan.md ships, rather than leaving it to drift.
+const GENERIC_BLOG_LINKS: Record<Locale, { label: string; href: string }[]> = {
   en: [
     { label: "Complete Guide to Airport Transfers in Spain (2026)", href: "/blog/complete-guide-airport-transfers-spain-2026/" },
-    { label: "Best Way from Barcelona Airport to the City Centre", href: "/blog/barcelona-airport-to-city-centre-transfer-guide/" },
     { label: "How Much Does an Airport Transfer Cost in Spain?", href: "/blog/airport-transfer-cost-spain/" },
+    { label: "Are Private Airport Transfers Worth It in Spain?", href: "/blog/are-private-airport-transfers-worth-it/" },
   ],
   es: [
     { label: "Guía Completa de Traslados al Aeropuerto en España (2026)", href: "/es/blog/guia-completa-traslados-aeropuerto-espana-2026/" },
-    { label: "La Mejor Forma de Ir del Aeropuerto de Barcelona al Centro", href: "/es/blog/guia-traslado-aeropuerto-barcelona-centro-ciudad/" },
     { label: "¿Cuánto Cuesta un Traslado al Aeropuerto en España?", href: "/es/blog/precio-traslado-aeropuerto-espana/" },
+    { label: "¿Merece la Pena el Traslado Privado al Aeropuerto?", href: "/es/blog/merece-la-pena-el-traslado-privado-al-aeropuerto/" },
   ],
 };
+
+const CITY_BLOG_LINKS: Partial<Record<string, Record<Locale, { label: string; href: string }[]>>> = {
+  barcelona: {
+    en: [
+      { label: "Private Transport and Transfer Services in Barcelona: The Complete Guide", href: "/blog/private-transfer-barcelona-guide/" },
+      { label: "Best Way from Barcelona Airport to the City Centre", href: "/blog/barcelona-airport-to-city-centre-transfer-guide/" },
+    ],
+    es: [
+      { label: "Transporte y Traslados Privados en Barcelona: La Guía Completa", href: "/es/blog/traslado-privado-barcelona-guia/" },
+      { label: "La Mejor Forma de Ir del Aeropuerto de Barcelona al Centro", href: "/es/blog/guia-traslado-aeropuerto-barcelona-centro-ciudad/" },
+    ],
+  },
+  madrid: {
+    en: [
+      { label: "Private Transport in Madrid: The Complete Guide", href: "/blog/private-transfer-madrid-guide/" },
+    ],
+    es: [
+      { label: "Transporte Privado en Madrid: La Guía Completa", href: "/es/blog/transporte-privado-madrid-guia/" },
+    ],
+  },
+  valencia: {
+    en: [
+      { label: "Private Transport in Valencia: The Complete Guide", href: "/blog/private-transfer-valencia-guide/" },
+    ],
+    es: [
+      { label: "Transporte Privado en Valencia: La Guía Completa", href: "/es/blog/transporte-privado-valencia-guia/" },
+    ],
+  },
+  palma: {
+    en: [
+      { label: "Private Transport in Palma de Mallorca: The Complete Guide", href: "/blog/private-transfer-palma-guide/" },
+    ],
+    es: [
+      { label: "Transporte Privado en Palma de Mallorca: La Guía Completa", href: "/es/blog/transporte-privado-palma-guia/" },
+    ],
+  },
+};
+
+/** City-specific posts first (when they exist), topped up with generic
+ *  Spain-wide posts so every route page still gets 3 links. */
+function blogLinksFor(locale: Locale, originCitySlug: string): { label: string; href: string }[] {
+  const cityLinks = CITY_BLOG_LINKS[originCitySlug]?.[locale] ?? [];
+  const filler = GENERIC_BLOG_LINKS[locale].slice(0, Math.max(0, 3 - cityLinks.length));
+  return [...cityLinks, ...filler];
+}
 
 export function buildRouteRelatedLinks({
   locale,
@@ -68,7 +120,7 @@ export function buildRouteRelatedLinks({
     items.push({ label, href: getRoutePath(locale, candidate) });
   }
 
-  items.push(...RELATED_BLOG_LINKS[locale]);
+  items.push(...blogLinksFor(locale, route.originCitySlug));
 
   return items;
 }
