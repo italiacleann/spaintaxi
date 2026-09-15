@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { MailIcon, MapPinIcon } from "lucide-react";
+import { MailIcon } from "lucide-react";
 
 import { contactInfo, socialLinks } from "@/lib/data";
 import { localeHome, type Locale } from "@/lib/i18n/config";
@@ -78,13 +78,13 @@ export function SiteFooter({ locale, dict }: { locale: Locale; dict: Dictionary 
             {dict.footer.tagline}
           </p>
           <ul className="flex flex-col gap-2 text-sm text-white/65">
-            <li className="flex items-start gap-2">
-              <MapPinIcon className="mt-0.5 size-4 shrink-0" />
-              <span>{contactInfo.address}</span>
-            </li>
             <li className="flex items-center gap-2">
               <MailIcon className="size-4 shrink-0" />
               <FooterEmailLink email={contactInfo.email} className="hover:text-white" />
+            </li>
+            <li className="flex items-center gap-2">
+              <MailIcon className="size-4 shrink-0" />
+              <FooterEmailLink email={contactInfo.email2} className="hover:text-white" />
             </li>
           </ul>
           <div className="flex items-center gap-2 pt-1">

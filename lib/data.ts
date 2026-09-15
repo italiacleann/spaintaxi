@@ -1,7 +1,7 @@
 export const contactInfo = {
   whatsapp: "923148932631",
   email: "spainprivatetransfer@gmail.com",
-  address: "Calle Gran Vía 28, 28013 Madrid, Spain",
+  email2: "zadahmed0503@gmail.com",
 };
 
 export const socialLinks = [
