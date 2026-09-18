@@ -15,6 +15,12 @@ import { cities, getCityPath } from "@/lib/cities/data";
 import { getAllSlugsForStaticParams, getBlogPostPath } from "@/lib/blog/queries";
 import { routes, getRoutePath } from "@/lib/routes/data";
 
+// Without this, Next.js treats the sitemap as fully static (built once,
+// never refreshed), so newly-published blog posts silently stay out of it
+// until the next deploy — matches the 900s window used by the blog routes
+// themselves (app/[locale]/blog/[slug]/page.tsx) that this sitemap reads.
+export const revalidate = 900;
+
 const dictionaries: Record<Locale, Dictionary> = {
   en: getDictionary("en"),
   es: getDictionary("es"),

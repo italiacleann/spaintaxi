@@ -34,18 +34,22 @@ const CITY_BLOG_LINKS: Partial<Record<string, Record<Locale, { label: string; hr
     en: [
       { label: "Private Transport and Transfer Services in Barcelona: The Complete Guide", href: "/blog/private-transfer-barcelona-guide/" },
       { label: "Best Way from Barcelona Airport to the City Centre", href: "/blog/barcelona-airport-to-city-centre-transfer-guide/" },
+      { label: "Barcelona Cruise Port Transfers: The Complete Guide", href: "/blog/barcelona-cruise-port-transfer-guide/" },
     ],
     es: [
       { label: "Transporte y Traslados Privados en Barcelona: La Guía Completa", href: "/es/blog/traslado-privado-barcelona-guia/" },
       { label: "La Mejor Forma de Ir del Aeropuerto de Barcelona al Centro", href: "/es/blog/guia-traslado-aeropuerto-barcelona-centro-ciudad/" },
+      { label: "Puerto de Cruceros de Barcelona: Cómo Llegar y Qué Debes Saber", href: "/es/blog/guia-puerto-cruceros-barcelona/" },
     ],
   },
   madrid: {
     en: [
       { label: "Private Transport in Madrid: The Complete Guide", href: "/blog/private-transfer-madrid-guide/" },
+      { label: "Where Do You Meet Your Driver at Madrid and Barcelona Airport?", href: "/blog/meet-driver-madrid-barcelona-airport/" },
     ],
     es: [
       { label: "Transporte Privado en Madrid: La Guía Completa", href: "/es/blog/transporte-privado-madrid-guia/" },
+      { label: "¿Dónde Te Recoge tu Conductor en el Aeropuerto de Madrid o Barcelona?", href: "/es/blog/donde-recoge-conductor-aeropuerto-madrid-barcelona/" },
     ],
   },
   valencia: {

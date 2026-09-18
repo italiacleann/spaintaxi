@@ -11,7 +11,10 @@ post since the schema is single-row bilingual), fact-check every specific
 claim (drive times, distances, prices) rather than inventing one, and
 submit new URLs to Bing/Google after each batch.
 
-**Status:** Planning complete. 0 of 19 topics published as of 2026-09-11.
+**Status:** 4 of 19 topics published as of 2026-09-18 (Block 1 #1 Valencia,
+Block 1 #2 Palma, Block 3 #1 Barcelona cruise port, Block 4 #2 meet-your-
+driver). Re-query the live `blog_posts` table before starting the next
+batch — this plan drifts.
 
 ## How to use this plan
 
@@ -35,8 +38,8 @@ in this city" guides for the next 9 cities with live route infrastructure.
 
 | # | Title (en) | Primary Keyword | Intent | Slug | Internal Links | Priority |
 |---|---|---|---|---|---|---|
-| 1 | Private Transport in Valencia: The Complete Guide | private transfer valencia | Commercial | `private-transfer-valencia-guide` | /valencia city page, Valencia airport page, top 2-3 Valencia route pages, /airport-transfers | High |
-| 2 | Private Transport in Palma de Mallorca: The Complete Guide | private transfer palma mallorca | Commercial | `private-transfer-palma-guide` | /palma city page, Palma airport page, top Palma route pages, /airport-transfers | High |
+| 1 | ~~Private Transport in Valencia: The Complete Guide~~ **PUBLISHED** | private transfer valencia | Commercial | `private-transfer-valencia-guide` | /valencia city page, Valencia airport page, top 2-3 Valencia route pages, /airport-transfers | High |
+| 2 | ~~Private Transport in Palma de Mallorca: The Complete Guide~~ **PUBLISHED** | private transfer palma mallorca | Commercial | `private-transfer-palma-guide` | /palma city page, Palma airport page, top Palma route pages, /airport-transfers | High |
 | 3 | Private Transport in Málaga: The Complete Guide | private transfer malaga | Commercial | `private-transfer-malaga-guide` | /malaga city page, Malaga airport page, top Malaga route pages, /cruise-port-transfers (Malaga has cruise) | High |
 | 4 | Private Transport in Seville: The Complete Guide | private transfer seville | Commercial | `private-transfer-seville-guide` | /seville city page, Seville airport page, top Seville route pages | High |
 | 5 | Private Transport in Alicante: The Complete Guide | private transfer alicante | Commercial | `private-transfer-alicante-guide` | /alicante city page, Alicante airport page, top Alicante route pages | High |
@@ -73,7 +76,7 @@ pattern the original playbook flags as high-priority.
 
 | # | Title (en) | Primary Keyword | Intent | Slug | Internal Links | Priority |
 |---|---|---|---|---|---|---|
-| 1 | Barcelona Cruise Port Transfers: The Complete Guide | barcelona cruise port transfer | Transactional | `barcelona-cruise-port-transfer-guide` | /cruise-port-transfers, Barcelona airport page, /private-transfer-barcelona-guide | High |
+| 1 | ~~Barcelona Cruise Port Transfers: The Complete Guide~~ **PUBLISHED 2026-09-18** | barcelona cruise port transfer | Transactional | `barcelona-cruise-port-transfer-guide` | /cruise-port-transfers, Barcelona airport page, /private-transfer-barcelona-guide | High |
 | 2 | Málaga Cruise Port Transfers: The Complete Guide | malaga cruise port transfer | Transactional | `malaga-cruise-port-transfer-guide` | /cruise-port-transfers, Malaga airport page | Medium |
 | 3 | Palma Cruise Port Transfers: The Complete Guide | palma cruise port transfer | Transactional | `palma-cruise-port-transfer-guide` | /cruise-port-transfers, Palma airport page | Medium |
 
@@ -86,7 +89,7 @@ until the city/airport base exists.
 | # | Title (en) | Primary Keyword | Intent | Slug | Internal Links | Priority |
 |---|---|---|---|---|---|---|
 | 1 | What Happens If Your Flight to Spain Is Delayed? | flight delay airport transfer spain | Informational | `flight-delay-airport-transfer-spain` | /airport-transfers, 2-3 airport guides from Block 2 | High |
-| 2 | Where Do You Meet Your Driver at Madrid and Barcelona Airport? | meet driver madrid barcelona airport | Informational | `meet-driver-madrid-barcelona-airport` | Madrid + Barcelona airport pages, their Block-2 guides | High |
+| 2 | ~~Where Do You Meet Your Driver at Madrid and Barcelona Airport?~~ **PUBLISHED 2026-09-18** | meet driver madrid barcelona airport | Informational | `meet-driver-madrid-barcelona-airport` | Madrid + Barcelona airport pages, their Block-2 guides | High |
 | 3 | First Time in Ibiza: Transfers in Peak vs Off-Season | ibiza transfer peak season | Informational | `ibiza-transfers-peak-off-season` | /private-transfer-ibiza-guide, Ibiza airport guide | Medium |
 | 4 | Night Arrivals in Spain: Is a Private Transfer Available at 2am? | night arrival taxi spain | Informational | `night-arrival-transfer-spain` | /airport-transfers, /are-private-airport-transfers-worth-it | Medium |
 
