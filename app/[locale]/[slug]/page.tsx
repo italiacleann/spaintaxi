@@ -17,6 +17,7 @@ import { AirportPageContent } from "@/components/airports/airport-page-content";
 import { CityPageContent } from "@/components/cities/city-page-content";
 import { RoutePageContent } from "@/components/routes/route-page-content";
 import { IbizaRoutePageContent } from "@/components/routes/ibiza/ibiza-route-page-content";
+import { CordobaRoutePageContent } from "@/components/routes/cordoba/cordoba-route-page-content";
 
 export function generateStaticParams() {
   const airportParams = airports.flatMap((airport) => [
@@ -125,6 +126,19 @@ export default async function SlugPage({
     if (route.originCitySlug === "ibiza") {
       return (
         <IbizaRoutePageContent
+          locale={locale as Locale}
+          route={route}
+          homeDict={homeDict}
+          breadcrumbHome={breadcrumbHome}
+          path={path}
+        />
+      );
+    }
+    // Córdoba uses a distinct visual template too — same presentation-layer
+    // only pattern as Ibiza above (see components/routes/cordoba/).
+    if (route.originCitySlug === "cordoba") {
+      return (
+        <CordobaRoutePageContent
           locale={locale as Locale}
           route={route}
           homeDict={homeDict}

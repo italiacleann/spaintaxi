@@ -5,6 +5,12 @@ import {
   ZARAGOZA_FAQ_EN,
   ZARAGOZA_FAQ_ES,
 } from "@/lib/cities/zaragoza-content";
+import {
+  CORDOBA_RICH_CONTENT_EN,
+  CORDOBA_RICH_CONTENT_ES,
+  CORDOBA_FAQ_EN,
+  CORDOBA_FAQ_ES,
+} from "@/lib/cities/cordoba-content";
 
 export const cities: CityRecord[] = [
   // Featured cities
@@ -331,15 +337,42 @@ export const cities: CityRecord[] = [
     nameEs: "Córdoba",
     regionEn: "Andalusia",
     regionEs: "Andalucía",
-    isFeatured: false,
+    isFeatured: true,
     hasCruisePort: false,
-    mainAirportIata: "SVQ",
-    airportDriveTime: "1 hr 30 min",
+    // Córdoba Airport (ODB) is real but was dormant (no scheduled
+    // commercial service) from 2008 until it reopened in 2025 with a
+    // small, growing Vueling/Binter Canarias schedule to Barcelona and
+    // Gran Canaria only — no Madrid/Málaga/Seville service. It already has
+    // its own AirportRecord/page (lib/airports/data.ts, slug
+    // cordoba-airport-transfer) with isMajor: false. This previously
+    // pointed at "SVQ" (Seville Airport) as a "nearest real airport"
+    // convenience, which was wrong on two counts: Seville's own CityRecord
+    // already legitimately owns SVQ (and comes first in this array, so
+    // cities.find(c => c.mainAirportIata === iata) would resolve to
+    // Seville regardless), and it made the auto-generated city FAQ claim
+    // Córdoba itself offers "airport transfers to and from Seville
+    // Airport". Corrected to ODB, Córdoba's own real airport, so ODB's own
+    // page gets a working Related Transfers widget via
+    // cities.find(c => c.mainAirportIata === iata) as intended. The
+    // train station remains the primary transport hub this cluster builds
+    // around, given ODB's still-limited route network; see customFaqEn/Es
+    // below for FAQ copy that reflects both accurately.
+    mainAirportIata: "ODB",
+    airportDriveTime: "15 min",
     destinations: [
       { nameEn: "Medina Azahara", nameEs: "Medina Azahara", driveTime: "15 min" },
       { nameEn: "Priego de Córdoba", nameEs: "Priego de Córdoba", driveTime: "1 hr" },
+      { nameEn: "Úbeda & Baeza", nameEs: "Úbeda y Baeza", driveTime: "1 hr 30 min" },
     ],
     imageSeed: 16,
+    blurbEn: "A UNESCO-dense historic centre built around the Mezquita-Catedral, reached by high-speed rail and well placed for onward travel across Andalusia.",
+    blurbEs: "Un centro histórico repleto de Patrimonio de la Humanidad en torno a la Mezquita-Catedral, bien conectado por AVE y con buena posición para seguir viaje por Andalucía.",
+    richContentTitleEn: "Your Complete Guide to Getting Around Córdoba",
+    richContentTitleEs: "Guía Completa para Moverse por Córdoba",
+    richContentEn: CORDOBA_RICH_CONTENT_EN,
+    richContentEs: CORDOBA_RICH_CONTENT_ES,
+    customFaqEn: CORDOBA_FAQ_EN,
+    customFaqEs: CORDOBA_FAQ_ES,
   },
   {
     slugEn: "cuenca",
