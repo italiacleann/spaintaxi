@@ -11,10 +11,10 @@ post since the schema is single-row bilingual), fact-check every specific
 claim (drive times, distances, prices) rather than inventing one, and
 submit new URLs to Bing/Google after each batch.
 
-**Status:** 4 of 19 topics published as of 2026-09-18 (Block 1 #1 Valencia,
-Block 1 #2 Palma, Block 3 #1 Barcelona cruise port, Block 4 #2 meet-your-
-driver). Re-query the live `blog_posts` table before starting the next
-batch — this plan drifts.
+**Status:** 6 of 19 topics published as of 2026-10-01 (Block 1 #1 Valencia,
+Block 1 #2 Palma, Block 1 #3 Málaga, Block 3 #1 Barcelona cruise port,
+Block 3 #2 Málaga cruise port, Block 4 #2 meet-your-driver). Re-query the
+live `blog_posts` table before starting the next batch — this plan drifts.
 
 ## How to use this plan
 
@@ -40,7 +40,7 @@ in this city" guides for the next 9 cities with live route infrastructure.
 |---|---|---|---|---|---|---|
 | 1 | ~~Private Transport in Valencia: The Complete Guide~~ **PUBLISHED** | private transfer valencia | Commercial | `private-transfer-valencia-guide` | /valencia city page, Valencia airport page, top 2-3 Valencia route pages, /airport-transfers | High |
 | 2 | ~~Private Transport in Palma de Mallorca: The Complete Guide~~ **PUBLISHED** | private transfer palma mallorca | Commercial | `private-transfer-palma-guide` | /palma city page, Palma airport page, top Palma route pages, /airport-transfers | High |
-| 3 | Private Transport in Málaga: The Complete Guide | private transfer malaga | Commercial | `private-transfer-malaga-guide` | /malaga city page, Malaga airport page, top Malaga route pages, /cruise-port-transfers (Malaga has cruise) | High |
+| 3 | ~~Private Transport in Málaga: The Complete Guide~~ **PUBLISHED 2026-10-01** | private transfer malaga | Commercial | `private-transfer-malaga-guide` | /malaga city page, Malaga airport page, top Malaga route pages, /cruise-port-transfers (Malaga has cruise) | High |
 | 4 | Private Transport in Seville: The Complete Guide | private transfer seville | Commercial | `private-transfer-seville-guide` | /seville city page, Seville airport page, top Seville route pages | High |
 | 5 | Private Transport in Alicante: The Complete Guide | private transfer alicante | Commercial | `private-transfer-alicante-guide` | /alicante city page, Alicante airport page, top Alicante route pages | High |
 | 6 | Private Transport in Granada: The Complete Guide | private transfer granada | Commercial | `private-transfer-granada-guide` | /granada city page, top Granada route pages | Medium |
@@ -77,7 +77,7 @@ pattern the original playbook flags as high-priority.
 | # | Title (en) | Primary Keyword | Intent | Slug | Internal Links | Priority |
 |---|---|---|---|---|---|---|
 | 1 | ~~Barcelona Cruise Port Transfers: The Complete Guide~~ **PUBLISHED 2026-09-18** | barcelona cruise port transfer | Transactional | `barcelona-cruise-port-transfer-guide` | /cruise-port-transfers, Barcelona airport page, /private-transfer-barcelona-guide | High |
-| 2 | Málaga Cruise Port Transfers: The Complete Guide | malaga cruise port transfer | Transactional | `malaga-cruise-port-transfer-guide` | /cruise-port-transfers, Malaga airport page | Medium |
+| 2 | ~~Málaga Cruise Port Transfers: The Complete Guide~~ **PUBLISHED 2026-10-01** | malaga cruise port transfer | Transactional | `malaga-cruise-port-transfer-guide` | /cruise-port-transfers, Malaga airport page | Medium |
 | 3 | Palma Cruise Port Transfers: The Complete Guide | palma cruise port transfer | Transactional | `palma-cruise-port-transfer-guide` | /cruise-port-transfers, Palma airport page | Medium |
 
 ## Block 4 — Arrival & Logistics FAQs

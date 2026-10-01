@@ -68,6 +68,16 @@ const CITY_BLOG_LINKS: Partial<Record<string, Record<Locale, { label: string; hr
       { label: "Transporte Privado en Palma de Mallorca: La Guía Completa", href: "/es/blog/transporte-privado-palma-guia/" },
     ],
   },
+  malaga: {
+    en: [
+      { label: "Private Transport in Málaga: The Complete Guide", href: "/blog/private-transfer-malaga-guide/" },
+      { label: "Málaga Cruise Port Transfers: The Complete Guide", href: "/blog/malaga-cruise-port-transfer-guide/" },
+    ],
+    es: [
+      { label: "Transporte Privado en Málaga: La Guía Completa", href: "/es/blog/transporte-privado-malaga-guia/" },
+      { label: "Puerto de Cruceros de Málaga: Terminales y Traslados", href: "/es/blog/guia-puerto-cruceros-malaga/" },
+    ],
+  },
 };
 
 /** City-specific posts first (when they exist), topped up with generic
