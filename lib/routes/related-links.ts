@@ -78,6 +78,14 @@ const CITY_BLOG_LINKS: Partial<Record<string, Record<Locale, { label: string; hr
       { label: "Puerto de Cruceros de Málaga: Terminales y Traslados", href: "/es/blog/guia-puerto-cruceros-malaga/" },
     ],
   },
+  seville: {
+    en: [
+      { label: "Private Transport in Seville: The Complete Guide", href: "/blog/private-transfer-seville-guide/" },
+    ],
+    es: [
+      { label: "Transporte Privado en Sevilla: La Guía Completa", href: "/es/blog/transporte-privado-sevilla-guia/" },
+    ],
+  },
 };
 
 /** City-specific posts first (when they exist), topped up with generic
