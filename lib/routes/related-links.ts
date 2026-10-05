@@ -86,6 +86,14 @@ const CITY_BLOG_LINKS: Partial<Record<string, Record<Locale, { label: string; hr
       { label: "Transporte Privado en Sevilla: La Guía Completa", href: "/es/blog/transporte-privado-sevilla-guia/" },
     ],
   },
+  alicante: {
+    en: [
+      { label: "Private Transport in Alicante: The Complete Guide", href: "/blog/private-transfer-alicante-guide/" },
+    ],
+    es: [
+      { label: "Transporte Privado en Alicante: La Guía Completa", href: "/es/blog/transporte-privado-alicante-guia/" },
+    ],
+  },
 };
 
 /** City-specific posts first (when they exist), topped up with generic
