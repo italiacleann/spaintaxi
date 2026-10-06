@@ -45,10 +45,12 @@ const CITY_BLOG_LINKS: Partial<Record<string, Record<Locale, { label: string; hr
   madrid: {
     en: [
       { label: "Private Transport in Madrid: The Complete Guide", href: "/blog/private-transfer-madrid-guide/" },
+      { label: "Best Way from Madrid Airport to the City Centre", href: "/blog/madrid-airport-to-city-centre-transfer-guide/" },
       { label: "Where Do You Meet Your Driver at Madrid and Barcelona Airport?", href: "/blog/meet-driver-madrid-barcelona-airport/" },
     ],
     es: [
       { label: "Transporte Privado en Madrid: La Guía Completa", href: "/es/blog/transporte-privado-madrid-guia/" },
+      { label: "La Mejor Forma de Ir del Aeropuerto de Madrid al Centro", href: "/es/blog/guia-traslado-aeropuerto-madrid-centro-ciudad/" },
       { label: "¿Dónde Te Recoge tu Conductor en el Aeropuerto de Madrid o Barcelona?", href: "/es/blog/donde-recoge-conductor-aeropuerto-madrid-barcelona/" },
     ],
   },
