@@ -4,7 +4,7 @@ export const corporateTravelEs: ServicePageDictionary = {
   meta: {
     title: "Transporte Corporativo y Chófer de Empresa en España",
     description:
-      "Traslados corporativos fiables por toda España. Facturación centralizada, conductores profesionales y reserva prioritaria 24/7.",
+      "Traslados corporativos en toda España con facturación centralizada, reserva prioritaria y conductores discretos para ejecutivos, equipos y eventos.",
     ogAlt: "Profesionales caminando por un distrito de negocios en una ciudad española",
   },
   breadcrumb: {

@@ -23,7 +23,7 @@ const titleActions = [
 
 const titleTemplates: ((label: string, action: string) => string)[] = [
   (label, action) => `Traslado Privado Aeropuerto ${label} – ${action}`,
-  (label, action) => `Taxi Privado desde ${label} Aeropuerto – ${action}`,
+  (label, action) => `Taxi Privado desde el Aeropuerto de ${label} – ${action}`,
   (label, action) => `Chófer Privado en Aeropuerto ${label} – ${action}`,
 ];
 

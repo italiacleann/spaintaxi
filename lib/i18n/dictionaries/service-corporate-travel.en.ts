@@ -4,7 +4,7 @@ export const corporateTravelEn: ServicePageDictionary = {
   meta: {
     title: "Corporate Travel & Business Chauffeur Service in Spain",
     description:
-      "Reliable corporate transfers across Spain. Invoiced billing, professional drivers, and priority booking for business travel.",
+      "Corporate transfers across Spain with centralized invoicing, priority booking, and discreet professional drivers for executives, teams, and events.",
     ogAlt: "Business professionals walking through a city business district in Spain",
   },
   breadcrumb: {

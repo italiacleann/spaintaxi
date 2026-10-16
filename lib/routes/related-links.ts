@@ -65,9 +65,11 @@ const CITY_BLOG_LINKS: Partial<Record<string, Record<Locale, { label: string; hr
   palma: {
     en: [
       { label: "Private Transport in Palma de Mallorca: The Complete Guide", href: "/blog/private-transfer-palma-guide/" },
+      { label: "Palma Cruise Port Transfers: The Complete Guide", href: "/blog/palma-cruise-port-transfer-guide/" },
     ],
     es: [
       { label: "Transporte Privado en Palma de Mallorca: La Guía Completa", href: "/es/blog/transporte-privado-palma-guia/" },
+      { label: "Puerto de Cruceros de Palma: Terminales y Traslados", href: "/es/blog/guia-puerto-cruceros-palma/" },
     ],
   },
   malaga: {
