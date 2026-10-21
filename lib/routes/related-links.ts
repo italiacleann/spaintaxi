@@ -57,9 +57,11 @@ const CITY_BLOG_LINKS: Partial<Record<string, Record<Locale, { label: string; hr
   valencia: {
     en: [
       { label: "Private Transport in Valencia: The Complete Guide", href: "/blog/private-transfer-valencia-guide/" },
+      { label: "Valencia Cruise Port Transfers: The Complete Guide", href: "/blog/valencia-cruise-port-transfer-guide/" },
     ],
     es: [
       { label: "Transporte Privado en Valencia: La Guía Completa", href: "/es/blog/transporte-privado-valencia-guia/" },
+      { label: "Puerto de Cruceros de Valencia: Guía Completa de Traslados", href: "/es/blog/guia-puerto-cruceros-valencia/" },
     ],
   },
   palma: {

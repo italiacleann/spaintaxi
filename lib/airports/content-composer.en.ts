@@ -165,7 +165,7 @@ function buildFaq(airport: AirportRecord) {
     });
   }
 
-  return items.slice(0, 8);
+  return items.slice(0, nearby ? 9 : 8);
 }
 
 export function composeAirportEn(airport: AirportRecord): AirportPageDictionary {

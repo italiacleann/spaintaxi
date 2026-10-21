@@ -692,7 +692,7 @@ export const airports: AirportRecord[] = [
     nearbyCities: [
       { nameEn: "Santa Fe", nameEs: "Santa Fe", driveTime: "10 min" },
     ],
-    nearbyAirports: [],
+    nearbyAirports: [{ iata: "AGP", driveTime: "1 hr 20 min" }],
     imageSeed: 25,
   },
   {
