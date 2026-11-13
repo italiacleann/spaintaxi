@@ -1,4 +1,5 @@
 import type { NearbyPlace } from "@/lib/airports/types";
+import type { LocalizedPageCopy } from "@/lib/shared/page-copy";
 
 export interface CityFaqItem {
   question: string;
@@ -6,6 +7,9 @@ export interface CityFaqItem {
 }
 
 export interface CityRecord {
+  /** Optional hand-written SEO title, meta description and hero text — see lib/shared/page-copy.ts. */
+  copyEn?: LocalizedPageCopy;
+  copyEs?: LocalizedPageCopy;
   slugEn: string;
   slugEs: string;
   nameEn: string;

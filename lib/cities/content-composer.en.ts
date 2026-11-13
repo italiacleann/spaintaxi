@@ -198,10 +198,12 @@ export function composeCityEn(city: CityRecord): CityPageDictionary {
     }
   }
 
+  const copy = city.copyEn;
+
   return {
     meta: {
-      title,
-      description,
+      title: copy?.seoTitle ?? title,
+      description: copy?.metaDescription ?? description,
       ogAlt: `Private transfer service in ${name}`,
     },
     breadcrumb: {
@@ -209,8 +211,8 @@ export function composeCityEn(city: CityRecord): CityPageDictionary {
     },
     hero: {
       badge: `${name} Transfers`,
-      title: `Private Transfers in ${name}`,
-      description: pick(heroDescriptionTemplates, seed, 3)(name, region),
+      title: copy?.heroTitle ?? `Private Transfers in ${name}`,
+      description: copy?.heroDescription ?? pick(heroDescriptionTemplates, seed, 3)(name, region),
       ctaPrimary: pick(ctaPrimaryOptions, seed, 4),
       ctaSecondaryLabel: pick(ctaSecondaryOptions, seed, 5),
       image: hero.src,

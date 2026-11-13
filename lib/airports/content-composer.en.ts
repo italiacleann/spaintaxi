@@ -200,10 +200,12 @@ export function composeAirportEn(airport: AirportRecord): AirportPageDictionary 
     }
   }
 
+  const copy = airport.copyEn;
+
   return {
     meta: {
-      title,
-      description,
+      title: copy?.seoTitle ?? title,
+      description: copy?.metaDescription ?? description,
       ogAlt: `Private transfer service at ${a}`,
     },
     breadcrumb: {
@@ -211,8 +213,8 @@ export function composeAirportEn(airport: AirportRecord): AirportPageDictionary 
     },
     hero: {
       badge: `${a} Transfers`,
-      title: `${a} Transfers`,
-      description: pick(heroDescriptionTemplates, seed, 3)(a, city),
+      title: copy?.heroTitle ?? `${a} Transfers`,
+      description: copy?.heroDescription ?? pick(heroDescriptionTemplates, seed, 3)(a, city),
       ctaPrimary: pick(ctaPrimaryOptions, seed, 4),
       ctaSecondaryLabel: pick(ctaSecondaryOptions, seed, 5),
       image: hero.src,
@@ -248,8 +250,12 @@ export function composeAirportEn(airport: AirportRecord): AirportPageDictionary 
       vehicleKeys: ["business-sedan", "premium-suv", "mercedes-vclass"],
     },
     faq: {
-      items: buildFaq(airport),
+      items: airport.customFaqEn ?? buildFaq(airport),
     },
+    richContent:
+      airport.richContentEn && airport.richContentTitleEn
+        ? { title: airport.richContentTitleEn, html: airport.richContentEn }
+        : undefined,
     cta: {
       title: pick(ctaTitleTemplates, seed, 13)(a),
       description: pick(ctaDescriptionTemplates, seed, 14)(a),

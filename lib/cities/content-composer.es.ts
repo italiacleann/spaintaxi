@@ -202,10 +202,12 @@ export function composeCityEs(city: CityRecord): CityPageDictionary {
     }
   }
 
+  const copy = city.copyEs;
+
   return {
     meta: {
-      title,
-      description,
+      title: copy?.seoTitle ?? title,
+      description: copy?.metaDescription ?? description,
       ogAlt: `Servicio de traslado privado en ${name}`,
     },
     breadcrumb: {
@@ -213,8 +215,8 @@ export function composeCityEs(city: CityRecord): CityPageDictionary {
     },
     hero: {
       badge: `Traslado ${name}`,
-      title: `Traslados Privados en ${name}`,
-      description: pick(heroDescriptionTemplates, seed, 3)(name, region),
+      title: copy?.heroTitle ?? `Traslados Privados en ${name}`,
+      description: copy?.heroDescription ?? pick(heroDescriptionTemplates, seed, 3)(name, region),
       ctaPrimary: pick(ctaPrimaryOptions, seed, 4),
       ctaSecondaryLabel: pick(ctaSecondaryOptions, seed, 5),
       image: hero.src,

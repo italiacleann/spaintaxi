@@ -1,3 +1,5 @@
+import type { PageContentOverrides } from "@/lib/shared/page-copy";
+
 export type IslandGroup = "balearic" | "canary" | null;
 
 export interface NearbyPlace {
@@ -11,7 +13,7 @@ export interface NearbyAirportRef {
   driveTime: string;
 }
 
-export interface AirportRecord {
+export interface AirportRecord extends PageContentOverrides {
   iata: string;
   nameEn: string;
   nameEs: string;

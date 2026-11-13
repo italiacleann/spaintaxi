@@ -1,4 +1,24 @@
 import type { AirportRecord } from "@/lib/airports/types";
+import {
+  MALAGA_AIRPORT_COPY_EN,
+  MALAGA_AIRPORT_COPY_ES,
+  MALAGA_AIRPORT_RICH_TITLE_EN,
+  MALAGA_AIRPORT_RICH_TITLE_ES,
+  MALAGA_AIRPORT_RICH_CONTENT_EN,
+  MALAGA_AIRPORT_RICH_CONTENT_ES,
+  MALAGA_AIRPORT_FAQ_EN,
+  MALAGA_AIRPORT_FAQ_ES,
+} from "@/lib/airports/malaga-content";
+import {
+  VALENCIA_AIRPORT_COPY_EN,
+  VALENCIA_AIRPORT_COPY_ES,
+  VALENCIA_AIRPORT_RICH_TITLE_EN,
+  VALENCIA_AIRPORT_RICH_TITLE_ES,
+  VALENCIA_AIRPORT_RICH_CONTENT_EN,
+  VALENCIA_AIRPORT_RICH_CONTENT_ES,
+  VALENCIA_AIRPORT_FAQ_EN,
+  VALENCIA_AIRPORT_FAQ_ES,
+} from "@/lib/airports/valencia-content";
 
 export const airports: AirportRecord[] = [
   {
@@ -84,6 +104,14 @@ export const airports: AirportRecord[] = [
     ],
     nearbyAirports: [{ iata: "GIB", driveTime: "1 hr 20 min" }],
     imageSeed: 2,
+    copyEn: MALAGA_AIRPORT_COPY_EN,
+    copyEs: MALAGA_AIRPORT_COPY_ES,
+    richContentTitleEn: MALAGA_AIRPORT_RICH_TITLE_EN,
+    richContentTitleEs: MALAGA_AIRPORT_RICH_TITLE_ES,
+    richContentEn: MALAGA_AIRPORT_RICH_CONTENT_EN,
+    richContentEs: MALAGA_AIRPORT_RICH_CONTENT_ES,
+    customFaqEn: MALAGA_AIRPORT_FAQ_EN,
+    customFaqEs: MALAGA_AIRPORT_FAQ_ES,
   },
   {
     iata: "ALC",
@@ -140,6 +168,14 @@ export const airports: AirportRecord[] = [
     ],
     nearbyAirports: [],
     imageSeed: 4,
+    copyEn: VALENCIA_AIRPORT_COPY_EN,
+    copyEs: VALENCIA_AIRPORT_COPY_ES,
+    richContentTitleEn: VALENCIA_AIRPORT_RICH_TITLE_EN,
+    richContentTitleEs: VALENCIA_AIRPORT_RICH_TITLE_ES,
+    richContentEn: VALENCIA_AIRPORT_RICH_CONTENT_EN,
+    richContentEs: VALENCIA_AIRPORT_RICH_CONTENT_ES,
+    customFaqEn: VALENCIA_AIRPORT_FAQ_EN,
+    customFaqEs: VALENCIA_AIRPORT_FAQ_ES,
   },
   {
     iata: "SVQ",

@@ -11,6 +11,16 @@ import {
   CORDOBA_FAQ_EN,
   CORDOBA_FAQ_ES,
 } from "@/lib/cities/cordoba-content";
+import {
+  MALAGA_CITY_COPY_EN,
+  MALAGA_CITY_COPY_ES,
+  MALAGA_CITY_RICH_TITLE_EN,
+  MALAGA_CITY_RICH_TITLE_ES,
+  MALAGA_CITY_RICH_CONTENT_EN,
+  MALAGA_CITY_RICH_CONTENT_ES,
+  MALAGA_CITY_FAQ_EN,
+  MALAGA_CITY_FAQ_ES,
+} from "@/lib/cities/malaga-content";
 
 export const cities: CityRecord[] = [
   // Featured cities
@@ -93,6 +103,14 @@ export const cities: CityRecord[] = [
     imageSeed: 3,
     blurbEn: "Gateway to the Costa del Sol, with a cruise port and quick transfers to Marbella and Ronda.",
     blurbEs: "Puerta de entrada a la Costa del Sol, con puerto de cruceros y traslados rápidos a Marbella y Ronda.",
+    copyEn: MALAGA_CITY_COPY_EN,
+    copyEs: MALAGA_CITY_COPY_ES,
+    richContentTitleEn: MALAGA_CITY_RICH_TITLE_EN,
+    richContentTitleEs: MALAGA_CITY_RICH_TITLE_ES,
+    richContentEn: MALAGA_CITY_RICH_CONTENT_EN,
+    richContentEs: MALAGA_CITY_RICH_CONTENT_ES,
+    customFaqEn: MALAGA_CITY_FAQ_EN,
+    customFaqEs: MALAGA_CITY_FAQ_ES,
   },
   {
     slugEn: "seville",

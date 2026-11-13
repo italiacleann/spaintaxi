@@ -9,4 +9,9 @@ export interface AirportPageDictionary extends ServicePageDictionary {
     title: string;
     items: { label: string; href: string }[];
   };
+  /** Optional hand-written section — see AirportRecord.richContentEn/Es. */
+  richContent?: {
+    title: string;
+    html: string;
+  };
 }

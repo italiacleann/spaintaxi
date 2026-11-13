@@ -17,6 +17,7 @@ import { ServiceFaq } from "@/components/services/service-faq";
 import { RelatedServicesSection } from "@/components/shared/related-services-section";
 import { RouteRelatedTransfersSection } from "@/components/routes/route-related-transfers-section";
 import { ServiceCta } from "@/components/services/service-cta";
+import { RichContentSection } from "@/components/shared/rich-content-section";
 
 export function AirportPageContent({
   locale,
@@ -52,6 +53,7 @@ export function AirportPageContent({
       <ServiceBenefits items={shared.benefits} />
       <ServiceOverview dict={dict} />
       <ServiceWhyChoose dict={dict} />
+      <RichContentSection content={dict.richContent} />
       <ServiceRoutes dict={dict} />
       <AirportNearbyCities dict={dict} />
       <ServiceFleet dict={dict} shared={shared} />
