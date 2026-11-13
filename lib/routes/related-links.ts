@@ -102,12 +102,55 @@ const CITY_BLOG_LINKS: Partial<Record<string, Record<Locale, { label: string; hr
   },
 };
 
-/** City-specific posts first (when they exist), topped up with generic
- *  Spain-wide posts so every route page still gets 3 links. */
-function blogLinksFor(locale: Locale, originCitySlug: string): { label: string; href: string }[] {
-  const cityLinks = CITY_BLOG_LINKS[originCitySlug]?.[locale] ?? [];
-  const filler = GENERIC_BLOG_LINKS[locale].slice(0, Math.max(0, 3 - cityLinks.length));
-  return [...cityLinks, ...filler];
+const MALAGA_AIRPORT_TO_GRANADA_GUIDE: Record<Locale, { label: string; href: string }> = {
+  en: { label: "Málaga Airport to Granada: Best Ways to Travel", href: "/blog/malaga-airport-to-granada-transport-options/" },
+  es: { label: "Del Aeropuerto de Málaga a Granada: Cómo Llegar", href: "/es/blog/aeropuerto-malaga-a-granada-como-llegar/" },
+};
+
+// Granada has no city guide yet; most Granada visitors arrive via Málaga
+// Airport, so the Málaga Airport → Granada guide is the most relevant post.
+CITY_BLOG_LINKS.granada = {
+  en: [MALAGA_AIRPORT_TO_GRANADA_GUIDE.en],
+  es: [MALAGA_AIRPORT_TO_GRANADA_GUIDE.es],
+};
+
+// Route-specific posts, keyed by route slugEn. These take priority over the
+// origin-city posts: the Málaga ↔ Granada routes live in the Málaga data
+// file, but the post a visitor on them needs is the Granada one, not a
+// general Málaga guide.
+const ROUTE_BLOG_LINKS: Partial<Record<string, Record<Locale, { label: string; href: string }[]>>> = {
+  "malaga-airport-to-granada": {
+    en: [MALAGA_AIRPORT_TO_GRANADA_GUIDE.en],
+    es: [MALAGA_AIRPORT_TO_GRANADA_GUIDE.es],
+  },
+  "granada-to-malaga-airport": {
+    en: [MALAGA_AIRPORT_TO_GRANADA_GUIDE.en],
+    es: [MALAGA_AIRPORT_TO_GRANADA_GUIDE.es],
+  },
+  "malaga-to-granada-transfer": {
+    en: [MALAGA_AIRPORT_TO_GRANADA_GUIDE.en],
+    es: [MALAGA_AIRPORT_TO_GRANADA_GUIDE.es],
+  },
+  "granada-to-malaga-transfer": {
+    en: [MALAGA_AIRPORT_TO_GRANADA_GUIDE.en],
+    es: [MALAGA_AIRPORT_TO_GRANADA_GUIDE.es],
+  },
+};
+
+/** Route-specific posts first, then city-specific posts, topped up with
+ *  generic Spain-wide posts so every route page still gets 3 links. */
+function blogLinksFor(locale: Locale, route: RouteRecord): { label: string; href: string }[] {
+  const links: { label: string; href: string }[] = [];
+  const candidates = [
+    ...(ROUTE_BLOG_LINKS[route.slugEn]?.[locale] ?? []),
+    ...(CITY_BLOG_LINKS[route.originCitySlug]?.[locale] ?? []),
+    ...GENERIC_BLOG_LINKS[locale],
+  ];
+  for (const candidate of candidates) {
+    if (links.length >= 3) break;
+    if (!links.some((link) => link.href === candidate.href)) links.push(candidate);
+  }
+  return links;
 }
 
 export function buildRouteRelatedLinks({
@@ -156,7 +199,7 @@ export function buildRouteRelatedLinks({
     items.push({ label, href: getRoutePath(locale, candidate) });
   }
 
-  items.push(...blogLinksFor(locale, route.originCitySlug));
+  items.push(...blogLinksFor(locale, route));
 
   return items;
 }

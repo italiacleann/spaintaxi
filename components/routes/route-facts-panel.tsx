@@ -2,7 +2,8 @@ import { CarFrontIcon, MapPinIcon, RouteIcon } from "lucide-react";
 
 import type { RouteRecord } from "@/lib/routes/types";
 import type { RoutePageDictionary } from "@/lib/routes/dictionary";
-import { getQuotePagePath } from "@/lib/quote/config";
+import { getRoutePath } from "@/lib/routes/data";
+import { getPrefilledQuoteHref } from "@/lib/quote/config";
 import type { Locale } from "@/lib/i18n/config";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -17,6 +18,12 @@ export function RouteFactsPanel({
   locale: Locale;
 }) {
   const bullets = dict.pickupBullets[route.kind];
+  const isEs = locale === "es";
+  const quoteHref = getPrefilledQuoteHref(locale, {
+    pickup: isEs ? route.originNameEs : route.originNameEn,
+    dropoff: isEs ? route.destinationNameEs : route.destinationNameEn,
+    fromPath: getRoutePath(locale, route),
+  });
 
   return (
     <aside className="lg:sticky lg:top-24">
@@ -52,7 +59,7 @@ export function RouteFactsPanel({
         </div>
 
         <a
-          href={getQuotePagePath(locale)}
+          href={quoteHref}
           className={cn(buttonVariants({ size: "lg" }), "h-11 w-full bg-cta text-cta-foreground hover:bg-cta/90")}
         >
           {dict.quoteButton}

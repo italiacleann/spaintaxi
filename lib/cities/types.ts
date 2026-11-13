@@ -32,6 +32,12 @@ export interface CityRecord {
   richContentTitleEs?: string;
   richContentEn?: string;
   richContentEs?: string;
+  /**
+   * Optional route (by slugEn) from a different, busier airport that many
+   * visitors to this city actually fly into — e.g. Granada visitors landing
+   * at Málaga. Rendered as a second airport card on the city page.
+   */
+  secondaryAirportRouteSlugEn?: string;
   /** Optional override for the generic auto-generated FAQ (composeCityEn/Es' buildFaq()). */
   customFaqEn?: CityFaqItem[];
   customFaqEs?: CityFaqItem[];

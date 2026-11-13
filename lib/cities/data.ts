@@ -165,6 +165,7 @@ export const cities: CityRecord[] = [
     hasCruisePort: false,
     mainAirportIata: "GRX",
     airportDriveTime: "35 min",
+    secondaryAirportRouteSlugEn: "malaga-airport-to-granada",
     destinations: [
       { nameEn: "Sierra Nevada", nameEs: "Sierra Nevada", driveTime: "45 min" },
       { nameEn: "Nerja", nameEs: "Nerja", driveTime: "1 hr 10 min" },

@@ -23,6 +23,7 @@ import { articles as batch9AlicanteTransport } from "./blog-content/batch-9-alic
 import { articles as batch10MadridAirport } from "./blog-content/batch-10-madrid-airport.mjs";
 import { articles as batch11PalmaCruise } from "./blog-content/batch-11-palma-cruise.mjs";
 import { articles as batch12ValenciaCruise } from "./blog-content/batch-12-valencia-cruise.mjs";
+import { articles as batch13MalagaAirportGranada } from "./blog-content/batch-13-malaga-airport-granada.mjs";
 
 function firstEnv(...names) {
   for (const name of names) {
@@ -55,7 +56,7 @@ const supabase = createClient(url, serviceRoleKey, {
   auth: { autoRefreshToken: false, persistSession: false },
 });
 
-const articles = [...batch1, ...batch2, ...batch3, ...batch4Madrid, ...batch4Barcelona, ...batch5ValenciaPalma, ...batch6BarcelonaCruise, ...batch6MeetDriver, ...batch7MalagaTransport, ...batch7MalagaCruise, ...batch8SevilleTransport, ...batch9AlicanteTransport, ...batch10MadridAirport, ...batch11PalmaCruise, ...batch12ValenciaCruise];
+const articles = [...batch1, ...batch2, ...batch3, ...batch4Madrid, ...batch4Barcelona, ...batch5ValenciaPalma, ...batch6BarcelonaCruise, ...batch6MeetDriver, ...batch7MalagaTransport, ...batch7MalagaCruise, ...batch8SevilleTransport, ...batch9AlicanteTransport, ...batch10MadridAirport, ...batch11PalmaCruise, ...batch12ValenciaCruise, ...batch13MalagaAirportGranada];
 
 console.log(`Seeding ${articles.length} blog posts...`);
 

@@ -7,6 +7,13 @@ export interface CityPageDictionary extends ServicePageDictionary {
     linkLabel: string;
     href: string;
   };
+  /** Second airport card — see CityRecord.secondaryAirportRouteSlugEn. */
+  secondaryAirportLink?: {
+    title: string;
+    description: string;
+    linkLabel: string;
+    href: string;
+  };
   relatedServices: {
     title: string;
     items: { label: string; href: string }[];

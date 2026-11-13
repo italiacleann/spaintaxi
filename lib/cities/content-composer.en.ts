@@ -4,6 +4,7 @@ import { cities, getCityPath } from "@/lib/cities/data";
 import { airports, getAirportPath } from "@/lib/airports/data";
 import { pick, buildLengthAwareTitle, buildLengthAwareText } from "@/lib/airports/hash";
 import { pickHeroImage, pickOverviewImage } from "@/lib/cities/images";
+import { routes, getRoutePath } from "@/lib/routes/data";
 
 const titleActions = [
   "Book Online",
@@ -168,6 +169,9 @@ export function composeCityEn(city: CityRecord): CityPageDictionary {
   const seed = `city-${city.slugEn}`;
   const airport = airports.find((item) => item.iata === city.mainAirportIata);
   const airportName = airport?.shortNameEn ?? "the nearest airport";
+  const secondaryRoute = city.secondaryAirportRouteSlugEn
+    ? routes.find((route) => route.slugEn === city.secondaryAirportRouteSlugEn)
+    : undefined;
 
   const title = buildLengthAwareTitle(titleTemplates, titleActions, name, seed, 1);
   const description = buildLengthAwareText(descriptionTemplates, name, seed, 2, 145, 160);
@@ -257,6 +261,14 @@ export function composeCityEn(city: CityRecord): CityPageDictionary {
       linkLabel: `View ${airportName} Transfers`,
       href: airport ? getAirportPath("en", airport) : "/airports/",
     },
+    secondaryAirportLink: secondaryRoute
+      ? {
+          title: `Flying into ${secondaryRoute.originNameEn} instead?`,
+          description: `Many visitors to ${name} land at ${secondaryRoute.originNameEn}. Book a private transfer straight to ${name} (${secondaryRoute.driveTime} by road), with flight monitoring when you give us your flight number.`,
+          linkLabel: `${secondaryRoute.originNameEn} to ${name} Transfer`,
+          href: getRoutePath("en", secondaryRoute),
+        }
+      : undefined,
     relatedServices: {
       title: "Explore More Services",
       items: relatedItems,

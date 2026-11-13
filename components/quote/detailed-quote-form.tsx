@@ -68,9 +68,24 @@ export function DetailedQuoteForm({
 }) {
   const searchParams = useSearchParams();
 
+  // Skip straight to step 2 only when every step-1 field arrived pre-filled
+  // (e.g. from the homepage quick form). Route-page CTAs pre-fill just the
+  // pickup and drop-off, so those visitors land on step 1 to add date/time.
   const [step, setStep] = useState<1 | 2>(() =>
-    searchParams.get("pickup") && searchParams.get("dropoff") ? 2 : 1
+    searchParams.get("pickup") &&
+    searchParams.get("dropoff") &&
+    searchParams.get("pickupDate") &&
+    searchParams.get("pickupTime")
+      ? 2
+      : 1
   );
+  // Page that sent the visitor here (route-page CTAs pass `from`), recorded
+  // with the lead so each inquiry can be traced to its landing page.
+  const fromParam = searchParams.get("from");
+  const referringPath =
+    fromParam && fromParam.startsWith("/") && !fromParam.startsWith("//") && fromParam.length <= 200
+      ? fromParam
+      : null;
   const [values, setValues] = useState<QuoteFormValues>(() => ({
     pickup: searchParams.get("pickup") ?? "",
     dropoff: searchParams.get("dropoff") ?? "",
@@ -130,6 +145,12 @@ export function DetailedQuoteForm({
   }
 
   async function submitForm() {
+    const step1Error = validateStep1();
+    if (step1Error) {
+      setFormError(step1Error);
+      setStep(1);
+      return;
+    }
     const error = validateStep2();
     if (error) {
       setFormError(error);
@@ -161,7 +182,12 @@ export function DetailedQuoteForm({
           country: values.country,
           notes: values.specialRequests || null,
           privacyAccepted: values.privacyAccepted,
-          sourcePath: typeof window !== "undefined" ? window.location.pathname : null,
+          sourcePath:
+            typeof window !== "undefined"
+              ? referringPath
+                ? `${window.location.pathname}?from=${referringPath}`
+                : window.location.pathname
+              : null,
         }),
       });
 

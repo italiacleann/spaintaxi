@@ -4,6 +4,7 @@ import { cities, getCityPath } from "@/lib/cities/data";
 import { airports, getAirportPath } from "@/lib/airports/data";
 import { pick, buildLengthAwareTitle, buildLengthAwareText } from "@/lib/airports/hash";
 import { pickHeroImage, pickOverviewImage } from "@/lib/cities/images";
+import { routes, getRoutePath } from "@/lib/routes/data";
 
 const titleActions = [
   "Reserva Online",
@@ -172,6 +173,9 @@ export function composeCityEs(city: CityRecord): CityPageDictionary {
   const seed = `city-${city.slugEn}`;
   const airport = airports.find((item) => item.iata === city.mainAirportIata);
   const airportName = airport?.shortNameEs ?? "el aeropuerto más cercano";
+  const secondaryRoute = city.secondaryAirportRouteSlugEn
+    ? routes.find((route) => route.slugEn === city.secondaryAirportRouteSlugEn)
+    : undefined;
 
   const title = buildLengthAwareTitle(titleTemplates, titleActions, name, seed, 1);
   const description = buildLengthAwareText(descriptionTemplates, name, seed, 2, 145, 160);
@@ -261,6 +265,14 @@ export function composeCityEs(city: CityRecord): CityPageDictionary {
       linkLabel: `Ver Traslado ${airportName}`,
       href: airport ? getAirportPath("es", airport) : "/es/aeropuertos/",
     },
+    secondaryAirportLink: secondaryRoute
+      ? {
+          title: `¿Vuelas al ${secondaryRoute.originNameEs}?`,
+          description: `Muchos viajeros que visitan ${name} aterrizan en el ${secondaryRoute.originNameEs}. Reserva un traslado privado directo hasta ${name}${secondaryRoute.distanceKm ? ` (unos ${secondaryRoute.distanceKm} km por carretera)` : ""}, con seguimiento del vuelo si nos facilitas el número de vuelo.`,
+          linkLabel: `Traslado ${secondaryRoute.originNameEs} a ${name}`,
+          href: getRoutePath("es", secondaryRoute),
+        }
+      : undefined,
     relatedServices: {
       title: "Descubre Más Servicios",
       items: relatedItems,

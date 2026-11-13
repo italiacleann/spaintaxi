@@ -4,7 +4,7 @@ import { buildRouteRelatedLinks } from "@/lib/routes/related-links";
 import { buildRouteJsonLd } from "@/lib/i18n/structured-data";
 import { processContentHtml } from "@/lib/shared/html-content";
 import { getServiceSharedContent } from "@/lib/i18n/service-shared-content";
-import { getQuotePagePath } from "@/lib/quote/config";
+import { getPrefilledQuoteHref } from "@/lib/quote/config";
 import { cities, getCityPath } from "@/lib/cities/data";
 import { airports, getAirportPath } from "@/lib/airports/data";
 import type { Dictionary } from "@/lib/i18n/types";
@@ -61,10 +61,23 @@ export function RoutePageContent({
   const originHref =
     route.direction === "to-airport" || route.direction === "to-city" ? cityHref ?? airportHref : undefined;
 
+  const quoteHref = getPrefilledQuoteHref(locale, {
+    pickup: isEs ? route.originNameEs : route.originNameEn,
+    dropoff: isEs ? route.destinationNameEs : route.destinationNameEn,
+    fromPath: path,
+  });
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <RouteHero route={route} locale={locale} breadcrumbHome={breadcrumbHome} originHref={originHref} />
+      <RouteHero
+        route={route}
+        locale={locale}
+        breadcrumbHome={breadcrumbHome}
+        originHref={originHref}
+        quoteHref={quoteHref}
+        quoteLabel={dict.factsPanel.quoteButton}
+      />
 
       <section className="py-16 sm:py-20">
         <Container className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_320px]">
@@ -89,7 +102,7 @@ export function RoutePageContent({
         title={dict.cta.title}
         description={dict.cta.description}
         buttonLabel={dict.cta.button}
-        buttonHref={getQuotePagePath(locale)}
+        buttonHref={quoteHref}
       />
     </>
   );

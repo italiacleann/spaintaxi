@@ -5,17 +5,25 @@ import { localeHome, type Locale } from "@/lib/i18n/config";
 import { Container } from "@/components/shared/container";
 import { Breadcrumb } from "@/components/shared/breadcrumb";
 import { Badge } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export function RouteHero({
   route,
   locale,
   breadcrumbHome,
   originHref,
+  quoteHref,
+  quoteLabel,
 }: {
   route: RouteRecord;
   locale: Locale;
   breadcrumbHome: string;
   originHref?: string;
+  /** Primary quote CTA shown under the H1, so mobile visitors don't have
+   *  to scroll past the full article to reach the facts-panel button. */
+  quoteHref?: string;
+  quoteLabel?: string;
 }) {
   const isEs = locale === "es";
   const originName = isEs ? route.originNameEs : route.originNameEn;
@@ -54,6 +62,17 @@ export function RouteHero({
         <h1 className="max-w-3xl text-3xl leading-[1.15] font-bold text-balance text-white sm:text-4xl lg:text-5xl">
           {title}
         </h1>
+        {quoteHref && quoteLabel ? (
+          <a
+            href={quoteHref}
+            className={cn(
+              buttonVariants({ size: "lg" }),
+              "h-12 w-full bg-cta px-8 text-base text-cta-foreground hover:bg-cta/90 sm:w-fit"
+            )}
+          >
+            {quoteLabel}
+          </a>
+        ) : null}
       </Container>
     </section>
   );
