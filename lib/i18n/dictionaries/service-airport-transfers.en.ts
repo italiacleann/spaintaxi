@@ -52,7 +52,7 @@ export const airportTransfersEn: ServicePageDictionary = {
       {
         icon: "user-check",
         title: "Child Seats Available",
-        description: "Request a child or booster seat at no additional charge.",
+        description: "Ask for a child or booster seat in your quote request; availability and any charge are confirmed with your quote.",
       },
     ],
   },
@@ -75,7 +75,7 @@ export const airportTransfersEn: ServicePageDictionary = {
     items: [
       {
         question: "How do I book an airport transfer?",
-        answer: "Enter your airport, destination, flight details, and passenger count in our quote form. You'll receive a fixed price and instant confirmation.",
+        answer: "Enter your airport, destination, flight details, and passenger count in our quote form. We reply by email with a fixed price.",
       },
       {
         question: "What happens if my flight is delayed?",
@@ -95,7 +95,7 @@ export const airportTransfersEn: ServicePageDictionary = {
       },
       {
         question: "Do you charge extra for early or late flights?",
-        answer: "No. Our airport transfer service runs 24/7 at the same fixed price, regardless of your arrival or departure time.",
+        answer: "Early-morning and late-night transfers can be requested. Any time-of-day pricing is included in your quote, and the price confirmed at booking is fixed.",
       },
       {
         question: "Is the price per person or per vehicle?",
@@ -103,7 +103,7 @@ export const airportTransfersEn: ServicePageDictionary = {
       },
       {
         question: "Can I request a child seat for my airport transfer?",
-        answer: "Yes, child and booster seats are available on request at no additional charge. Just add the details when you book.",
+        answer: "You can request child and booster seats when you ask for a quote. Availability and any charge are confirmed with your quote.",
       },
     ],
   },

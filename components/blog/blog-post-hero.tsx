@@ -58,7 +58,16 @@ export function BlogPostHero({
             {dict.directory.byLabel} {post.authorName}
           </span>
           <span aria-hidden>&middot;</span>
-          <span>{formatBlogDate(post.publishedAt, locale)}</span>
+          <time dateTime={post.publishedAt ?? undefined}>{formatBlogDate(post.publishedAt, locale)}</time>
+          {post.updatedAt ? (
+            <>
+              <span aria-hidden>&middot;</span>
+              <span>
+                {dict.directory.updatedLabel}{" "}
+                <time dateTime={post.updatedAt}>{formatBlogDate(post.updatedAt, locale)}</time>
+              </span>
+            </>
+          ) : null}
           <span aria-hidden>&middot;</span>
           <span className="inline-flex items-center gap-1">
             <ClockIcon className="size-3.5" />

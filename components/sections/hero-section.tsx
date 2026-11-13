@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { StarIcon } from "lucide-react";
 
 import type { Dictionary } from "@/lib/i18n/types";
 import type { Locale } from "@/lib/i18n/config";
@@ -35,19 +34,6 @@ export function HeroSection({ dict, locale }: { dict: Dictionary; locale: Locale
             {t.title}
           </h1>
           <p className="max-w-xl text-lg leading-relaxed text-white/85">{t.description}</p>
-
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-2">
-            <div className="flex items-center gap-2">
-              <div className="flex items-center gap-0.5 text-cta">
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <StarIcon key={index} className="size-4 fill-current" />
-                ))}
-              </div>
-              <span className="text-sm font-medium text-white/90">{t.ratingSuffix}</span>
-            </div>
-            <span className="hidden h-4 w-px bg-white/25 sm:block" aria-hidden />
-            <span className="text-sm font-medium text-white/90">{t.transfersCompleted}</span>
-          </div>
 
           <div className="pt-2">
             <QuoteDialog

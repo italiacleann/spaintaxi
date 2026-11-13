@@ -10,7 +10,6 @@ import { ServicesSection } from "@/components/sections/services-section";
 import { WhyChooseSection } from "@/components/sections/why-choose-section";
 import { ProcessSection } from "@/components/sections/process-section";
 import { FleetSection } from "@/components/sections/fleet-section";
-import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { FaqSection } from "@/components/sections/faq-section";
 import { CtaSection } from "@/components/sections/cta-section";
 
@@ -38,7 +37,6 @@ export default async function Home({
       <WhyChooseSection dict={dict} />
       <ProcessSection dict={dict} />
       <FleetSection dict={dict} />
-      <TestimonialsSection dict={dict} />
       <FaqSection dict={dict} />
       <CtaSection dict={dict} />
     </>

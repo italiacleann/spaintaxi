@@ -29,6 +29,7 @@ export const blogHubEs: BlogHubDictionary = {
     cardCta: "Leer Más",
     minReadTemplate: "{minutes} min de lectura",
     byLabel: "Por",
+    updatedLabel: "Actualizado",
   },
   sidebar: {
     popularTitle: "Artículos Populares",

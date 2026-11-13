@@ -1,5 +1,6 @@
 import type { RouteRecord } from "@/lib/routes/types";
 import { getRoutePath } from "@/lib/routes/data";
+import { cities, getCityPath } from "@/lib/cities/data";
 import { getRelatedRoutes } from "@/lib/routes/related";
 import type { RoutePageDictionary } from "@/lib/routes/dictionary";
 import { getQuotePagePath } from "@/lib/quote/config";
@@ -20,12 +21,12 @@ const GENERIC_BLOG_LINKS: Record<Locale, { label: string; href: string }[]> = {
   en: [
     { label: "Complete Guide to Airport Transfers in Spain (2026)", href: "/blog/complete-guide-airport-transfers-spain-2026/" },
     { label: "How Much Does an Airport Transfer Cost in Spain?", href: "/blog/airport-transfer-cost-spain/" },
-    { label: "Are Private Airport Transfers Worth It in Spain?", href: "/blog/are-private-airport-transfers-worth-it/" },
+    { label: "Taxi vs Uber vs Private Transfer in Spain: Which Is Worth It?", href: "/blog/taxi-vs-uber-vs-private-transfer-spain/" },
   ],
   es: [
     { label: "Guía Completa de Traslados al Aeropuerto en España (2026)", href: "/es/blog/guia-completa-traslados-aeropuerto-espana-2026/" },
     { label: "¿Cuánto Cuesta un Traslado al Aeropuerto en España?", href: "/es/blog/precio-traslado-aeropuerto-espana/" },
-    { label: "¿Merece la Pena el Traslado Privado al Aeropuerto?", href: "/es/blog/merece-la-pena-el-traslado-privado-al-aeropuerto/" },
+    { label: "Taxi, Uber o Traslado Privado en España: ¿Qué Compensa?", href: "/es/blog/taxi-vs-uber-vs-traslado-privado-espana/" },
   ],
 };
 
@@ -179,6 +180,19 @@ export function buildRouteRelatedLinks({
 
   if (cityHref && cityLabel) items.push({ label: cityLabel, href: cityHref });
   if (airportHref && airportLabel) items.push({ label: airportLabel, href: airportHref });
+
+  // Destination city page, when the route ends in a city we have a page for
+  // (e.g. Madrid → Toledo links to the Toledo page). Matched on the exact
+  // city name so landmarks and hotels never produce a wrong link.
+  const destinationCity = cities.find(
+    (c) => c.nameEn === route.destinationNameEn && c.slugEn !== route.originCitySlug
+  );
+  if (destinationCity) {
+    const href = getCityPath(locale, destinationCity);
+    if (!items.some((item) => item.href === href)) {
+      items.push({ label: locale === "es" ? destinationCity.nameEs : destinationCity.nameEn, href });
+    }
+  }
 
   for (const service of homeDict.services) {
     items.push({ label: service.title, href: service.href });

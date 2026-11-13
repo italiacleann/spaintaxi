@@ -1,10 +1,10 @@
-// Seeds the cornerstone blog articles directly into Supabase.
+// Syncs the blog articles in scripts/blog-content/*.mjs into Supabase.
 //
-// Usage: node --env-file=.env scripts/seed-blog.mjs
+// Usage: node --env-file=.env scripts/seed-blog.mjs [--dry-run]
 //
-// Upserts on slug_en so re-running this script after editing an article's
-// content in scripts/blog-content/*.mjs updates the existing row instead of
-// duplicating it.
+// Only writes real changes: new posts are inserted, changed posts are
+// updated in the changed columns only (published_at is never touched), and
+// unchanged posts are skipped. Run with --dry-run first to see the plan.
 
 import { createClient } from "@supabase/supabase-js";
 
@@ -24,6 +24,7 @@ import { articles as batch10MadridAirport } from "./blog-content/batch-10-madrid
 import { articles as batch11PalmaCruise } from "./blog-content/batch-11-palma-cruise.mjs";
 import { articles as batch12ValenciaCruise } from "./blog-content/batch-12-valencia-cruise.mjs";
 import { articles as batch13MalagaAirportGranada } from "./blog-content/batch-13-malaga-airport-granada.mjs";
+import { articles as batch14Consolidation, archivedSlugs } from "./blog-content/batch-14-consolidation.mjs";
 
 function firstEnv(...names) {
   for (const name of names) {
@@ -56,13 +57,21 @@ const supabase = createClient(url, serviceRoleKey, {
   auth: { autoRefreshToken: false, persistSession: false },
 });
 
-const articles = [...batch1, ...batch2, ...batch3, ...batch4Madrid, ...batch4Barcelona, ...batch5ValenciaPalma, ...batch6BarcelonaCruise, ...batch6MeetDriver, ...batch7MalagaTransport, ...batch7MalagaCruise, ...batch8SevilleTransport, ...batch9AlicanteTransport, ...batch10MadridAirport, ...batch11PalmaCruise, ...batch12ValenciaCruise, ...batch13MalagaAirportGranada];
+const allArticles = [...batch1, ...batch2, ...batch3, ...batch4Madrid, ...batch4Barcelona, ...batch5ValenciaPalma, ...batch6BarcelonaCruise, ...batch6MeetDriver, ...batch7MalagaTransport, ...batch7MalagaCruise, ...batch8SevilleTransport, ...batch9AlicanteTransport, ...batch10MadridAirport, ...batch11PalmaCruise, ...batch12ValenciaCruise, ...batch13MalagaAirportGranada, ...batch14Consolidation];
 
-console.log(`Seeding ${articles.length} blog posts...`);
+// Later batches replace earlier versions of the same post (batch 14 rewrites
+// the taxi/Uber/transfer comparison), so keep only the last entry per slug.
+const articles = [...new Map(allArticles.map((article) => [article.slugEn, article])).values()];
 
-for (const article of articles) {
-  const row = {
-    status: "published",
+// Posts merged into another article: kept in the table but unpublished.
+// Their URLs redirect to the surviving article (lib/seo/redirects.ts).
+const archived = new Set(archivedSlugs);
+
+const DRY_RUN = process.argv.includes("--dry-run");
+
+function buildRow(article) {
+  return {
+    status: archived.has(article.slugEn) ? "archived" : "published",
     published_at: article.publishedAt,
     is_featured: Boolean(article.isFeatured),
 
@@ -102,16 +111,65 @@ for (const article of articles) {
     author_bio_es:
       "Nuestro equipo editorial escribe desde la experiencia directa coordinando traslados al aeropuerto y servicios de chófer en toda España, trabajando junto a nuestra red de conductores para que cada guía sea precisa y práctica.",
   };
+}
 
-  const { error } = await supabase.from("blog_posts").upsert(row, { onConflict: "slug_en" });
+/** JSON with object keys sorted, so key order (jsonb reorders keys) never counts as a change. */
+function canonical(value) {
+  if (Array.isArray(value)) return `[${value.map(canonical).join(",")}]`;
+  if (value && typeof value === "object") {
+    return `{${Object.keys(value).sort().map((key) => `${JSON.stringify(key)}:${canonical(value[key])}`).join(",")}}`;
+  }
+  return JSON.stringify(value ?? null);
+}
 
-  if (error) {
-    console.error(`Failed to seed "${article.slugEn}":`, error.message);
-    process.exitCode = 1;
+/** Whether a stored value equals the value we would write. */
+const same = (a, b) => canonical(a) === canonical(b);
+
+// Read what is already in the table, so we only write real changes:
+// - new posts are inserted with their publication date;
+// - existing posts are updated only in the columns that changed, and their
+//   published_at is never touched (a post is never "published again");
+// - unchanged posts are skipped entirely, so their timestamps don't move.
+const { data: existingRows, error: readError } = await supabase.from("blog_posts").select("*");
+if (readError) {
+  console.error("Could not read existing blog posts:", readError.message);
+  process.exit(1);
+}
+const existingBySlug = new Map(existingRows.map((row) => [row.slug_en, row]));
+
+console.log(`${DRY_RUN ? "[dry run] " : ""}Checking ${articles.length} blog posts against ${existingRows.length} existing rows...`);
+const summary = { inserted: [], updated: [], unchanged: [] };
+
+for (const article of articles) {
+  const row = buildRow(article);
+  const existing = existingBySlug.get(article.slugEn);
+
+  if (!existing) {
+    if (!DRY_RUN) {
+      const { error } = await supabase.from("blog_posts").insert(row);
+      if (error) { console.error(`Failed to insert "${article.slugEn}":`, error.message); process.exitCode = 1; continue; }
+    }
+    summary.inserted.push(article.slugEn);
+    console.log(`NEW        ${article.slugEn} (published ${row.published_at.slice(0, 10)})`);
     continue;
   }
 
-  console.log(`Seeded: ${article.slugEn}`);
+  // published_at is never compared or overwritten for existing posts.
+  const candidate = { ...row };
+  delete candidate.published_at;
+  const changes = Object.fromEntries(Object.entries(candidate).filter(([column, value]) => !same(existing[column], value)));
+  const changedColumns = Object.keys(changes);
+  if (changedColumns.length === 0) {
+    summary.unchanged.push(article.slugEn);
+    continue;
+  }
+  if (!DRY_RUN) {
+    const { error } = await supabase.from("blog_posts").update(changes).eq("slug_en", article.slugEn);
+    if (error) { console.error(`Failed to update "${article.slugEn}":`, error.message); process.exitCode = 1; continue; }
+  }
+  summary.updated.push(article.slugEn);
+  console.log(`UPDATED    ${article.slugEn}: ${changedColumns.join(", ")}`);
 }
 
+console.log(`${DRY_RUN ? "[dry run] would insert" : "Inserted"} ${summary.inserted.length}, ${DRY_RUN ? "would update" : "updated"} ${summary.updated.length}, unchanged ${summary.unchanged.length}.`);
 console.log("Done.");

@@ -16,7 +16,7 @@ export const privacyEs: LegalPageDictionary = {
     description:
       "Tu privacidad nos importa. Esta política explica qué información recopilamos, cómo la utilizamos y qué derechos tienes sobre ella.",
     lastUpdatedLabel: "Última actualización",
-    lastUpdatedDate: "24 de julio de 2026",
+    lastUpdatedDate: "13 de noviembre de 2026",
   },
   tocTitle: "Contenido",
   sections: [
@@ -37,7 +37,7 @@ export const privacyEs: LegalPageDictionary = {
       bullets: [
         "Datos de reserva: nombre, correo electrónico, teléfono, direcciones de recogida y destino, datos de vuelo o tren, y número de pasajeros",
         "Formularios de contacto: nombre, correo electrónico y el contenido de tu mensaje",
-        "Datos de pago: procesados de forma segura por nuestros proveedores de pago (ver el apartado Información de Pago)",
+        "Datos de pago: la web no recoge datos de tarjetas (ver el apartado Información de Pago)",
         "Datos técnicos: dirección IP, tipo de navegador, información del dispositivo y páginas visitadas, recopilados automáticamente mediante cookies y tecnologías similares",
       ],
     },
@@ -83,8 +83,8 @@ export const privacyEs: LegalPageDictionary = {
       id: "informacion-de-pago",
       title: "Información de Pago",
       paragraphs: [
-        "Los pagos online son procesados por proveedores de pago externos conformes con el estándar PCI-DSS. No almacenamos el número completo de tu tarjeta, la fecha de caducidad ni el CVV en nuestros servidores.",
-        "Los proveedores de pago procesan tus datos de pago conforme a sus propias políticas de privacidad y estándares de seguridad.",
+        "La web no acepta pagos con tarjeta ni recoge datos de tarjetas.",
+        "La forma de pago de cada reserva se indica en el presupuesto y en la confirmación de la reserva. Cualquier proveedor de pago que intervenga trata tus datos de pago conforme a su propia política de privacidad.",
       ],
     },
     {
@@ -122,7 +122,7 @@ export const privacyEs: LegalPageDictionary = {
       id: "seguridad",
       title: "Seguridad",
       paragraphs: [
-        "Aplicamos medidas técnicas y organizativas conforme a los estándares del sector, incluyendo cifrado en tránsito, control de accesos y revisiones de seguridad periódicas, para proteger tus datos personales frente a accesos no autorizados, pérdidas o usos indebidos.",
+        "Aplicamos medidas técnicas y organizativas conforme a los estándares del sector, incluyendo cifrado en tránsito y control de accesos, para proteger tus datos personales frente a accesos no autorizados, pérdidas o usos indebidos.",
         "Ningún método de transmisión o almacenamiento es completamente seguro, y no podemos garantizar una seguridad absoluta, aunque trabajamos de forma continua para proteger tu información.",
       ],
     },

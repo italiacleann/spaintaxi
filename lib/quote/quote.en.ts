@@ -94,7 +94,7 @@ export const quoteEn: QuotePageDictionary = {
     title: "Why Request a Quote With Us",
     items: [
       { icon: "badge-euro", title: "Fixed Prices", description: "Your fare is confirmed in your quote, with no meters or surprises later." },
-      { icon: "user-check", title: "Professional Drivers", description: "Every driver is licensed, background-checked, and fully insured." },
+      { icon: "user-check", title: "Professional Drivers", description: "Transfers are carried out by professional drivers from local transport providers." },
       { icon: "plane", title: "Free Flight Monitoring", description: "We track your flight and adjust your pickup automatically, at no extra cost." },
       { icon: "shield-check", title: "No Hidden Charges", description: "The price in your quote is the price you pay, with nothing added later." },
       { icon: "handshake", title: "Meet & Greet", description: "Your driver waits at arrivals with a name sign, ready to help with luggage." },
@@ -125,7 +125,7 @@ export const quoteEn: QuotePageDictionary = {
       {
         question: "Can I request a child seat?",
         answer:
-          "Yes, just mention the number and age of children needing a seat in the Special Requests field, and we'll include it in your quote at no additional charge.",
+          "Yes, just mention the number and age of children needing a seat in the Special Requests field. Availability and any charge are confirmed with your quote.",
       },
       {
         question: "What types of vehicles are available?",

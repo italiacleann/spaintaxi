@@ -90,20 +90,20 @@ const whySlot1: ((city: string) => WhyVariant)[] = [
 ];
 
 const whySlot2: ((city: string) => WhyVariant)[] = [
-  (city) => ({ title: "Conductores con Licencia", description: `Todos los conductores que operan en ${city} cuentan con licencia profesional y verificación de antecedentes.` }),
+  (city) => ({ title: "Conductores Profesionales", description: `Los traslados en ${city} los realizan conductores profesionales de proveedores de transporte locales.` }),
   (city) => ({ title: "Conductores Locales con Experiencia", description: `Nuestros conductores en ${city} conocen las carreteras, el tráfico y los atajos.` }),
-  (city) => ({ title: "Conductores Verificados y Asegurados", description: `Todos los conductores que operan en ${city} cuentan con licencia, seguro y verificación.` }),
+  (city) => ({ title: "Conductores Verificados y Asegurados", description: `Tu traslado en ${city} se organiza con un proveedor de transporte local y se confirma con el presupuesto.` }),
 ];
 
 const whySlot3: (() => WhyVariant)[] = [
-  () => ({ title: "Disponible 24/7", description: "Vuelo de madrugada o llegada nocturna, nuestros conductores están listos a cualquier hora." }),
+  () => ({ title: "Disponible 24/7", description: "Puedes solicitar recogidas de madrugada o de noche; la disponibilidad se confirma con el presupuesto." }),
   () => ({ title: "Servicio las 24 Horas", description: "Reserva un traslado a cualquier hora, día o noche, sin recargo adicional." }),
-  () => ({ title: "Siempre Disponibles", description: "Nuestros conductores operan 24 horas al día, los 7 días de la semana, en toda España." }),
+  () => ({ title: "Solicitudes a Cualquier Hora", description: "Envía tu solicitud de presupuesto cuando quieras, para cualquier hora del día o de la noche." }),
 ];
 
 const whySlot4: (() => WhyVariant)[] = [
   () => ({ title: "Comodidad Puerta a Puerta", description: "Cada traslado es puerta a puerta, con ayuda para cargar y descargar el equipaje." }),
-  () => ({ title: "Sillas Infantiles Disponibles", description: "Solicita una silla infantil o alzador para tu traslado sin coste adicional." }),
+  () => ({ title: "Sillas Infantiles Bajo Petición", description: "Pide una silla infantil o alzador en tu solicitud de presupuesto; la disponibilidad y cualquier coste se confirman con el presupuesto." }),
   () => ({ title: "Familias y Grupos Bienvenidos", description: "Vehículos más grandes y espacio extra para equipaje disponibles bajo petición." }),
 ];
 
@@ -149,7 +149,7 @@ function buildFaq(city: CityRecord, airportName: string) {
     },
     {
       question: "¿Puedo solicitar una silla infantil?",
-      answer: "Sí, las sillas infantiles y alzadores están disponibles bajo petición sin coste adicional. Solo indícalo al reservar.",
+      answer: "Puedes solicitar sillas infantiles y alzadores al pedir presupuesto. La disponibilidad y cualquier coste se confirman con el presupuesto.",
     },
     {
       question: `¿Dais servicio a hoteles en ${name}?`,
@@ -212,6 +212,7 @@ export function composeCityEs(city: CityRecord): CityPageDictionary {
     },
     breadcrumb: {
       current: `Traslado ${name}`,
+      parent: { label: "Ciudades", href: "/es/ciudades/" },
     },
     hero: {
       badge: `Traslado ${name}`,

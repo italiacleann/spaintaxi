@@ -25,6 +25,7 @@ export interface BlogHubDictionary {
     cardCta: string;
     minReadTemplate: string;
     byLabel: string;
+    updatedLabel: string;
   };
   sidebar: {
     popularTitle: string;

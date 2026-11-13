@@ -52,7 +52,7 @@ export const airportTransfersEs: ServicePageDictionary = {
       {
         icon: "user-check",
         title: "Sillas Infantiles Disponibles",
-        description: "Solicita una silla infantil o alzador sin coste adicional.",
+        description: "Pide una silla infantil o alzador en tu solicitud de presupuesto; la disponibilidad y cualquier coste se confirman con el presupuesto.",
       },
     ],
   },
@@ -75,7 +75,7 @@ export const airportTransfersEs: ServicePageDictionary = {
     items: [
       {
         question: "¿Cómo reservo un traslado al aeropuerto?",
-        answer: "Introduce tu aeropuerto, destino, datos de vuelo y número de pasajeros en nuestro formulario de presupuesto. Recibirás un precio cerrado y confirmación al instante.",
+        answer: "Introduce tu aeropuerto, destino, datos de vuelo y número de pasajeros en nuestro formulario de presupuesto. Te respondemos por correo con un precio cerrado.",
       },
       {
         question: "¿Qué ocurre si mi vuelo se retrasa?",
@@ -95,7 +95,7 @@ export const airportTransfersEs: ServicePageDictionary = {
       },
       {
         question: "¿Cobráis más por vuelos muy pronto o muy tarde?",
-        answer: "No. Nuestro servicio de traslados al aeropuerto funciona las 24 horas al mismo precio cerrado, sea cual sea tu hora de llegada o salida.",
+        answer: "Puedes solicitar traslados de madrugada o de noche. Cualquier diferencia de precio según la hora se incluye en el presupuesto, y el precio confirmado al reservar es cerrado.",
       },
       {
         question: "¿El precio es por persona o por vehículo?",
@@ -103,7 +103,7 @@ export const airportTransfersEs: ServicePageDictionary = {
       },
       {
         question: "¿Puedo solicitar una silla infantil para mi traslado?",
-        answer: "Sí, las sillas infantiles y alzadores están disponibles bajo petición sin coste adicional. Solo indícalo al reservar.",
+        answer: "Puedes solicitar sillas infantiles y alzadores al pedir presupuesto. La disponibilidad y cualquier coste se confirman con el presupuesto.",
       },
     ],
   },

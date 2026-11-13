@@ -16,7 +16,7 @@ export const termsEs: LegalPageDictionary = {
     description:
       "Estos términos regulan cada reserva realizada con Spain Private Transfers. Por favor, léelos con atención antes de reservar tu traslado.",
     lastUpdatedLabel: "Última actualización",
-    lastUpdatedDate: "24 de julio de 2026",
+    lastUpdatedDate: "13 de noviembre de 2026",
   },
   tocTitle: "Contenido",
   sections: [
@@ -24,7 +24,7 @@ export const termsEs: LegalPageDictionary = {
       id: "introduccion",
       title: "Introducción",
       paragraphs: [
-        "Spain Private Transfers («nosotros», «nuestro») ofrece servicios de transporte privado, incluyendo traslados al aeropuerto, traslados urbanos y servicios con conductor, en toda España.",
+        "Spain Private Transfers («nosotros», «nuestro») ayuda a los viajeros a solicitar servicios de transporte privado en toda España, incluidos traslados al aeropuerto, traslados urbanos y servicios con conductor, poniéndolos en contacto con proveedores de transporte locales que realizan los traslados.",
         "Al solicitar un presupuesto, realizar una reserva o utilizar nuestro sitio web, aceptas quedar vinculado por estos Términos y Condiciones. Si no estás de acuerdo con alguna parte de estos términos, te pedimos que no utilices nuestros servicios.",
       ],
     },
@@ -45,8 +45,8 @@ export const termsEs: LegalPageDictionary = {
       id: "pagos",
       title: "Pagos",
       paragraphs: [
-        "Puedes pagar online en el momento de la reserva, o en el vehículo con tarjeta o efectivo, según la opción de pago que elijas al finalizar la reserva.",
-        "Todos los pagos online se procesan a través de proveedores de pago cifrados y conformes con el estándar PCI. No almacenamos los datos completos de tu tarjeta en nuestros servidores.",
+        "La forma de pago, el importe y el momento del pago de tu reserva se indican en el presupuesto y en la confirmación de la reserva.",
+        "La web no acepta pagos con tarjeta. Si tienes alguna duda sobre el pago de una reserva, contacta con nosotros antes del traslado.",
       ],
     },
     {
@@ -106,7 +106,7 @@ export const termsEs: LegalPageDictionary = {
       id: "objetos-perdidos",
       title: "Objetos Perdidos",
       paragraphs: [
-        "Si crees que has olvidado algún objeto en uno de nuestros vehículos, ponte en contacto con nuestro equipo de soporte lo antes posible indicando tu número de reserva y una descripción del objeto.",
+        "Si crees que has olvidado algún objeto en el vehículo de tu traslado, ponte en contacto con nosotros lo antes posible indicando tu número de reserva y una descripción del objeto.",
         "Haremos todo lo posible por localizar y devolver los objetos perdidos, aunque no podemos garantizar su recuperación. Los gastos de envío de devolución, si los hubiera, correrán a cargo del pasajero.",
       ],
     },

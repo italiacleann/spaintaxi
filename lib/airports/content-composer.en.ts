@@ -100,9 +100,9 @@ const whySlot3: ((a: string) => WhyVariant)[] = [
 ];
 
 const whySlot4: (() => WhyVariant)[] = [
-  () => ({ title: "Child Seats Available", description: "Request a child or booster seat for your transfer at no additional charge." }),
-  () => ({ title: "Licensed, Vetted Drivers", description: "Every driver in our network is professionally licensed and background-checked." }),
-  () => ({ title: "Families Welcome", description: "Child seats and extra luggage space are available on request, at no extra cost." }),
+  () => ({ title: "Child Seats on Request", description: "Ask for a child or booster seat in your quote request; availability and any charge are confirmed with your quote." }),
+  () => ({ title: "Professional Drivers", description: "Transfers are carried out by professional drivers from local transport providers." }),
+  () => ({ title: "Families Welcome", description: "Child seats and extra luggage space can be requested; availability is confirmed with your quote." }),
 ];
 
 const ctaTitleTemplates: ((a: string) => string)[] = [
@@ -154,7 +154,7 @@ function buildFaq(airport: AirportRecord) {
     },
     {
       question: "Can I request a child seat?",
-      answer: "Yes, child and booster seats are available on request at no additional charge. Just add the details when you book.",
+      answer: "You can request child and booster seats when you ask for a quote. Availability and any charge are confirmed with your quote.",
     },
   ];
 
@@ -210,6 +210,7 @@ export function composeAirportEn(airport: AirportRecord): AirportPageDictionary 
     },
     breadcrumb: {
       current: `${a} Transfers`,
+      parent: { label: "Airports", href: "/airports/" },
     },
     hero: {
       badge: `${a} Transfers`,

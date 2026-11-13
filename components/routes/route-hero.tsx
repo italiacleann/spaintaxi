@@ -4,6 +4,7 @@ import type { RouteRecord } from "@/lib/routes/types";
 import { localeHome, type Locale } from "@/lib/i18n/config";
 import { Container } from "@/components/shared/container";
 import { Breadcrumb } from "@/components/shared/breadcrumb";
+import { getRouteCrumbLabel, type Crumb } from "@/lib/routes/breadcrumbs";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -12,14 +13,14 @@ export function RouteHero({
   route,
   locale,
   breadcrumbHome,
-  originHref,
+  parentCrumb,
   quoteHref,
   quoteLabel,
 }: {
   route: RouteRecord;
   locale: Locale;
   breadcrumbHome: string;
-  originHref?: string;
+  parentCrumb?: Crumb;
   /** Primary quote CTA shown under the H1, so mobile visitors don't have
    *  to scroll past the full article to reach the facts-panel button. */
   quoteHref?: string;
@@ -51,8 +52,8 @@ export function RouteHero({
           variant="dark"
           items={[
             { label: breadcrumbHome, href: localeHome(locale) },
-            ...(originHref ? [{ label: originName, href: originHref }] : []),
-            { label: destinationName },
+            ...(parentCrumb ? [parentCrumb] : []),
+            { label: getRouteCrumbLabel(locale, route) },
           ]}
         />
 

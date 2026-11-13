@@ -1,5 +1,25 @@
 import type { AirportRecord } from "@/lib/airports/types";
 import {
+  LOGRONO_AIRPORT_COPY_EN,
+  LOGRONO_AIRPORT_COPY_ES,
+  LOGRONO_AIRPORT_RICH_TITLE_EN,
+  LOGRONO_AIRPORT_RICH_TITLE_ES,
+  LOGRONO_AIRPORT_RICH_CONTENT_EN,
+  LOGRONO_AIRPORT_RICH_CONTENT_ES,
+  LOGRONO_AIRPORT_FAQ_EN,
+  LOGRONO_AIRPORT_FAQ_ES,
+} from "@/lib/airports/logrono-content";
+import {
+  CORDOBA_AIRPORT_COPY_EN,
+  CORDOBA_AIRPORT_COPY_ES,
+  CORDOBA_AIRPORT_RICH_TITLE_EN,
+  CORDOBA_AIRPORT_RICH_TITLE_ES,
+  CORDOBA_AIRPORT_RICH_CONTENT_EN,
+  CORDOBA_AIRPORT_RICH_CONTENT_ES,
+  CORDOBA_AIRPORT_FAQ_EN,
+  CORDOBA_AIRPORT_FAQ_ES,
+} from "@/lib/airports/cordoba-content";
+import {
   MALAGA_AIRPORT_COPY_EN,
   MALAGA_AIRPORT_COPY_ES,
   MALAGA_AIRPORT_RICH_TITLE_EN,
@@ -19,6 +39,26 @@ import {
   VALENCIA_AIRPORT_FAQ_EN,
   VALENCIA_AIRPORT_FAQ_ES,
 } from "@/lib/airports/valencia-content";
+import {
+  LANZAROTE_AIRPORT_COPY_EN,
+  LANZAROTE_AIRPORT_COPY_ES,
+  LANZAROTE_AIRPORT_RICH_TITLE_EN,
+  LANZAROTE_AIRPORT_RICH_TITLE_ES,
+  LANZAROTE_AIRPORT_RICH_CONTENT_EN,
+  LANZAROTE_AIRPORT_RICH_CONTENT_ES,
+  LANZAROTE_AIRPORT_FAQ_EN,
+  LANZAROTE_AIRPORT_FAQ_ES,
+} from "@/lib/airports/lanzarote-content";
+import {
+  FUERTEVENTURA_AIRPORT_COPY_EN,
+  FUERTEVENTURA_AIRPORT_COPY_ES,
+  FUERTEVENTURA_AIRPORT_RICH_TITLE_EN,
+  FUERTEVENTURA_AIRPORT_RICH_TITLE_ES,
+  FUERTEVENTURA_AIRPORT_RICH_CONTENT_EN,
+  FUERTEVENTURA_AIRPORT_RICH_CONTENT_ES,
+  FUERTEVENTURA_AIRPORT_FAQ_EN,
+  FUERTEVENTURA_AIRPORT_FAQ_ES,
+} from "@/lib/airports/fuerteventura-content";
 
 export const airports: AirportRecord[] = [
   {
@@ -422,6 +462,14 @@ export const airports: AirportRecord[] = [
     ],
     nearbyAirports: [],
     imageSeed: 13,
+    copyEn: LANZAROTE_AIRPORT_COPY_EN,
+    copyEs: LANZAROTE_AIRPORT_COPY_ES,
+    richContentTitleEn: LANZAROTE_AIRPORT_RICH_TITLE_EN,
+    richContentTitleEs: LANZAROTE_AIRPORT_RICH_TITLE_ES,
+    richContentEn: LANZAROTE_AIRPORT_RICH_CONTENT_EN,
+    richContentEs: LANZAROTE_AIRPORT_RICH_CONTENT_ES,
+    customFaqEn: LANZAROTE_AIRPORT_FAQ_EN,
+    customFaqEs: LANZAROTE_AIRPORT_FAQ_ES,
   },
   {
     iata: "FUE",
@@ -448,6 +496,14 @@ export const airports: AirportRecord[] = [
     ],
     nearbyAirports: [],
     imageSeed: 14,
+    copyEn: FUERTEVENTURA_AIRPORT_COPY_EN,
+    copyEs: FUERTEVENTURA_AIRPORT_COPY_ES,
+    richContentTitleEn: FUERTEVENTURA_AIRPORT_RICH_TITLE_EN,
+    richContentTitleEs: FUERTEVENTURA_AIRPORT_RICH_TITLE_ES,
+    richContentEn: FUERTEVENTURA_AIRPORT_RICH_CONTENT_EN,
+    richContentEs: FUERTEVENTURA_AIRPORT_RICH_CONTENT_ES,
+    customFaqEn: FUERTEVENTURA_AIRPORT_FAQ_EN,
+    customFaqEs: FUERTEVENTURA_AIRPORT_FAQ_ES,
   },
   {
     iata: "GRO",
@@ -900,6 +956,14 @@ export const airports: AirportRecord[] = [
     ],
     nearbyAirports: [],
     imageSeed: 32,
+    copyEn: LOGRONO_AIRPORT_COPY_EN,
+    copyEs: LOGRONO_AIRPORT_COPY_ES,
+    richContentTitleEn: LOGRONO_AIRPORT_RICH_TITLE_EN,
+    richContentTitleEs: LOGRONO_AIRPORT_RICH_TITLE_ES,
+    richContentEn: LOGRONO_AIRPORT_RICH_CONTENT_EN,
+    richContentEs: LOGRONO_AIRPORT_RICH_CONTENT_ES,
+    customFaqEn: LOGRONO_AIRPORT_FAQ_EN,
+    customFaqEs: LOGRONO_AIRPORT_FAQ_ES,
   },
   {
     iata: "VLL",
@@ -1021,6 +1085,14 @@ export const airports: AirportRecord[] = [
     ],
     nearbyAirports: [{ iata: "SVQ", driveTime: "1 hr 30 min" }],
     imageSeed: 37,
+    copyEn: CORDOBA_AIRPORT_COPY_EN,
+    copyEs: CORDOBA_AIRPORT_COPY_ES,
+    richContentTitleEn: CORDOBA_AIRPORT_RICH_TITLE_EN,
+    richContentTitleEs: CORDOBA_AIRPORT_RICH_TITLE_ES,
+    richContentEn: CORDOBA_AIRPORT_RICH_CONTENT_EN,
+    richContentEs: CORDOBA_AIRPORT_RICH_CONTENT_ES,
+    customFaqEn: CORDOBA_AIRPORT_FAQ_EN,
+    customFaqEs: CORDOBA_AIRPORT_FAQ_ES,
   },
   {
     iata: "MLN",

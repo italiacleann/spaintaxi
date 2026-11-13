@@ -82,11 +82,8 @@ export function SiteFooter({ locale, dict }: { locale: Locale; dict: Dictionary 
               <MailIcon className="mt-0.5 size-4 shrink-0" />
               <FooterEmailLink email={contactInfo.email} className="min-w-0 break-all hover:text-white" />
             </li>
-            <li className="flex items-start gap-2 min-w-0">
-              <MailIcon className="mt-0.5 size-4 shrink-0" />
-              <FooterEmailLink email={contactInfo.email2} className="min-w-0 break-all hover:text-white" />
-            </li>
           </ul>
+          {socialLinks.length > 0 ? (
           <div className="flex items-center gap-2 pt-1">
             {socialLinks.map((social) => {
               const Glyph = socialGlyphs[social.icon];
@@ -104,6 +101,7 @@ export function SiteFooter({ locale, dict }: { locale: Locale; dict: Dictionary 
               );
             })}
           </div>
+          ) : null}
         </div>
 
         <FooterColumn title={dict.footer.quickLinksTitle} links={dict.footer.quickLinks} />

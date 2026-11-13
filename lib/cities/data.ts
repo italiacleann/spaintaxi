@@ -1,5 +1,15 @@
 import type { CityRecord } from "@/lib/cities/types";
 import {
+  BILBAO_CITY_COPY_EN,
+  BILBAO_CITY_COPY_ES,
+  BILBAO_CITY_RICH_TITLE_EN,
+  BILBAO_CITY_RICH_TITLE_ES,
+  BILBAO_CITY_RICH_CONTENT_EN,
+  BILBAO_CITY_RICH_CONTENT_ES,
+  BILBAO_CITY_FAQ_EN,
+  BILBAO_CITY_FAQ_ES,
+} from "@/lib/cities/bilbao-content";
+import {
   ZARAGOZA_RICH_CONTENT_EN,
   ZARAGOZA_RICH_CONTENT_ES,
   ZARAGOZA_FAQ_EN,
@@ -21,6 +31,16 @@ import {
   MALAGA_CITY_FAQ_EN,
   MALAGA_CITY_FAQ_ES,
 } from "@/lib/cities/malaga-content";
+import {
+  TOLEDO_COPY_EN,
+  TOLEDO_COPY_ES,
+  TOLEDO_RICH_TITLE_EN,
+  TOLEDO_RICH_TITLE_ES,
+  TOLEDO_RICH_CONTENT_EN,
+  TOLEDO_RICH_CONTENT_ES,
+  TOLEDO_FAQ_EN,
+  TOLEDO_FAQ_ES,
+} from "@/lib/cities/toledo-content";
 
 export const cities: CityRecord[] = [
   // Featured cities
@@ -171,6 +191,14 @@ export const cities: CityRecord[] = [
     imageSeed: 6,
     blurbEn: "Basque culture and cuisine, with easy transfers to San Sebastián along the coast.",
     blurbEs: "Cultura y gastronomía vascas, con traslados fáciles a San Sebastián por la costa.",
+    copyEn: BILBAO_CITY_COPY_EN,
+    copyEs: BILBAO_CITY_COPY_ES,
+    richContentTitleEn: BILBAO_CITY_RICH_TITLE_EN,
+    richContentTitleEs: BILBAO_CITY_RICH_TITLE_ES,
+    richContentEn: BILBAO_CITY_RICH_CONTENT_EN,
+    richContentEs: BILBAO_CITY_RICH_CONTENT_ES,
+    customFaqEn: BILBAO_CITY_FAQ_EN,
+    customFaqEs: BILBAO_CITY_FAQ_ES,
   },
   {
     slugEn: "granada",
@@ -426,6 +454,14 @@ export const cities: CityRecord[] = [
       { nameEn: "Consuegra", nameEs: "Consuegra", driveTime: "40 min" },
     ],
     imageSeed: 18,
+    copyEn: TOLEDO_COPY_EN,
+    copyEs: TOLEDO_COPY_ES,
+    richContentTitleEn: TOLEDO_RICH_TITLE_EN,
+    richContentTitleEs: TOLEDO_RICH_TITLE_ES,
+    richContentEn: TOLEDO_RICH_CONTENT_EN,
+    richContentEs: TOLEDO_RICH_CONTENT_ES,
+    customFaqEn: TOLEDO_FAQ_EN,
+    customFaqEs: TOLEDO_FAQ_ES,
   },
   {
     slugEn: "segovia",

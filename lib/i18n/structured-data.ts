@@ -15,29 +15,36 @@ import type { BlogHubDictionary } from "@/lib/blog/hub-types";
 import type { LocalizedBlogPost } from "@/lib/blog/types";
 import { getBlogPostPath } from "@/lib/blog/queries";
 import type { RouteRecord } from "@/lib/routes/types";
+import { getRouteCrumbLabel, getRouteParentCrumb } from "@/lib/routes/breadcrumbs";
 import { contactInfo, socialLinks } from "@/lib/data";
 
-function buildOrganization(homeUrl: string, description: string) {
+/** One identifier for the business across every page and language. */
+const ORGANIZATION_ID = absoluteUrl("/") + "#organization";
+
+/** The single factual description of the business, per language. */
+export const ORGANIZATION_DESCRIPTION: Record<Locale, string> = {
+  en: "Spain Private Transfers helps travelers request private transfer services across Spain by connecting customers with local transport providers.",
+  es: "Spain Private Transfers ayuda a los viajeros a solicitar servicios de traslado privado en toda España, poniéndolos en contacto con proveedores de transporte locales.",
+};
+
+/**
+ * Organization (not LocalBusiness/TravelAgency): the business has no public
+ * premises, so no address is published. The telephone is the genuine
+ * WhatsApp business number with its international (+92) country code.
+ * sameAs lists only verified social profiles and is omitted when there are none.
+ */
+function buildOrganization(locale: Locale) {
   return {
-    "@type": "TravelAgency",
-    "@id": `${homeUrl}#organization`,
+    "@type": "Organization",
+    "@id": ORGANIZATION_ID,
     name: "Spain Private Transfers",
-    url: homeUrl,
-    logo: absoluteUrl("/opengraph-image"),
-    image: absoluteUrl("/opengraph-image"),
-    description,
-    telephone: `+${contactInfo.whatsapp}`,
+    url: absoluteUrl("/"),
+    logo: absoluteUrl("/logo.png"),
+    description: ORGANIZATION_DESCRIPTION[locale],
+    telephone: "+" + contactInfo.whatsapp,
     email: contactInfo.email,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Calle Gran Vía 28",
-      addressLocality: "Madrid",
-      postalCode: "28013",
-      addressCountry: "ES",
-    },
-    areaServed: "ES",
-    priceRange: "€€",
-    sameAs: socialLinks.map((social) => social.href),
+    areaServed: { "@type": "Country", name: "Spain" },
+    ...(socialLinks.length > 0 ? { sameAs: socialLinks.map((social) => social.href) } : {}),
   };
 }
 
@@ -45,7 +52,7 @@ export function buildHomeJsonLd(locale: Locale, dict: Dictionary) {
   const homePath = localeHome(locale);
   const homeUrl = absoluteUrl(homePath);
 
-  const organization = buildOrganization(homeUrl, dict.meta.description);
+  const organization = buildOrganization(locale);
 
   const website = {
     "@type": "WebSite",
@@ -53,7 +60,7 @@ export function buildHomeJsonLd(locale: Locale, dict: Dictionary) {
     url: homeUrl,
     name: "Spain Private Transfers",
     inLanguage: locale === "es" ? "es-ES" : "en",
-    publisher: { "@id": `${homeUrl}#organization` },
+    publisher: { "@id": ORGANIZATION_ID },
   };
 
   const services = {
@@ -66,7 +73,7 @@ export function buildHomeJsonLd(locale: Locale, dict: Dictionary) {
         name: service.title,
         description: service.description,
         url: absoluteUrl(service.href),
-        provider: { "@id": `${homeUrl}#organization` },
+        provider: { "@id": ORGANIZATION_ID },
         areaServed: "ES",
       },
     })),
@@ -106,7 +113,7 @@ export function buildAboutJsonLd(locale: Locale, dict: AboutDictionary, path: st
   const homeUrl = absoluteUrl(localeHome(locale));
   const pageUrl = absoluteUrl(path);
 
-  const organization = buildOrganization(homeUrl, dict.meta.description);
+  const organization = buildOrganization(locale);
 
   const aboutPage = {
     "@type": "AboutPage",
@@ -116,7 +123,7 @@ export function buildAboutJsonLd(locale: Locale, dict: AboutDictionary, path: st
     description: dict.meta.description,
     inLanguage: locale === "es" ? "es-ES" : "en",
     isPartOf: { "@id": `${homeUrl}#website` },
-    about: { "@id": `${homeUrl}#organization` },
+    about: { "@id": ORGANIZATION_ID },
     breadcrumb: { "@id": `${pageUrl}#breadcrumb` },
   };
 
@@ -207,7 +214,7 @@ export function buildServiceJsonLd(
   const homeUrl = absoluteUrl(localeHome(locale));
   const pageUrl = absoluteUrl(path);
 
-  const organization = buildOrganization(homeUrl, dict.meta.description);
+  const organization = buildOrganization(locale);
 
   const service = {
     "@type": "Service",
@@ -215,7 +222,7 @@ export function buildServiceJsonLd(
     name: dict.hero.title,
     description: dict.meta.description,
     url: pageUrl,
-    provider: { "@id": `${homeUrl}#organization` },
+    provider: { "@id": ORGANIZATION_ID },
     areaServed: "ES",
   };
 
@@ -241,9 +248,12 @@ export function buildServiceJsonLd(
         name: breadcrumbHome,
         item: homeUrl,
       },
+      ...(dict.breadcrumb.parent
+        ? [{ "@type": "ListItem", position: 2, name: dict.breadcrumb.parent.label, item: absoluteUrl(dict.breadcrumb.parent.href) }]
+        : []),
       {
         "@type": "ListItem",
-        position: 2,
+        position: dict.breadcrumb.parent ? 3 : 2,
         name: dict.breadcrumb.current,
         item: pageUrl,
       },
@@ -277,7 +287,7 @@ export function buildAirportHubJsonLd(
   const homeUrl = absoluteUrl(localeHome(locale));
   const pageUrl = absoluteUrl(path);
 
-  const organization = buildOrganization(homeUrl, dict.meta.description);
+  const organization = buildOrganization(locale);
 
   const webPage = {
     "@type": "CollectionPage",
@@ -318,7 +328,7 @@ export function buildAirportHubJsonLd(
         "@type": "Service",
         name: locale === "es" ? airport.shortNameEs : airport.shortNameEn,
         url: absoluteUrl(getAirportPath(locale, airport)),
-        provider: { "@id": `${homeUrl}#organization` },
+        provider: { "@id": ORGANIZATION_ID },
         areaServed: "ES",
       },
     })),
@@ -339,7 +349,7 @@ export function buildCityHubJsonLd(
   const homeUrl = absoluteUrl(localeHome(locale));
   const pageUrl = absoluteUrl(path);
 
-  const organization = buildOrganization(homeUrl, dict.meta.description);
+  const organization = buildOrganization(locale);
 
   const webPage = {
     "@type": "CollectionPage",
@@ -380,7 +390,7 @@ export function buildCityHubJsonLd(
         "@type": "Service",
         name: locale === "es" ? city.nameEs : city.nameEn,
         url: absoluteUrl(getCityPath(locale, city)),
-        provider: { "@id": `${homeUrl}#organization` },
+        provider: { "@id": ORGANIZATION_ID },
         areaServed: "ES",
       },
     })),
@@ -408,7 +418,7 @@ export function buildQuoteJsonLd(locale: Locale, dict: QuotePageDictionary, path
   const homeUrl = absoluteUrl(localeHome(locale));
   const pageUrl = absoluteUrl(path);
 
-  const organization = buildOrganization(homeUrl, dict.meta.description);
+  const organization = buildOrganization(locale);
 
   const webPage = {
     "@type": "WebPage",
@@ -468,8 +478,9 @@ export function buildRouteJsonLd(locale: Locale, route: RouteRecord, path: strin
   const originName = isEs ? route.originNameEs : route.originNameEn;
   const destinationName = isEs ? route.destinationNameEs : route.destinationNameEn;
   const faqItems = isEs ? route.faqEs : route.faqEn;
+  const parentCrumb = getRouteParentCrumb(locale, route);
 
-  const organization = buildOrganization(homeUrl, description);
+  const organization = buildOrganization(locale);
 
   const service = {
     "@type": "Service",
@@ -477,7 +488,7 @@ export function buildRouteJsonLd(locale: Locale, route: RouteRecord, path: strin
     name: `${originName} → ${destinationName}`,
     description,
     url: pageUrl,
-    provider: { "@id": `${homeUrl}#organization` },
+    provider: { "@id": ORGANIZATION_ID },
     areaServed: "ES",
   };
 
@@ -498,7 +509,8 @@ export function buildRouteJsonLd(locale: Locale, route: RouteRecord, path: strin
     "@id": `${pageUrl}#breadcrumb`,
     itemListElement: [
       { "@type": "ListItem", position: 1, name: breadcrumbHome, item: homeUrl },
-      { "@type": "ListItem", position: 2, name: title, item: pageUrl },
+      ...(parentCrumb ? [{ "@type": "ListItem", position: 2, name: parentCrumb.label, item: absoluteUrl(parentCrumb.href) }] : []),
+      { "@type": "ListItem", position: parentCrumb ? 3 : 2, name: getRouteCrumbLabel(locale, route), item: pageUrl },
     ],
   };
 
@@ -530,7 +542,7 @@ export function buildBlogHubJsonLd(
   const homeUrl = absoluteUrl(localeHome(locale));
   const pageUrl = absoluteUrl(path);
 
-  const organization = buildOrganization(homeUrl, dict.meta.description);
+  const organization = buildOrganization(locale);
 
   const webPage = {
     "@type": "CollectionPage",
@@ -592,7 +604,7 @@ export function buildBlogPostJsonLd(
   const pageUrl = absoluteUrl(path);
   const blogHubUrl = absoluteUrl(locale === "es" ? "/es/blog/" : "/blog/");
 
-  const organization = buildOrganization(homeUrl, post.metaDescription);
+  const organization = buildOrganization(locale);
 
   const author = {
     "@type": "Person",
@@ -609,9 +621,9 @@ export function buildBlogPostJsonLd(
     url: pageUrl,
     inLanguage: locale === "es" ? "es-ES" : "en",
     datePublished: post.publishedAt ?? undefined,
-    dateModified: post.publishedAt ?? undefined,
+    dateModified: post.updatedAt ?? post.publishedAt ?? undefined,
     author: { "@id": author["@id"] },
-    publisher: { "@id": `${homeUrl}#organization` },
+    publisher: { "@id": ORGANIZATION_ID },
     ...(post.featuredImageUrl ? { image: post.featuredImageUrl } : {}),
     mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
   };

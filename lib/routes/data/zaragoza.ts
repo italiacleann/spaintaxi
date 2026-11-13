@@ -1919,7 +1919,7 @@ export const zaragozaRoutes: RouteRecord[] = [
       },
       {
         question: "Can I request a larger vehicle for ski or hiking gear?",
-        answer: "Yes, an estate car or minivan can be requested at no extra cost to the fixed price for parties with ski bags or bulky equipment."
+        answer: "Yes, an estate car or minivan can be requested for parties with ski bags or bulky equipment; the vehicle is included in your fixed-price quote."
       },
       {
         question: "Is this a one-way transfer or a round-trip tour?",
@@ -1945,7 +1945,7 @@ export const zaragozaRoutes: RouteRecord[] = [
       },
       {
         question: "¿Puedo solicitar un vehículo más grande para equipo de esquí o senderismo?",
-        answer: "Sí, puede solicitarse un familiar o un monovolumen sin coste adicional sobre el precio fijo para grupos con bolsas de esquí o equipo voluminoso."
+        answer: "Sí, puede solicitarse un familiar o un monovolumen para grupos con bolsas de esquí o equipo voluminoso; el vehículo se incluye en el presupuesto con precio cerrado."
       },
       {
         question: "¿Es un traslado de ida o una excursión de ida y vuelta?",
@@ -1995,7 +1995,7 @@ export const zaragozaRoutes: RouteRecord[] = [
       },
       {
         question: "Can I request a larger vehicle for ski or hiking equipment?",
-        answer: "Yes, an estate car or minivan can be requested at no extra cost to the fixed price for parties with bulky gear."
+        answer: "Yes, an estate car or minivan can be requested for parties with bulky gear; the vehicle is included in your fixed-price quote."
       },
       {
         question: "Is pricing fixed in advance?",
@@ -2021,7 +2021,7 @@ export const zaragozaRoutes: RouteRecord[] = [
       },
       {
         question: "¿Puedo solicitar un vehículo más grande para equipo de esquí o senderismo?",
-        answer: "Sí, puede solicitarse un familiar o un monovolumen sin coste adicional sobre el precio fijo para grupos con equipo voluminoso."
+        answer: "Sí, puede solicitarse un familiar o un monovolumen para grupos con equipo voluminoso; el vehículo se incluye en el presupuesto con precio cerrado."
       },
       {
         question: "¿El precio es fijo de antemano?",
@@ -2447,7 +2447,7 @@ export const zaragozaRoutes: RouteRecord[] = [
       },
       {
         question: "Is there room for cases of wine purchased during my trip?",
-        answer: "Yes, an estate car or minivan can be requested at no extra cost to fit wine purchases alongside standard luggage."
+        answer: "Yes, an estate car or minivan can be requested to fit wine purchases alongside standard luggage; the vehicle is included in your fixed-price quote."
       },
       {
         question: "Does the transfer go to the Zaragoza AVE train station or the airport?",
@@ -2473,7 +2473,7 @@ export const zaragozaRoutes: RouteRecord[] = [
       },
       {
         question: "¿Hay espacio para cajas de vino compradas durante mi viaje?",
-        answer: "Sí, puede solicitarse un familiar o un monovolumen sin coste adicional para que las compras de vino quepan junto al equipaje habitual."
+        answer: "Sí, puede solicitarse un familiar o un monovolumen para que las compras de vino quepan junto al equipaje habitual; el vehículo se incluye en el presupuesto con precio cerrado."
       },
       {
         question: "¿El traslado va a la estación del AVE de Zaragoza o al aeropuerto?",

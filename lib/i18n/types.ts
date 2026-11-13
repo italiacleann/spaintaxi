@@ -70,14 +70,6 @@ export interface FleetItem {
   imageAlt: string;
 }
 
-export interface TestimonialItem {
-  name: string;
-  location: string;
-  rating: number;
-  quote: string;
-  avatar: string;
-}
-
 export interface FaqItem {
   question: string;
   answer: string;
@@ -101,8 +93,6 @@ export interface Dictionary {
     eyebrow: string;
     title: string;
     description: string;
-    ratingSuffix: string;
-    transfersCompleted: string;
     formTitle: string;
     formSubtitle: string;
     formNote: string;
@@ -158,12 +148,6 @@ export interface Dictionary {
     description: string;
   };
   fleet: FleetItem[];
-  testimonialsSection: {
-    eyebrow: string;
-    title: string;
-    description: string;
-  };
-  testimonials: TestimonialItem[];
   faqSection: {
     eyebrow: string;
     title: string;

@@ -47,7 +47,7 @@ export const corporateTravelEs: ServicePageDictionary = {
       {
         icon: "shield-check",
         title: "Conductores Discretos y Profesionales",
-        description: "Conductores verificados y formados para viajes ejecutivos y confidenciales.",
+        description: "Conductores profesionales para viajes de negocios; indícanos cualquier requisito de confidencialidad.",
       },
       {
         icon: "plane",
@@ -83,7 +83,7 @@ export const corporateTravelEs: ServicePageDictionary = {
       },
       {
         question: "¿Vuestros conductores están formados para viajes ejecutivos o confidenciales?",
-        answer: "Sí, los conductores asignados a cuentas corporativas están verificados y formados en discreción y trato profesional.",
+        answer: "Los traslados los realizan conductores profesionales de proveedores de transporte locales. Indícanos cualquier requisito de confidencialidad o de vestimenta al pedir presupuesto y te confirmaremos qué se puede organizar.",
       },
       {
         question: "¿Podéis coordinar traslados para un equipo visitante?",
@@ -91,7 +91,7 @@ export const corporateTravelEs: ServicePageDictionary = {
       },
       {
         question: "¿Ofrecéis Wi-Fi en el vehículo para trabajar durante el trayecto?",
-        answer: "Sí, el Wi-Fi está disponible bajo petición en nuestros vehículos business y ejecutivos sin coste adicional.",
+        answer: "Puedes solicitar Wi-Fi en el formulario de presupuesto. Su disponibilidad depende del vehículo y se confirma con el presupuesto.",
       },
       {
         question: "¿Podemos configurar una reserva recurrente para rutas habituales?",

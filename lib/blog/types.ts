@@ -66,6 +66,8 @@ export interface BlogPost {
 export interface LocalizedBlogPost {
   id: string;
   publishedAt: string | null;
+  /** Date (YYYY-MM-DD) the content was last changed after publication, or null. See lib/blog/content-dates.ts. */
+  updatedAt: string | null;
   isFeatured: boolean;
   category: string;
   categoryLabel: string;

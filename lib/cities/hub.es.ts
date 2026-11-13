@@ -50,7 +50,7 @@ export const cityHubEs: CityHubDictionary = {
       {
         icon: "shield-check",
         title: "Conductores Profesionales",
-        description: "Todos los conductores de nuestra red cuentan con licencia profesional, verificación de antecedentes y seguro.",
+        description: "Los traslados los realizan conductores profesionales de proveedores de transporte locales.",
       },
       {
         icon: "badge-euro",
@@ -65,12 +65,12 @@ export const cityHubEs: CityHubDictionary = {
       {
         icon: "car-front",
         title: "Vehículos de Lujo",
-        description: "Desde sedanes ejecutivos hasta furgonetas espaciosas, nuestra flota se mantiene con un estándar premium.",
+        description: "Desde sedanes hasta furgonetas espaciosas, solicita el tamaño de vehículo que necesita tu grupo.",
       },
       {
         icon: "clock",
         title: "Servicio 24/7",
-        description: "Vuelo de madrugada o llegada a medianoche, nuestros conductores están listos a cualquier hora, todos los días del año.",
+        description: "Puedes solicitar recogidas de madrugada o de noche; la disponibilidad se confirma con el presupuesto.",
       },
       {
         icon: "headset",

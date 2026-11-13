@@ -11,7 +11,6 @@ import { ServiceWhyChoose } from "@/components/services/service-why-choose";
 import { ServiceRoutes } from "@/components/services/service-routes";
 import { ServiceFleet } from "@/components/services/service-fleet";
 import { ServiceProcess } from "@/components/services/service-process";
-import { ServiceTestimonials } from "@/components/services/service-testimonials";
 import { ServiceFaq } from "@/components/services/service-faq";
 import { ServiceCta } from "@/components/services/service-cta";
 
@@ -50,7 +49,6 @@ export function ServicePageContent({
       <ServiceRoutes dict={dict} />
       <ServiceFleet dict={dict} shared={shared} />
       <ServiceProcess shared={shared} />
-      <ServiceTestimonials testimonials={homeDict.testimonials} />
       <ServiceFaq dict={dict} shared={shared} />
       <ServiceCta dict={dict} />
     </>

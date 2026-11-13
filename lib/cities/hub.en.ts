@@ -50,7 +50,7 @@ export const cityHubEn: CityHubDictionary = {
       {
         icon: "shield-check",
         title: "Professional Drivers",
-        description: "Every driver in our network is professionally licensed, background-checked, and fully insured.",
+        description: "Transfers are carried out by professional drivers from local transport providers.",
       },
       {
         icon: "badge-euro",
@@ -65,12 +65,12 @@ export const cityHubEn: CityHubDictionary = {
       {
         icon: "car-front",
         title: "Luxury Vehicles",
-        description: "From business sedans to spacious vans, our fleet is maintained to a premium standard.",
+        description: "From sedans to spacious vans, request the vehicle size your group needs.",
       },
       {
         icon: "clock",
         title: "24/7 Service",
-        description: "Early flight or midnight arrival, our drivers are ready around the clock, every day of the year.",
+        description: "Early-morning and late-night pickups can be requested; availability is confirmed with your quote.",
       },
       {
         icon: "headset",

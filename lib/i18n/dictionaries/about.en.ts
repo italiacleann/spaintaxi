@@ -2,74 +2,67 @@ import type { AboutDictionary } from "@/lib/i18n/about-types";
 
 export const aboutEn: AboutDictionary = {
   meta: {
-    title: "About Spain Private Transfers | Trusted Taxi & Chauffeur Service",
+    title: "About Spain Private Transfers | How Our Transfer Service Works",
     description:
-      "Learn about Spain Private Transfers, a trusted provider of private car transfers, airport taxis, and chauffeur services across Spain.",
-    ogAlt: "Professional chauffeur standing beside a premium Spain Private Transfers vehicle",
+      "Spain Private Transfers helps travelers request private transfer services across Spain by connecting customers with local transport providers.",
+    ogAlt: "Private car for a transfer in Spain",
   },
   breadcrumb: {
     home: "Home",
     current: "About Us",
   },
   hero: {
-    badge: "Trusted Across Spain",
+    badge: "Private Transfers in Spain",
     title: "About Spain Private Transfers",
     description:
-      "We're a team of licensed drivers and travel specialists dedicated to one thing: getting you where you're going, comfortably, safely, and on time, anywhere in Spain.",
+      "Spain Private Transfers helps travelers request private transfer services across Spain by connecting customers with local transport providers. You tell us your trip, we send you a fixed-price quote, and a professional driver takes you door to door.",
     ctaQuote: "Get a Quote",
     ctaContact: "Contact Us",
     image:
       "https://images.unsplash.com/photo-1603087462214-2aadc739429c?w=1600&h=1400&fit=crop&q=80",
-    imageAlt: "Professional chauffeur standing beside a premium black vehicle",
+    imageAlt: "Black private car ready for a transfer",
   },
   story: {
-    whoWeAreTitle: "Who We Are",
+    whoWeAreTitle: "What We Do",
     whoWeAreParagraphs: [
-      "Spain Private Transfers was founded by a small team of travel professionals who were tired of watching visitors struggle with unreliable taxis, confusing public transport, and unpredictable pricing after long flights.",
-      "Today, we work with a trusted network of licensed, professional drivers across mainland Spain and the islands, providing private transfers that put comfort, punctuality, and transparency first, for leisure travelers, business guests, and everyone in between.",
+      "Spain Private Transfers helps travelers request private transfer services across Spain by connecting customers with local transport providers. You send one request with your pickup, destination, date and group size, and we come back with a fixed price for the whole trip.",
+      "Transfers are carried out by local transport providers. The price confirmed at booking is fixed, and our terms set out what's included, such as flight monitoring when you give us your flight number and free cancellation on most bookings up to 24 hours before pickup.",
     ],
     missionTitle: "Our Mission",
     missionText:
-      "To make private transportation in Spain simple, reliable, and stress-free, with fixed prices, professional drivers, and support you can reach any hour of the day.",
+      "To make booking a private transfer in Spain simple and transparent, with a fixed price agreed before you travel and clear terms.",
     visionText:
-      "To be the name travelers trust first when they think of getting around Spain, known for consistency, comfort, and genuine care for every journey.",
+      "To be a straightforward way to arrange private transport anywhere in Spain, from airport pickups to long-distance trips.",
     timeline: [
       {
-        label: "Founded",
-        title: "How We Started",
+        label: "Step 1",
+        title: "You Send a Request",
         description:
-          "Launched with a handful of drivers and a simple promise: no more guessing what your transfer will cost.",
+          "Tell us your pickup, destination, date, time, passengers and luggage in the quote form.",
       },
       {
-        label: "Mission",
-        title: "Built Around Reliability",
+        label: "Step 2",
+        title: "We Send a Fixed Price",
         description:
-          "We built our booking and dispatch process around one goal: your driver is always there, no matter what.",
+          "We check the trip with a local transport provider and reply with a fixed price by email.",
       },
       {
-        label: "Vision",
-        title: "Growing With Spain",
+        label: "Step 3",
+        title: "You Confirm",
         description:
-          "We expanded city by city, airport by airport, guided by driver quality rather than speed of growth.",
+          "Once you accept the quote, the booking is confirmed with the pickup details you need.",
       },
       {
-        label: "Today",
-        title: "Years of Experience",
+        label: "Step 4",
+        title: "Your Driver Collects You",
         description:
-          "Now serving travelers across 50+ cities and 25+ airports, with tens of thousands of transfers completed.",
+          "A professional driver meets you at the agreed point and takes you directly to your destination.",
       },
     ],
     image:
       "https://images.unsplash.com/photo-1772468237159-674f05233185?w=1200&h=1400&fit=crop&crop=right&q=80",
-    imageAlt: "Driver helping a traveler load luggage into the car",
+    imageAlt: "Luggage being loaded into a private car",
   },
-  stats: [
-    { value: "1000+", label: "Successful Transfers" },
-    { value: "24/7", label: "Customer Support" },
-    { value: "50+", label: "Cities Covered" },
-    { value: "25+", label: "Airports Served" },
-    { value: "100%", label: "Private Transfers" },
-  ],
   whyChoose: {
     title: "Why Travelers Choose Us",
     description:
@@ -78,17 +71,17 @@ export const aboutEn: AboutDictionary = {
       {
         icon: "user-check",
         title: "Professional Drivers",
-        description: "Licensed, experienced, and vetted before they ever meet a passenger.",
+        description: "Transfers are carried out by professional drivers from local transport providers.",
       },
       {
         icon: "shield-check",
-        title: "Licensed Vehicles",
-        description: "Every vehicle is registered, insured, and regularly inspected.",
+        title: "Clear Terms",
+        description: "Free cancellation on most bookings up to 24 hours before pickup.",
       },
       {
         icon: "plane",
         title: "Flight Monitoring",
-        description: "We track your flight and adjust pickup times automatically.",
+        description: "Give us your flight number and the pickup follows your actual landing time.",
       },
       {
         icon: "handshake",
@@ -102,8 +95,8 @@ export const aboutEn: AboutDictionary = {
       },
       {
         icon: "car-front",
-        title: "Luxury Vehicles",
-        description: "A premium, well-maintained fleet for every group size.",
+        title: "Vehicle Choice",
+        description: "Request a sedan, SUV, Mercedes V-Class, minivan or minibus to suit your group.",
       },
       {
         icon: "map-pin",
@@ -112,14 +105,14 @@ export const aboutEn: AboutDictionary = {
       },
       {
         icon: "headset",
-        title: "24/7 Support",
-        description: "A real team on call for questions, changes, or last-minute needs.",
+        title: "Requests Any Time",
+        description: "Send a quote request whenever suits you; we reply by email.",
       },
     ],
   },
   services: {
     title: "Our Services",
-    description: "One team, one standard of service, across every kind of journey.",
+    description: "The kinds of trips you can request through us.",
     items: [
       {
         icon: "plane",
@@ -172,7 +165,7 @@ export const aboutEn: AboutDictionary = {
       {
         icon: "flag",
         title: "Border Transfers",
-        description: "Private cross-border rides into Portugal, France, and beyond.",
+        description: "Cross-border trips into Portugal or France on request, subject to confirmation.",
         href: "/city-to-city-transfers/",
       },
       {
@@ -186,7 +179,7 @@ export const aboutEn: AboutDictionary = {
   coverage: {
     title: "Covering Every Destination in Spain",
     description:
-      "From major cities to quiet coastal towns, our driver network reaches every corner of the country.",
+      "You can request transfers across mainland Spain and the islands. We confirm availability for each trip with your quote.",
     cities: [
       "Madrid",
       "Barcelona",
@@ -209,28 +202,27 @@ export const aboutEn: AboutDictionary = {
   drivers: {
     title: "Professional Drivers",
     description:
-      "Your driver is the heart of every transfer. That's why every member of our network goes through a thorough screening before they ever pick up a passenger.",
+      "Transfers are carried out by professional drivers working with local transport providers. Here's what you can expect on the day.",
     highlights: [
-      "Fully licensed, insured, and background-checked",
-      "Fluent in English and Spanish",
-      "Extensive local route and traffic knowledge",
-      "Uniformed and professionally presented",
-      "Trained in flight monitoring and meet-and-greet service",
+      "Airport pickups: your driver waits in arrivals with a name sign",
+      "Flight monitoring when you include your flight number",
+      "Free waiting from actual landing: 60 minutes international, 45 minutes domestic",
+      "Direct trip to your destination, with no shared stops",
     ],
     image:
       "https://images.unsplash.com/photo-1617244148194-7971ce22f2fb?w=1200&h=1400&fit=crop&q=80",
-    imageAlt: "Professional chauffeur in a suit standing beside an open black Mercedes",
+    imageAlt: "Black Mercedes with the rear door open",
   },
   fleet: {
-    title: "Our Fleet",
-    description: "A premium vehicle for every group size, maintained to a five-star standard.",
+    title: "Vehicle Types",
+    description: "Examples of the vehicle types you can request. The exact vehicle depends on the local provider and is confirmed with your quote.",
     vehicles: [
       {
         name: "Executive Sedan",
         category: "Sedan",
         passengers: "1-3",
         luggage: "2",
-        wifi: true,
+        wifi: false,
         ac: true,
         image:
           "https://images.unsplash.com/photo-1589148938909-4d241c91ee52?w=900&h=700&fit=crop&q=80",
@@ -238,21 +230,21 @@ export const aboutEn: AboutDictionary = {
       },
       {
         name: "Mercedes V-Class",
-        category: "SUV",
+        category: "Van",
         passengers: "1-5",
         luggage: "4",
-        wifi: true,
+        wifi: false,
         ac: true,
         image:
           "https://images.unsplash.com/photo-1577372794873-e6b8efa7dcc3?w=900&h=700&fit=crop&q=80",
-        imageAlt: "Premium Mercedes-Benz SUV for a private transfer",
+        imageAlt: "Mercedes-Benz vehicle for a private transfer",
       },
       {
         name: "Luxury Van",
         category: "Minivan",
         passengers: "1-8",
         luggage: "8",
-        wifi: true,
+        wifi: false,
         ac: true,
         image:
           "https://images.unsplash.com/photo-1765461734605-34657fa04db2?w=900&h=700&fit=crop&q=80",
@@ -277,7 +269,7 @@ export const aboutEn: AboutDictionary = {
         step: "02",
         icon: "mail-check",
         title: "Receive Confirmation",
-        description: "Get your fixed price and booking details by email, instantly.",
+        description: "Get your fixed price and booking details by email.",
       },
       {
         step: "03",
@@ -289,70 +281,60 @@ export const aboutEn: AboutDictionary = {
         step: "04",
         icon: "car-front",
         title: "Enjoy Your Journey",
-        description: "Relax in a premium vehicle all the way to your destination.",
+        description: "Travel directly to your destination, with no shared stops.",
       },
     ],
   },
   trust: {
-    title: "Our Commitment to Quality",
+    title: "What You Can Rely On",
     description:
-      "Quality isn't a slogan for us, it's the standard every transfer is measured against.",
+      "These points come from our booking terms.",
     items: [
       {
-        icon: "star",
-        title: "Highly Rated on Google",
-        description: "Thousands of verified traveler reviews back our service quality.",
+        icon: "badge-euro",
+        title: "Fixed Price at Booking",
+        description: "The price confirmed at booking is fixed. Extras apply only for added stops, extra waiting or changes you request.",
       },
       {
         icon: "smile",
-        title: "Customer Satisfaction",
-        description: "We follow up after every trip to make sure it met our own standard.",
-      },
-      {
-        icon: "lock",
-        title: "Secure Payments",
-        description: "Encrypted, PCI-compliant payment processing on every booking.",
-      },
-      {
-        icon: "badge-euro",
-        title: "Fixed Prices, No Hidden Charges",
-        description: "The price you're quoted is the price you pay. Always.",
+        title: "Free Cancellation",
+        description: "Most bookings can be cancelled or changed free of charge up to 24 hours before pickup.",
       },
       {
         icon: "headset",
-        title: "Professional Support",
-        description: "A real support team reachable by email, day or night, with fast quote responses.",
+        title: "Contact by Email or WhatsApp",
+        description: "Questions about a quote or booking can be sent by email or WhatsApp.",
       },
     ],
   },
   faq: {
     title: "Frequently Asked Questions",
-    description: "Everything travelers ask us most about who we are and how we work.",
+    description: "Common questions about how we work.",
     items: [
       {
-        question: "How long has Spain Private Transfers been operating?",
+        question: "How does Spain Private Transfers work?",
         answer:
-          "We've been providing private transfers across Spain for years, growing from a handful of drivers to a nationwide network covering 50+ cities and 25+ airports.",
+          "Spain Private Transfers helps travelers request private transfer services across Spain by connecting customers with local transport providers. You send a request, we reply with a fixed price, and once you confirm, a professional driver carries out the transfer.",
       },
       {
-        question: "Are your drivers licensed and insured?",
+        question: "Who carries out the transfer?",
         answer:
-          "Yes. Every driver in our network is professionally licensed, fully insured, and background-checked before joining, and vehicles are inspected regularly.",
+          "Transfers are carried out by professional drivers from local transport providers. Your booking confirmation includes the pickup details you need on the day.",
       },
       {
         question: "Which areas of Spain do you cover?",
         answer:
-          "We cover mainland Spain and the islands, including every major airport, city, train station, cruise port, and most towns and resort areas in between.",
+          "You can request transfers across mainland Spain and the Balearic and Canary Islands, including airports, cities, train stations and cruise ports. We confirm availability for each trip with your quote.",
       },
       {
         question: "How is the price of my transfer determined?",
         answer:
-          "Pricing is based on your exact pickup and drop-off points, vehicle type, and passenger count, and is confirmed in full before you book. There are no meters or hidden fees.",
+          "Pricing is based on your pickup and drop-off points, vehicle type, and passenger count, and is confirmed before you book. Extra charges apply only for added stops, waiting beyond the included allowance, or changes you request after booking.",
       },
       {
         question: "What happens if my flight is delayed?",
         answer:
-          "We monitor your flight in real time using your flight number, so your driver automatically adjusts to your actual landing time at no extra charge.",
+          "If you include your flight number when booking, we monitor the flight and adjust the pickup to your actual landing time. Waiting time counts from that landing and includes 60 minutes free for international arrivals and 45 minutes for domestic ones.",
       },
       {
         question: "Can I book a transfer for someone else?",
@@ -360,25 +342,25 @@ export const aboutEn: AboutDictionary = {
           "Yes, you can book on behalf of a family member, colleague, or guest. Just add their contact details and flight information when you request your quote.",
       },
       {
-        question: "Is my payment information secure?",
+        question: "How do I pay?",
         answer:
-          "Yes. All payments are processed through encrypted, PCI-compliant systems, and we never store your full card details on our servers.",
+          "Payment options are confirmed with your quote and set out in our terms and conditions.",
       },
       {
         question: "Do you offer corporate or long-term accounts?",
         answer:
-          "Yes, we work with businesses of all sizes on invoiced billing and priority booking for frequent business travel.",
+          "Yes. Businesses can request invoiced billing for regular travel. Tell us what you need when you get in touch.",
       },
       {
         question: "How can I contact customer support?",
         answer:
-          "Our support team is available 24/7 by email, and every booking confirmation includes direct contact details for your driver.",
+          "Send us an email or a WhatsApp message. Contact details are in the footer of every page.",
       },
     ],
   },
   cta: {
     title: "Book Your Transfer Today",
-    description: "Need a transfer anywhere in Spain? Get your instant quote today.",
+    description: "Need a transfer in Spain? Send your trip details and we'll reply with a fixed-price quote.",
     button: "Request Quote",
   },
   links: {

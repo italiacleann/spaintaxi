@@ -4,72 +4,65 @@ export const aboutEs: AboutDictionary = {
   meta: {
     title: "Sobre Nosotros | Spain Private Transfers",
     description:
-      "Conozca Spain Private Transfers, su servicio de confianza para traslados al aeropuerto, traslados privados y servicios con conductor en España.",
-    ogAlt: "Chófer profesional junto a un vehículo premium de Spain Private Transfers",
+      "Spain Private Transfers ayuda a los viajeros a solicitar servicios de traslado privado en toda España, poniéndolos en contacto con proveedores de transporte locales.",
+    ogAlt: "Coche privado para un traslado en España",
   },
   breadcrumb: {
     home: "Inicio",
     current: "Sobre Nosotros",
   },
   hero: {
-    badge: "La Confianza de Toda España",
+    badge: "Traslados Privados en España",
     title: "Sobre Spain Private Transfers",
     description:
-      "Somos un equipo de conductores con licencia y especialistas en viajes dedicados a una sola cosa: llevarte a tu destino con comodidad, seguridad y puntualidad, en cualquier punto de España.",
+      "Spain Private Transfers ayuda a los viajeros a solicitar servicios de traslado privado en toda España, poniéndolos en contacto con proveedores de transporte locales. Nos cuentas tu viaje, te enviamos un presupuesto con precio cerrado y un conductor profesional te lleva puerta a puerta.",
     ctaQuote: "Solicitar Presupuesto",
     ctaContact: "Contáctanos",
     image:
       "https://images.unsplash.com/photo-1603087462214-2aadc739429c?w=1600&h=1400&fit=crop&q=80",
-    imageAlt: "Chófer profesional junto a un vehículo premium de color negro",
+    imageAlt: "Coche privado negro preparado para un traslado",
   },
   story: {
-    whoWeAreTitle: "Quiénes Somos",
+    whoWeAreTitle: "Qué Hacemos",
     whoWeAreParagraphs: [
-      "Spain Private Transfers nació de la mano de un pequeño equipo de profesionales del sector turístico, cansados de ver a los viajeros lidiar con taxis poco fiables, transporte público confuso y precios imprevisibles después de vuelos largos.",
-      "Hoy trabajamos con una red de confianza de conductores profesionales con licencia en toda la España peninsular y las islas, ofreciendo traslados privados que priorizan la comodidad, la puntualidad y la transparencia, tanto para viajeros de ocio como de negocios.",
+      "Spain Private Transfers ayuda a los viajeros a solicitar servicios de traslado privado en toda España, poniéndolos en contacto con proveedores de transporte locales. Envías una solicitud con la recogida, el destino, la fecha y el tamaño del grupo, y te respondemos con un precio cerrado para todo el trayecto.",
+      "Los traslados los realizan proveedores de transporte locales. El precio confirmado al reservar es cerrado, y nuestras condiciones detallan lo que incluye, como el seguimiento del vuelo si nos das el número de vuelo y la cancelación gratuita en la mayoría de las reservas hasta 24 horas antes de la recogida.",
     ],
     missionTitle: "Nuestra Misión",
     missionText:
-      "Hacer que el transporte privado en España sea sencillo, fiable y sin complicaciones, con precios cerrados, conductores profesionales y un equipo de soporte disponible a cualquier hora del día.",
+      "Que reservar un traslado privado en España sea sencillo y transparente, con un precio cerrado acordado antes del viaje y condiciones claras.",
     visionText:
-      "Ser el nombre en el que confían los viajeros al pensar en moverse por España, reconocidos por nuestra constancia, comodidad y el cuidado genuino que ponemos en cada trayecto.",
+      "Ser una forma sencilla de organizar transporte privado en cualquier punto de España, desde recogidas en el aeropuerto hasta trayectos de larga distancia.",
     timeline: [
       {
-        label: "Fundación",
-        title: "Cómo Empezamos",
+        label: "Paso 1",
+        title: "Envías tu Solicitud",
         description:
-          "Comenzamos con un puñado de conductores y una promesa sencilla: se acabó adivinar cuánto costará tu traslado.",
+          "Indícanos recogida, destino, fecha, hora, pasajeros y equipaje en el formulario de presupuesto.",
       },
       {
-        label: "Misión",
-        title: "Construido Sobre la Fiabilidad",
+        label: "Paso 2",
+        title: "Te Enviamos un Precio Cerrado",
         description:
-          "Diseñamos todo nuestro proceso de reserva y despacho en torno a un único objetivo: tu conductor siempre está ahí, pase lo que pase.",
+          "Consultamos el trayecto con un proveedor de transporte local y te respondemos por correo con un precio cerrado.",
       },
       {
-        label: "Visión",
-        title: "Creciendo con España",
+        label: "Paso 3",
+        title: "Confirmas",
         description:
-          "Nos expandimos ciudad a ciudad, aeropuerto a aeropuerto, priorizando siempre la calidad del conductor sobre la velocidad de crecimiento.",
+          "Cuando aceptas el presupuesto, la reserva queda confirmada con los datos de recogida que necesitas.",
       },
       {
-        label: "Hoy",
-        title: "Años de Experiencia",
+        label: "Paso 4",
+        title: "Tu Conductor te Recoge",
         description:
-          "Actualmente damos servicio en más de 50 ciudades y 25 aeropuertos, con decenas de miles de traslados completados.",
+          "Un conductor profesional te espera en el punto acordado y te lleva directamente a tu destino.",
       },
     ],
     image:
       "https://images.unsplash.com/photo-1772468237159-674f05233185?w=1200&h=1400&fit=crop&crop=right&q=80",
-    imageAlt: "Conductor ayudando a un viajero a cargar el equipaje en el coche",
+    imageAlt: "Equipaje cargándose en un coche privado",
   },
-  stats: [
-    { value: "1000+", label: "Traslados Realizados con Éxito" },
-    { value: "24/7", label: "Atención al Cliente" },
-    { value: "50+", label: "Ciudades Cubiertas" },
-    { value: "25+", label: "Aeropuertos Atendidos" },
-    { value: "100%", label: "Traslados Privados" },
-  ],
   whyChoose: {
     title: "¿Por Qué Elegirnos?",
     description:
@@ -79,18 +72,18 @@ export const aboutEs: AboutDictionary = {
         icon: "user-check",
         title: "Conductores Profesionales",
         description:
-          "Con licencia, experimentados y verificados antes de conocer a un solo pasajero.",
+          "Los traslados los realizan conductores profesionales de proveedores de transporte locales.",
       },
       {
         icon: "shield-check",
-        title: "Vehículos con Licencia",
+        title: "Condiciones Claras",
         description:
-          "Todos nuestros vehículos están registrados, asegurados e inspeccionados regularmente.",
+          "Cancelación gratuita en la mayoría de las reservas hasta 24 horas antes de la recogida.",
       },
       {
         icon: "plane",
         title: "Seguimiento de Vuelo",
-        description: "Controlamos tu vuelo y ajustamos la hora de recogida automáticamente.",
+        description: "Danos tu número de vuelo y la recogida se ajusta a la hora real de aterrizaje.",
       },
       {
         icon: "handshake",
@@ -105,8 +98,8 @@ export const aboutEs: AboutDictionary = {
       },
       {
         icon: "car-front",
-        title: "Vehículos de Lujo",
-        description: "Una flota premium y bien mantenida para cualquier tamaño de grupo.",
+        title: "Elección de Vehículo",
+        description: "Solicita sedán, SUV, Mercedes Clase V, furgoneta o minibús según tu grupo.",
       },
       {
         icon: "map-pin",
@@ -115,14 +108,14 @@ export const aboutEs: AboutDictionary = {
       },
       {
         icon: "headset",
-        title: "Soporte 24/7",
-        description: "Un equipo real disponible para dudas, cambios o imprevistos de última hora.",
+        title: "Solicitudes a Cualquier Hora",
+        description: "Envía tu solicitud de presupuesto cuando te venga bien; te respondemos por correo.",
       },
     ],
   },
   services: {
     title: "Nuestros Servicios",
-    description: "Un mismo equipo, un mismo estándar de servicio, para cualquier tipo de trayecto.",
+    description: "Los tipos de trayecto que puedes solicitar a través de nosotros.",
     items: [
       {
         icon: "plane",
@@ -176,7 +169,7 @@ export const aboutEs: AboutDictionary = {
       {
         icon: "flag",
         title: "Traslados Fronterizos",
-        description: "Trayectos privados transfronterizos hacia Portugal, Francia y más allá.",
+        description: "Trayectos transfronterizos a Portugal o Francia bajo petición, sujetos a confirmación.",
         href: "/es/traslados-entre-ciudades/",
       },
       {
@@ -190,7 +183,7 @@ export const aboutEs: AboutDictionary = {
   coverage: {
     title: "Cobertura en Toda España",
     description:
-      "De las grandes ciudades a los pueblos costeros más tranquilos, nuestra red de conductores llega a cada rincón del país.",
+      "Puedes solicitar traslados en toda la España peninsular y las islas. Confirmamos la disponibilidad de cada trayecto junto con el presupuesto.",
     cities: [
       "Madrid",
       "Barcelona",
@@ -213,28 +206,27 @@ export const aboutEs: AboutDictionary = {
   drivers: {
     title: "Conductores Profesionales",
     description:
-      "El conductor es el corazón de cada traslado. Por eso, cada miembro de nuestra red pasa por una selección exhaustiva antes de recoger a su primer pasajero.",
+      "Los traslados los realizan conductores profesionales que trabajan con proveedores de transporte locales. Esto es lo que puedes esperar el día del viaje.",
     highlights: [
-      "Con licencia, seguro y antecedentes verificados",
-      "Dominio de español e inglés",
-      "Amplio conocimiento de rutas y tráfico local",
-      "Uniformados y con presencia profesional",
-      "Formados en seguimiento de vuelos y recepción de pasajeros",
+      "Recogidas en el aeropuerto: el conductor te espera en llegadas con un cartel con tu nombre",
+      "Seguimiento del vuelo si incluyes el número de vuelo",
+      "Espera gratuita desde el aterrizaje real: 60 minutos en vuelos internacionales, 45 en nacionales",
+      "Trayecto directo a tu destino, sin paradas compartidas",
     ],
     image:
       "https://images.unsplash.com/photo-1617244148194-7971ce22f2fb?w=1200&h=1400&fit=crop&q=80",
-    imageAlt: "Chófer profesional con traje junto a un Mercedes negro con la puerta abierta",
+    imageAlt: "Mercedes negro con la puerta trasera abierta",
   },
   fleet: {
-    title: "Nuestra Flota",
-    description: "Un vehículo premium para cada tamaño de grupo, mantenido con un estándar de cinco estrellas.",
+    title: "Tipos de Vehículo",
+    description: "Ejemplos de los tipos de vehículo que puedes solicitar. El vehículo concreto depende del proveedor local y se confirma con el presupuesto.",
     vehicles: [
       {
         name: "Sedán Ejecutivo",
         category: "Sedán",
         passengers: "1-3",
         luggage: "2",
-        wifi: true,
+        wifi: false,
         ac: true,
         image:
           "https://images.unsplash.com/photo-1589148938909-4d241c91ee52?w=900&h=700&fit=crop&q=80",
@@ -242,21 +234,21 @@ export const aboutEs: AboutDictionary = {
       },
       {
         name: "Mercedes Clase V",
-        category: "SUV",
+        category: "Monovolumen",
         passengers: "1-5",
         luggage: "4",
-        wifi: true,
+        wifi: false,
         ac: true,
         image:
           "https://images.unsplash.com/photo-1577372794873-e6b8efa7dcc3?w=900&h=700&fit=crop&q=80",
-        imageAlt: "SUV Mercedes-Benz premium para un traslado privado",
+        imageAlt: "Vehículo Mercedes-Benz para un traslado privado",
       },
       {
         name: "Furgoneta de Lujo",
         category: "Monovolumen",
         passengers: "1-8",
         luggage: "8",
-        wifi: true,
+        wifi: false,
         ac: true,
         image:
           "https://images.unsplash.com/photo-1765461734605-34657fa04db2?w=900&h=700&fit=crop&q=80",
@@ -281,7 +273,7 @@ export const aboutEs: AboutDictionary = {
         step: "02",
         icon: "mail-check",
         title: "Recibe la Confirmación",
-        description: "Recibe tu precio cerrado y los datos de la reserva por correo, al instante.",
+        description: "Recibe tu precio cerrado y los datos de la reserva por correo.",
       },
       {
         step: "03",
@@ -294,72 +286,60 @@ export const aboutEs: AboutDictionary = {
         step: "04",
         icon: "car-front",
         title: "Disfruta del Trayecto",
-        description: "Relájate en un vehículo premium hasta llegar a tu destino.",
+        description: "Viaja directamente a tu destino, sin paradas compartidas.",
       },
     ],
   },
   trust: {
-    title: "Nuestro Compromiso con la Calidad",
+    title: "Con Qué Puedes Contar",
     description:
-      "La calidad no es un eslogan para nosotros: es el estándar con el que medimos cada traslado.",
+      "Estos puntos proceden de nuestras condiciones de reserva.",
     items: [
       {
-        icon: "star",
-        title: "Muy Valorados en Google",
-        description:
-          "Miles de reseñas verificadas de viajeros respaldan la calidad de nuestro servicio.",
+        icon: "badge-euro",
+        title: "Precio Cerrado al Reservar",
+        description: "El precio confirmado al reservar es cerrado. Solo hay extras por paradas añadidas, esperas adicionales o cambios que pidas.",
       },
       {
         icon: "smile",
-        title: "Satisfacción del Cliente",
-        description:
-          "Hacemos seguimiento después de cada viaje para asegurarnos de cumplir nuestro propio estándar.",
-      },
-      {
-        icon: "lock",
-        title: "Pagos Seguros",
-        description: "Procesamiento de pagos cifrado y conforme con el estándar PCI en cada reserva.",
-      },
-      {
-        icon: "badge-euro",
-        title: "Precios Cerrados, Sin Cargos Ocultos",
-        description: "El precio que te confirmamos es el que pagas. Siempre.",
+        title: "Cancelación Gratuita",
+        description: "La mayoría de las reservas se pueden cancelar o modificar sin coste hasta 24 horas antes de la recogida.",
       },
       {
         icon: "headset",
-        title: "Soporte Profesional",
-        description: "Un equipo de soporte real, disponible por correo electrónico día y noche, con respuestas rápidas a tu presupuesto.",
+        title: "Contacto por Correo o WhatsApp",
+        description: "Puedes enviarnos tus dudas sobre un presupuesto o una reserva por correo o WhatsApp.",
       },
     ],
   },
   faq: {
     title: "Preguntas Frecuentes",
-    description: "Todo lo que más nos preguntan los viajeros sobre quiénes somos y cómo trabajamos.",
+    description: "Preguntas habituales sobre cómo trabajamos.",
     items: [
       {
-        question: "¿Cuánto tiempo lleva operando Spain Private Transfers?",
+        question: "¿Cómo funciona Spain Private Transfers?",
         answer:
-          "Llevamos años ofreciendo traslados privados por toda España, creciendo desde un pequeño grupo de conductores hasta una red nacional presente en más de 50 ciudades y 25 aeropuertos.",
+          "Spain Private Transfers ayuda a los viajeros a solicitar servicios de traslado privado en toda España, poniéndolos en contacto con proveedores de transporte locales. Envías una solicitud, te respondemos con un precio cerrado y, cuando confirmas, un conductor profesional realiza el traslado.",
       },
       {
-        question: "¿Vuestros conductores tienen licencia y seguro?",
+        question: "¿Quién realiza el traslado?",
         answer:
-          "Sí. Todos los conductores de nuestra red cuentan con licencia profesional, seguro completo y verificación de antecedentes antes de incorporarse, y los vehículos se inspeccionan periódicamente.",
+          "Los traslados los realizan conductores profesionales de proveedores de transporte locales. La confirmación de la reserva incluye los datos de recogida que necesitas para el día del viaje.",
       },
       {
         question: "¿Qué zonas de España cubrís?",
         answer:
-          "Cubrimos la España peninsular y las islas, incluyendo todos los grandes aeropuertos, ciudades, estaciones de tren, puertos de crucero y la mayoría de pueblos y zonas turísticas entre medias.",
+          "Puedes solicitar traslados en toda la España peninsular y en las islas Baleares y Canarias, incluidos aeropuertos, ciudades, estaciones de tren y puertos de cruceros. Confirmamos la disponibilidad de cada trayecto junto con el presupuesto.",
       },
       {
         question: "¿Cómo se determina el precio de mi traslado?",
         answer:
-          "El precio se calcula según el punto de recogida, el destino, el tipo de vehículo y el número de pasajeros, y se confirma por completo antes de reservar. No hay taxímetro ni cargos ocultos.",
+          "El precio se calcula según el punto de recogida, el destino, el tipo de vehículo y el número de pasajeros, y se confirma antes de reservar. Solo hay cargos adicionales por paradas añadidas, esperas que superen el tiempo incluido o cambios que pidas después de reservar.",
       },
       {
         question: "¿Qué ocurre si mi vuelo se retrasa?",
         answer:
-          "Controlamos tu vuelo en tiempo real con tu número de vuelo, así que tu conductor ajusta automáticamente la hora de recogida sin coste adicional.",
+          "Si incluyes el número de vuelo al reservar, seguimos el vuelo y ajustamos la recogida a la hora real de aterrizaje. El tiempo de espera se cuenta desde ese aterrizaje e incluye 60 minutos gratuitos en vuelos internacionales y 45 en nacionales.",
       },
       {
         question: "¿Puedo reservar un traslado para otra persona?",
@@ -367,25 +347,25 @@ export const aboutEs: AboutDictionary = {
           "Sí, puedes reservar en nombre de un familiar, compañero de trabajo o invitado. Solo tienes que añadir sus datos de contacto y de vuelo al solicitar el presupuesto.",
       },
       {
-        question: "¿Mis datos de pago están protegidos?",
+        question: "¿Cómo se paga?",
         answer:
-          "Sí. Todos los pagos se procesan mediante sistemas cifrados y conformes con el estándar PCI, y nunca almacenamos los datos completos de tu tarjeta en nuestros servidores.",
+          "Las opciones de pago se confirman con el presupuesto y se detallan en nuestros términos y condiciones.",
       },
       {
         question: "¿Ofrecéis cuentas corporativas o de larga duración?",
         answer:
-          "Sí, trabajamos con empresas de todos los tamaños con facturación y reserva prioritaria para viajes de negocio frecuentes.",
+          "Sí. Las empresas pueden solicitar facturación para viajes habituales. Cuéntanos lo que necesitas cuando contactes con nosotros.",
       },
       {
         question: "¿Cómo puedo contactar con atención al cliente?",
         answer:
-          "Nuestro equipo de soporte está disponible 24/7 por correo electrónico, y cada confirmación de reserva incluye los datos de contacto directo de tu conductor.",
+          "Envíanos un correo o un mensaje de WhatsApp. Los datos de contacto están en el pie de cada página.",
       },
     ],
   },
   cta: {
     title: "Reserve Su Traslado",
-    description: "¿Necesitas un traslado en cualquier punto de España? Consigue tu presupuesto al instante hoy mismo.",
+    description: "¿Necesitas un traslado en España? Envíanos los datos de tu viaje y te responderemos con un presupuesto de precio cerrado.",
     button: "Solicitar Presupuesto",
   },
   links: {

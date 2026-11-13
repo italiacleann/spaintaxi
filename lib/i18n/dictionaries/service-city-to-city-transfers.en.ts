@@ -4,7 +4,7 @@ export const cityToCityTransfersEn: ServicePageDictionary = {
   meta: {
     title: "City-to-City Transfers in Spain – Reserve Your Ride",
     description:
-      "Comfortable long-distance transfers between Spanish cities. Fixed prices, professional drivers, and door-to-door service, 24/7.",
+      "Comfortable long-distance transfers between Spanish cities. Fixed prices, professional drivers and door-to-door service.",
     ogAlt: "Private vehicle on a scenic Spanish highway for a city-to-city transfer",
   },
   breadcrumb: {
@@ -87,7 +87,7 @@ export const cityToCityTransfersEn: ServicePageDictionary = {
       },
       {
         question: "Can I book an overnight or early-morning transfer?",
-        answer: "Yes, city-to-city transfers run 24/7 at the same fixed price, whatever time you need to travel.",
+        answer: "Yes, you can request overnight and early-morning transfers. Any time-of-day pricing is included in your quote, and the price confirmed at booking is fixed.",
       },
       {
         question: "Do you offer round-trip city transfers?",

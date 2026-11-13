@@ -12,7 +12,6 @@ import { ServiceRoutes } from "@/components/services/service-routes";
 import { AirportNearbyCities } from "@/components/airports/airport-nearby-cities";
 import { ServiceFleet } from "@/components/services/service-fleet";
 import { ServiceProcess } from "@/components/services/service-process";
-import { ServiceTestimonials } from "@/components/services/service-testimonials";
 import { ServiceFaq } from "@/components/services/service-faq";
 import { RelatedServicesSection } from "@/components/shared/related-services-section";
 import { RouteRelatedTransfersSection } from "@/components/routes/route-related-transfers-section";
@@ -58,7 +57,6 @@ export function AirportPageContent({
       <AirportNearbyCities dict={dict} />
       <ServiceFleet dict={dict} shared={shared} />
       <ServiceProcess shared={shared} />
-      <ServiceTestimonials testimonials={homeDict.testimonials} />
       <ServiceFaq dict={dict} shared={shared} />
       <RelatedServicesSection title={dict.relatedServices.title} items={dict.relatedServices.items} />
       {originCitySlug ? <RouteRelatedTransfersSection citySlug={originCitySlug} locale={locale} /> : null}

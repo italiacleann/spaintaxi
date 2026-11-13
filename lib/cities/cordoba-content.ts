@@ -99,7 +99,7 @@ export const CORDOBA_FAQ_EN: CityFaqItem[] = [
   },
   {
     question: "Can I request a child seat?",
-    answer: "Yes, child and booster seats are available on request at no additional charge. Just add the details when you book.",
+    answer: "You can request child and booster seats when you ask for a quote. Availability and any charge are confirmed with your quote.",
   },
 ];
 
@@ -130,6 +130,6 @@ export const CORDOBA_FAQ_ES: CityFaqItem[] = [
   },
   {
     question: "¿Puedo solicitar una silla infantil?",
-    answer: "Sí, las sillas infantiles y elevadores están disponibles a petición sin coste adicional. Solo indica los detalles al reservar.",
+    answer: "Puedes solicitar sillas infantiles y elevadores al pedir presupuesto. La disponibilidad y cualquier coste se confirman con el presupuesto.",
   },
 ];

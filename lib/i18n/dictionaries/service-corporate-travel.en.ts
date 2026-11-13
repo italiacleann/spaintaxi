@@ -47,7 +47,7 @@ export const corporateTravelEn: ServicePageDictionary = {
       {
         icon: "shield-check",
         title: "Discreet, Professional Drivers",
-        description: "Vetted drivers trained for confidential and executive travel.",
+        description: "Professional drivers for business travel; tell us about any confidentiality requirements.",
       },
       {
         icon: "plane",
@@ -83,7 +83,7 @@ export const corporateTravelEn: ServicePageDictionary = {
       },
       {
         question: "Are your drivers trained for executive or confidential travel?",
-        answer: "Yes, drivers assigned to corporate accounts are vetted and briefed on discretion and professional conduct.",
+        answer: "Transfers are carried out by professional drivers from local transport providers. Tell us about any confidentiality or dress-code requirements when you request a quote and we'll confirm what can be arranged.",
       },
       {
         question: "Can you coordinate transfers for a visiting team?",
@@ -91,7 +91,7 @@ export const corporateTravelEn: ServicePageDictionary = {
       },
       {
         question: "Do you provide Wi-Fi in the vehicle for work on the go?",
-        answer: "Yes, Wi-Fi is available on request in our business and executive vehicles at no extra cost.",
+        answer: "You can ask for Wi-Fi in the quote form. Whether it's available depends on the vehicle and is confirmed with your quote.",
       },
       {
         question: "Can we set up a recurring booking for regular routes?",

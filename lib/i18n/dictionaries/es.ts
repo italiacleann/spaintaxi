@@ -30,14 +30,12 @@ export const es: Dictionary = {
     { label: "Sobre Nosotros", href: "/es/sobre-nosotros/" },
   ],
   hero: {
-    eyebrow: "Privado y puntual, siempre",
+    eyebrow: "Traslados privados, precio cerrado",
     title: "Traslados Privados por Toda España",
     description:
-      "Reserva un traslado privado con conductor y precio cerrado entre cualquier aeropuerto, ciudad o zona costera de España. Seguimiento de vuelo, conductores profesionales y asistencia 24 horas incluidos de serie.",
-    ratingSuffix: "4,9/5 según más de 12.000 viajeros",
-    transfersCompleted: "Más de 50.000 traslados realizados",
-    formTitle: "Consigue tu Presupuesto al Instante",
-    formSubtitle: "Precio cerrado, confirmado en segundos.",
+      "Reserva un traslado privado con conductor y precio cerrado entre cualquier aeropuerto, ciudad o zona costera de España. Pide presupuesto cuando quieras; el precio queda cerrado al reservar.",
+    formTitle: "Solicita tu Presupuesto",
+    formSubtitle: "Te respondemos por correo con un precio cerrado.",
     formNote:
       "No se requiere pago ahora. Cancelación gratuita hasta 24 horas antes de la recogida.",
   },
@@ -60,8 +58,8 @@ export const es: Dictionary = {
   trustBar: [
     {
       icon: "clock",
-      title: "Servicio 24/7",
-      description: "De día o de noche, estamos en la carretera en cuanto aterrizas.",
+      title: "Solicitudes a Cualquier Hora",
+      description: "Envía tu solicitud para cualquier hora del día; la disponibilidad se confirma con el presupuesto.",
     },
     {
       icon: "badge-euro",
@@ -77,7 +75,7 @@ export const es: Dictionary = {
     {
       icon: "user-check",
       title: "Conductores Profesionales",
-      description: "Con licencia, verificados y con dominio de español e inglés.",
+      description: "Los traslados los realizan conductores de proveedores de transporte locales.",
     },
   ],
   airportsSection: {
@@ -261,30 +259,30 @@ export const es: Dictionary = {
     },
     {
       icon: "shield-check",
-      title: "Conductores con Licencia y Seguro",
+      title: "Conductores Profesionales",
       description:
-        "Todos nuestros conductores están licenciados, verificados y con seguro completo.",
+        "Los traslados los realizan conductores profesionales de proveedores de transporte locales.",
     },
     {
       icon: "plane",
       title: "Seguimiento de Vuelo Incluido",
       description:
-        "Controlamos tu vuelo en tiempo real, así que tu conductor siempre está ahí, aunque aterrices tarde.",
+        "Danos tu número de vuelo y lo seguimos, para que la recogida se ajuste a la hora real de aterrizaje.",
     },
     {
       icon: "clock",
-      title: "Disponibles las 24 Horas",
-      description: "Vuelo de madrugada o llegada a medianoche: nuestros conductores están listos las 24 horas.",
+      title: "Recogidas de Madrugada o de Noche",
+      description: "Puedes solicitar recogidas de madrugada o de noche; la disponibilidad se confirma con el presupuesto.",
     },
     {
       icon: "car-front",
-      title: "Vehículos Premium e Impecables",
-      description: "Flota moderna y climatizada, mantenida con un estándar premium.",
+      title: "Elección de Vehículo",
+      description: "Solicita el tamaño de vehículo que necesita tu grupo, desde un sedán hasta un minibús.",
     },
     {
       icon: "headset",
-      title: "Atención Humana Real",
-      description: "Un equipo dedicado listo para ayudarte antes, durante y después de tu viaje.",
+      title: "Contacto por Correo o WhatsApp",
+      description: "Puedes enviarnos tus dudas sobre un presupuesto o una reserva por correo o WhatsApp.",
     },
   ],
   processSection: {
@@ -301,7 +299,7 @@ export const es: Dictionary = {
     {
       step: "02",
       icon: "mail-check",
-      title: "Recibe Confirmación al Instante",
+      title: "Recibe tu Precio Cerrado",
       description: "Recibe tu precio cerrado y la confirmación de reserva por correo electrónico.",
     },
     {
@@ -318,7 +316,7 @@ export const es: Dictionary = {
     },
   ],
   fleetSection: {
-    eyebrow: "Nuestra Flota",
+    eyebrow: "Tipos de Vehículo",
     title: "Un Vehículo Premium para Cada Viaje",
     description:
       "Vehículos modernos e impecables, adaptados al tamaño de tu grupo y tus necesidades de confort.",
@@ -329,7 +327,7 @@ export const es: Dictionary = {
       passengers: "1-3 pasajeros",
       luggage: "2 maletas",
       description: "Un trayecto refinado y cómodo para viajeros individuales y parejas.",
-      features: ["Interior de piel", "Aire acondicionado", "Agua embotellada"],
+      features: ["Hasta 3 pasajeros", "Equipaje estándar"],
       image:
         "https://images.unsplash.com/photo-1589148938909-4d241c91ee52?w=900&h=700&fit=crop&q=80",
       imageAlt: "Sedán ejecutivo negro estacionado para un traslado privado al aeropuerto",
@@ -339,7 +337,7 @@ export const es: Dictionary = {
       passengers: "1-5 pasajeros",
       luggage: "4 maletas",
       description: "Espacio y confort extra para familias y grupos pequeños.",
-      features: ["Espacio extra para las piernas", "Silla infantil bajo petición", "Wi-Fi a bordo"],
+      features: ["Hasta 5 pasajeros", "Puedes solicitar sillas infantiles"],
       image:
         "https://images.unsplash.com/photo-1577372794873-e6b8efa7dcc3?w=900&h=700&fit=crop&q=80",
       imageAlt: "SUV Mercedes-Benz premium listo para un traslado privado",
@@ -349,57 +347,10 @@ export const es: Dictionary = {
       passengers: "1-8 pasajeros",
       luggage: "8 maletas",
       description: "Ideal para grupos, familias y equipos de trabajo que viajan juntos.",
-      features: ["Cabina amplia", "Amplio espacio para equipaje", "Salidas de aire individuales"],
+      features: ["Hasta 8 pasajeros", "Más espacio para equipaje"],
       image:
         "https://images.unsplash.com/photo-1600320254374-ce2d293c324e?w=900&h=700&fit=crop&q=80",
       imageAlt: "Amplio monovolumen de lujo para traslados de grupo al aeropuerto",
-    },
-  ],
-  testimonialsSection: {
-    eyebrow: "Opiniones de Clientes",
-    title: "La Confianza de Viajeros de Todo el Mundo",
-    description: "Viajes reales, precios cerrados reales, conductores esperando en llegadas.",
-  },
-  testimonials: [
-    {
-      name: "Emma Whitfield",
-      location: "Londres, Reino Unido",
-      rating: 5,
-      quote:
-        "Nuestro vuelo se retrasó dos horas y el conductor seguía esperando cuando aterrizamos. Todo perfecto, muy profesional y el coche impecable.",
-      avatar: "https://i.pravatar.cc/150?img=47",
-    },
-    {
-      name: "Lucas Bergmann",
-      location: "Múnich, Alemania",
-      rating: 5,
-      quote:
-        "Reservamos un traslado de Madrid a Toledo para un viaje de trabajo. Precio cerrado, puntual, y el conductor sabía exactamente adónde ir.",
-      avatar: "https://i.pravatar.cc/150?img=12",
-    },
-    {
-      name: "Sophie Martin",
-      location: "París, Francia",
-      rating: 5,
-      quote:
-        "Viajar con tres niños nunca es fácil, pero las sillas infantiles estaban listas y el conductor fue muy paciente. Totalmente recomendable.",
-      avatar: "https://i.pravatar.cc/150?img=32",
-    },
-    {
-      name: "Daniel Cohen",
-      location: "Tel Aviv, Israel",
-      rating: 5,
-      quote:
-        "Lo usamos para un traslado de grupo desde el aeropuerto de Barcelona hasta el hotel. Éramos diez, una furgoneta, cero estrés. Repetiremos seguro.",
-      avatar: "https://i.pravatar.cc/150?img=68",
-    },
-    {
-      name: "Isabella Conti",
-      location: "Milán, Italia",
-      rating: 5,
-      quote:
-        "La herramienta de presupuesto al instante hizo que reservar fuera facilísimo, y el precio coincidió exactamente con lo que pagamos. Sin extras ocultos.",
-      avatar: "https://i.pravatar.cc/150?img=5",
     },
   ],
   faqSection: {
@@ -422,7 +373,7 @@ export const es: Dictionary = {
     {
       question: "¿Puedo pedir una silla infantil?",
       answer:
-        "Sí, las sillas infantiles y alzadores están disponibles bajo petición sin coste adicional. Solo tienes que indicarlo al solicitar tu presupuesto.",
+        "Puedes solicitar sillas infantiles y alzadores al pedir presupuesto. La disponibilidad y cualquier coste se confirman con el presupuesto.",
     },
     {
       question: "¿Cómo y cuándo pago?",
@@ -448,12 +399,12 @@ export const es: Dictionary = {
   ctaSection: {
     title: "¿Listo para un Traslado sin Complicaciones en España?",
     description:
-      "Consigue tu presupuesto con precio cerrado en menos de un minuto. Sin registro, sin compromiso, solo un precio confirmado y un conductor de confianza.",
-    cta: "Solicitar Presupuesto al Instante",
+      "Envía los datos de tu viaje en un par de minutos. Sin registro y sin compromiso: te respondemos por correo con un precio cerrado.",
+    cta: "Solicitar mi Presupuesto",
   },
   footer: {
     tagline:
-      "Traslados privados premium con precio cerrado por los aeropuertos, ciudades y zonas costeras de España, las 24 horas del día.",
+      "Traslados privados con precio cerrado por los aeropuertos, ciudades y zonas costeras de España, organizados con proveedores de transporte locales.",
     quickLinksTitle: "Enlaces Rápidos",
     servicesTitle: "Servicios",
     airportsTitle: "Aeropuertos",

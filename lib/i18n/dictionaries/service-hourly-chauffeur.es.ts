@@ -4,7 +4,7 @@ export const hourlyChauffeurEs: ServicePageDictionary = {
   meta: {
     title: "Chófer por Horas en España – Reserva al Instante",
     description:
-      "Reserva un chófer privado por horas en cualquier punto de España. Conductores profesionales, vehículos de lujo y reserva flexible 24/7.",
+      "Reserva un chófer privado por horas en cualquier punto de España. Conductores profesionales, elección de vehículo y reserva flexible.",
     ogAlt: "Chófer profesional esperando junto a un vehículo privado en España",
   },
   breadcrumb: {

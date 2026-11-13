@@ -29,11 +29,6 @@ export type AboutTrustIconKey =
 
 export type AboutStepIconKey = "calendar-check" | "mail-check" | "handshake" | "car-front";
 
-export interface AboutStat {
-  value: string;
-  label: string;
-}
-
 export interface AboutTimelineItem {
   label: string;
   title: string;
@@ -111,7 +106,6 @@ export interface AboutDictionary {
     image: string;
     imageAlt: string;
   };
-  stats: AboutStat[];
   whyChoose: {
     title: string;
     description: string;

@@ -67,6 +67,8 @@ export interface ServicePageDictionary {
   };
   breadcrumb: {
     current: string;
+    /** Real parent page between Home and this page (e.g. the cities hub). */
+    parent?: { label: string; href: string };
   };
   hero: {
     badge: string;

@@ -94,7 +94,7 @@ export const quoteEs: QuotePageDictionary = {
     title: "Por Qué Solicitar tu Presupuesto con Nosotros",
     items: [
       { icon: "badge-euro", title: "Precios Cerrados", description: "Tu tarifa queda confirmada en el presupuesto, sin taxímetro ni sorpresas después." },
-      { icon: "user-check", title: "Conductores Profesionales", description: "Todos los conductores cuentan con licencia, verificación de antecedentes y seguro." },
+      { icon: "user-check", title: "Conductores Profesionales", description: "Los traslados los realizan conductores profesionales de proveedores de transporte locales." },
       { icon: "plane", title: "Seguimiento de Vuelo Gratuito", description: "Controlamos tu vuelo y ajustamos la recogida automáticamente, sin coste extra." },
       { icon: "shield-check", title: "Sin Cargos Ocultos", description: "El precio de tu presupuesto es el precio que pagas, sin añadidos posteriores." },
       { icon: "handshake", title: "Recepción Personalizada", description: "Tu conductor te espera en llegadas con un cartel con tu nombre, listo para ayudarte." },
@@ -125,7 +125,7 @@ export const quoteEs: QuotePageDictionary = {
       {
         question: "¿Puedo solicitar una silla infantil?",
         answer:
-          "Sí, indica el número y la edad de los niños que necesiten silla en el campo de Peticiones Especiales, y la incluiremos en tu presupuesto sin coste adicional.",
+          "Sí, indica el número y la edad de los niños que necesiten silla en el campo de Peticiones Especiales. La disponibilidad y cualquier coste se confirman con el presupuesto.",
       },
       {
         question: "¿Qué tipos de vehículos hay disponibles?",

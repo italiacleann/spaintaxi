@@ -4,7 +4,7 @@ export const cityToCityTransfersEs: ServicePageDictionary = {
   meta: {
     title: "Traslados entre Ciudades en España – Reserva tu Trayecto",
     description:
-      "Traslados cómodos de larga distancia entre ciudades españolas. Precios cerrados, conductores profesionales y servicio puerta a puerta 24/7.",
+      "Traslados cómodos de larga distancia entre ciudades españolas. Precios cerrados, conductores profesionales y servicio puerta a puerta.",
     ogAlt: "Vehículo privado en una carretera panorámica española para un traslado entre ciudades",
   },
   breadcrumb: {

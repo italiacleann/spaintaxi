@@ -6,6 +6,7 @@ import type { RouteRecord } from "@/lib/routes/types";
 import { localeHome, type Locale } from "@/lib/i18n/config";
 import { Container } from "@/components/shared/container";
 import { Breadcrumb } from "@/components/shared/breadcrumb";
+import { getRouteCrumbLabel, type Crumb } from "@/lib/routes/breadcrumbs";
 import { Badge } from "@/components/ui/badge";
 
 const EYEBROW: Record<RouteRecord["kind"], { en: string; es: string; icon: typeof TrainFrontIcon }> = {
@@ -31,18 +32,16 @@ export function CordobaRouteHero({
   route,
   locale,
   breadcrumbHome,
-  originHref,
+  parentCrumb,
   chips,
 }: {
   route: RouteRecord;
   locale: Locale;
   breadcrumbHome: string;
-  originHref?: string;
+  parentCrumb?: Crumb;
   chips: { label: string; href: string }[];
 }) {
   const isEs = locale === "es";
-  const originName = isEs ? route.originNameEs : route.originNameEn;
-  const destinationName = isEs ? route.destinationNameEs : route.destinationNameEn;
   const title = isEs ? route.titleEs : route.titleEn;
   const imageAlt = isEs ? route.imageAltEs : route.imageAltEn;
   const eyebrow = EYEBROW[route.kind];
@@ -60,8 +59,8 @@ export function CordobaRouteHero({
           variant="dark"
           items={[
             { label: breadcrumbHome, href: localeHome(locale) },
-            ...(originHref ? [{ label: originName, href: originHref }] : []),
-            { label: destinationName },
+            ...(parentCrumb ? [parentCrumb] : []),
+            { label: getRouteCrumbLabel(locale, route) },
           ]}
         />
 

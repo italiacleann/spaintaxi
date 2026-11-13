@@ -4,7 +4,7 @@ export const hourlyChauffeurEn: ServicePageDictionary = {
   meta: {
     title: "Hourly Chauffeur Service in Spain – Instant Booking",
     description:
-      "Book a private chauffeur by the hour anywhere in Spain. Professional drivers, luxury vehicles, and flexible booking, 24/7.",
+      "Book a private chauffeur by the hour anywhere in Spain. Professional drivers, a choice of vehicles and flexible booking.",
     ogAlt: "Professional chauffeur waiting beside a private vehicle in Spain",
   },
   breadcrumb: {

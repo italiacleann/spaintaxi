@@ -16,7 +16,7 @@ export const termsEn: LegalPageDictionary = {
     description:
       "These terms govern every booking made with Spain Private Transfers. Please read them carefully before reserving a transfer.",
     lastUpdatedLabel: "Last updated",
-    lastUpdatedDate: "July 24, 2026",
+    lastUpdatedDate: "November 13, 2026",
   },
   tocTitle: "On This Page",
   sections: [
@@ -24,7 +24,7 @@ export const termsEn: LegalPageDictionary = {
       id: "introduction",
       title: "Introduction",
       paragraphs: [
-        "Spain Private Transfers (\"we\", \"us\", \"our\") provides private transportation services, including airport transfers, city transfers, and chauffeur services, across Spain.",
+        "Spain Private Transfers (\"we\", \"us\", \"our\") helps travelers request private transportation services across Spain, including airport transfers, city transfers and chauffeur services, by connecting customers with local transport providers who carry out the transfers.",
         "By requesting a quote, making a booking, or using our website, you agree to be bound by these Terms & Conditions. If you do not agree with any part of these terms, please do not use our services.",
       ],
     },
@@ -45,8 +45,8 @@ export const termsEn: LegalPageDictionary = {
       id: "payments",
       title: "Payments",
       paragraphs: [
-        "Payment can be made online at the time of booking, or in the vehicle by card or cash, depending on the payment option selected during checkout.",
-        "All online payments are processed through encrypted, PCI-compliant payment providers. We do not store your full card details on our servers.",
+        "The payment method, amount and timing for your booking are set out in your quote and booking confirmation.",
+        "The website does not take card payments. If you have a question about paying for a booking, contact us before your transfer.",
       ],
     },
     {
@@ -106,7 +106,7 @@ export const termsEn: LegalPageDictionary = {
       id: "lost-property",
       title: "Lost Property",
       paragraphs: [
-        "If you believe you have left an item in one of our vehicles, please contact our support team as soon as possible with your booking reference and a description of the item.",
+        "If you believe you have left an item in the vehicle used for your transfer, please contact us as soon as possible with your booking reference and a description of the item.",
         "We will make reasonable efforts to locate and return lost property, but cannot guarantee recovery. Return shipping costs, where applicable, are the responsibility of the passenger.",
       ],
     },

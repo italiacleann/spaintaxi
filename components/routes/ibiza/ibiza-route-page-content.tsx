@@ -3,6 +3,7 @@ import { getRoutePath } from "@/lib/routes/data";
 import { getRelatedRoutes } from "@/lib/routes/related";
 import { getRoutePageDictionary } from "@/lib/routes/dictionary";
 import { buildRouteRelatedLinks } from "@/lib/routes/related-links";
+import { getRouteParentCrumb } from "@/lib/routes/breadcrumbs";
 import { buildRouteJsonLd } from "@/lib/i18n/structured-data";
 import { processContentHtml } from "@/lib/shared/html-content";
 import { getServiceSharedContent } from "@/lib/i18n/service-shared-content";
@@ -75,8 +76,7 @@ export function IbizaRoutePageContent({
     href: getRoutePath(locale, r),
   }));
 
-  const originHref =
-    route.direction === "to-airport" || route.direction === "to-city" ? (cityHref ?? airportHref) : undefined;
+  const parentCrumb = getRouteParentCrumb(locale, route);
 
   const isStay = route.kind === "hotel";
   const isExperience = route.kind === "day-trip";
@@ -84,7 +84,7 @@ export function IbizaRoutePageContent({
   return (
     <div className="ibiza-theme">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <IbizaRouteHero route={route} locale={locale} breadcrumbHome={breadcrumbHome} originHref={originHref} chips={chips} />
+      <IbizaRouteHero route={route} locale={locale} breadcrumbHome={breadcrumbHome} parentCrumb={parentCrumb} chips={chips} />
 
       <section className="py-16 sm:py-20">
         <Container className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_320px]">

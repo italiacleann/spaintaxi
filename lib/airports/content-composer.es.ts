@@ -100,9 +100,9 @@ const whySlot3: ((a: string) => WhyVariant)[] = [
 ];
 
 const whySlot4: (() => WhyVariant)[] = [
-  () => ({ title: "Sillas Infantiles Disponibles", description: "Solicita una silla infantil o alzador para tu traslado sin coste adicional." }),
-  () => ({ title: "Conductores con Licencia y Verificados", description: "Todos los conductores de nuestra red cuentan con licencia profesional y verificación de antecedentes." }),
-  () => ({ title: "Familias Bienvenidas", description: "Sillas infantiles y espacio extra para equipaje disponibles bajo petición, sin coste adicional." }),
+  () => ({ title: "Sillas Infantiles Bajo Petición", description: "Pide una silla infantil o alzador en tu solicitud de presupuesto; la disponibilidad y cualquier coste se confirman con el presupuesto." }),
+  () => ({ title: "Conductores Profesionales", description: "Los traslados los realizan conductores profesionales de proveedores de transporte locales." }),
+  () => ({ title: "Familias Bienvenidas", description: "Puedes solicitar sillas infantiles y espacio extra para equipaje; la disponibilidad se confirma con el presupuesto." }),
 ];
 
 const ctaTitleTemplates: ((a: string) => string)[] = [
@@ -154,7 +154,7 @@ function buildFaq(airport: AirportRecord) {
     },
     {
       question: "¿Puedo solicitar una silla infantil?",
-      answer: "Sí, las sillas infantiles y alzadores están disponibles bajo petición sin coste adicional. Solo indícalo al reservar.",
+      answer: "Puedes solicitar sillas infantiles y alzadores al pedir presupuesto. La disponibilidad y cualquier coste se confirman con el presupuesto.",
     },
   ];
 
@@ -210,6 +210,7 @@ export function composeAirportEs(airport: AirportRecord): AirportPageDictionary 
     },
     breadcrumb: {
       current: `Traslado ${a}`,
+      parent: { label: "Aeropuertos", href: "/es/aeropuertos/" },
     },
     hero: {
       badge: `Traslado ${a}`,

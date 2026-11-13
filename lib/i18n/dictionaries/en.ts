@@ -29,14 +29,12 @@ export const en: Dictionary = {
     { label: "About Us", href: "/about-us/" },
   ],
   hero: {
-    eyebrow: "Private & On Time, Every Time",
+    eyebrow: "Private Transfers, Fixed Prices",
     title: "Private Transfers Anywhere in Spain",
     description:
-      "Book a fixed-price, chauffeur-driven transfer between any Spanish airport, city, or coastal resort. Flight monitoring, professional drivers, and 24/7 support included as standard.",
-    ratingSuffix: "4.9/5 from 12,000+ travelers",
-    transfersCompleted: "50,000+ transfers completed",
-    formTitle: "Get Your Instant Quote",
-    formSubtitle: "Fixed price, confirmed in seconds.",
+      "Book a fixed-price, chauffeur-driven transfer between any Spanish airport, city, or coastal resort. Request a quote any time; the price is fixed when you book.",
+    formTitle: "Request Your Quote",
+    formSubtitle: "We reply by email with a fixed price.",
     formNote: "No payment required now. Free cancellation up to 24 hours before pickup.",
   },
   quoteForm: {
@@ -58,8 +56,8 @@ export const en: Dictionary = {
   trustBar: [
     {
       icon: "clock",
-      title: "24/7 Service",
-      description: "Day or night, we're on the road whenever you land.",
+      title: "Requests Any Time",
+      description: "Send a request for any time of day; availability is confirmed with your quote.",
     },
     {
       icon: "badge-euro",
@@ -74,7 +72,7 @@ export const en: Dictionary = {
     {
       icon: "user-check",
       title: "Professional Drivers",
-      description: "Licensed, vetted, and fluent in English and Spanish.",
+      description: "Transfers are carried out by drivers from local transport providers.",
     },
   ],
   airportsSection: {
@@ -258,30 +256,30 @@ export const en: Dictionary = {
     },
     {
       icon: "shield-check",
-      title: "Licensed & Insured Drivers",
+      title: "Professional Drivers",
       description:
-        "Every driver is professionally licensed, background-checked, and fully insured.",
+        "Transfers are carried out by professional drivers from local transport providers.",
     },
     {
       icon: "plane",
       title: "Flight Monitoring Included",
       description:
-        "We track your flight in real time, so your driver is always there, even if you land late.",
+        "Give us your flight number and we monitor the flight, so the pickup follows your actual landing time.",
     },
     {
       icon: "clock",
-      title: "Available Around the Clock",
-      description: "Early flight or midnight arrival, our drivers are ready 24/7.",
+      title: "Early and Late Pickups",
+      description: "Early-morning and late-night pickups can be requested; availability is confirmed with your quote.",
     },
     {
       icon: "car-front",
-      title: "Premium, Clean Vehicles",
-      description: "Modern, air-conditioned fleet maintained to a premium standard.",
+      title: "Vehicle Choice",
+      description: "Request the vehicle size your group needs, from a sedan to a minibus.",
     },
     {
       icon: "headset",
-      title: "Real Human Support",
-      description: "A dedicated team ready to help before, during, and after your ride.",
+      title: "Contact by Email or WhatsApp",
+      description: "Questions about a quote or booking can be sent by email or WhatsApp.",
     },
   ],
   processSection: {
@@ -298,7 +296,7 @@ export const en: Dictionary = {
     {
       step: "02",
       icon: "mail-check",
-      title: "Get Instant Confirmation",
+      title: "Get Your Fixed Price",
       description: "Receive your fixed price and booking confirmation by email.",
     },
     {
@@ -311,22 +309,22 @@ export const en: Dictionary = {
       step: "04",
       icon: "car-front",
       title: "Enjoy Your Ride",
-      description: "Sit back in a premium vehicle and relax to your destination.",
+      description: "Travel directly to your destination, with no shared stops.",
     },
   ],
   fleetSection: {
-    eyebrow: "Our Fleet",
-    title: "A Premium Vehicle for Every Journey",
+    eyebrow: "Vehicle Types",
+    title: "A Vehicle for Every Group Size",
     description:
-      "Modern, immaculately maintained vehicles, matched to your group size and comfort needs.",
+      "Examples of the vehicle types you can request. The exact vehicle depends on the local provider and is confirmed with your quote.",
   },
   fleet: [
     {
       name: "Executive Sedan",
       passengers: "1-3 passengers",
       luggage: "2 suitcases",
-      description: "A refined, comfortable ride for individuals and couples.",
-      features: ["Leather interior", "Air conditioning", "Bottled water"],
+      description: "Suits individuals and couples with standard luggage.",
+      features: ["Up to 3 passengers", "Standard luggage"],
       image:
         "https://images.unsplash.com/photo-1589148938909-4d241c91ee52?w=900&h=700&fit=crop&q=80",
       imageAlt: "Black executive sedan parked for a private airport transfer",
@@ -335,8 +333,8 @@ export const en: Dictionary = {
       name: "Premium SUV",
       passengers: "1-5 passengers",
       luggage: "4 suitcases",
-      description: "Extra space and comfort for families and small groups.",
-      features: ["Extra legroom", "Child seat on request", "Wi-Fi on board"],
+      description: "More space for families and small groups.",
+      features: ["Up to 5 passengers", "Child seats can be requested"],
       image:
         "https://images.unsplash.com/photo-1577372794873-e6b8efa7dcc3?w=900&h=700&fit=crop&q=80",
       imageAlt: "Premium Mercedes-Benz SUV ready for a private transfer",
@@ -347,57 +345,10 @@ export const en: Dictionary = {
       luggage: "8 suitcases",
       description:
         "Ideal for groups, families, and business teams traveling together.",
-      features: ["Spacious cabin", "Ample luggage room", "Individual AC vents"],
+      features: ["Up to 8 passengers", "Room for more luggage"],
       image:
         "https://images.unsplash.com/photo-1600320254374-ce2d293c324e?w=900&h=700&fit=crop&q=80",
       imageAlt: "Spacious luxury minivan for group airport transfers",
-    },
-  ],
-  testimonialsSection: {
-    eyebrow: "Customer Stories",
-    title: "Trusted by Travelers From Around the World",
-    description: "Real trips, real fixed prices, real drivers waiting at arrivals.",
-  },
-  testimonials: [
-    {
-      name: "Emma Whitfield",
-      location: "London, UK",
-      rating: 5,
-      quote:
-        "Our flight was delayed by two hours and the driver was still there waiting when we landed. Smooth, professional, and the car was spotless.",
-      avatar: "https://i.pravatar.cc/150?img=47",
-    },
-    {
-      name: "Lucas Bergmann",
-      location: "Munich, Germany",
-      rating: 5,
-      quote:
-        "Booked a transfer from Madrid to Toledo for a business trip. Fixed price, on time, and the driver knew exactly where to go.",
-      avatar: "https://i.pravatar.cc/150?img=12",
-    },
-    {
-      name: "Sophie Martin",
-      location: "Paris, France",
-      rating: 5,
-      quote:
-        "Traveling with three kids is never easy, but the child seats were ready and the driver was incredibly patient. Highly recommend.",
-      avatar: "https://i.pravatar.cc/150?img=32",
-    },
-    {
-      name: "Daniel Cohen",
-      location: "Tel Aviv, Israel",
-      rating: 5,
-      quote:
-        "Used them for a group transfer from Barcelona airport to our hotel. Ten of us, one van, zero stress. Will book again.",
-      avatar: "https://i.pravatar.cc/150?img=68",
-    },
-    {
-      name: "Isabella Conti",
-      location: "Milan, Italy",
-      rating: 5,
-      quote:
-        "The instant quote tool made booking so easy, and the price matched exactly what we paid. No hidden extras at all.",
-      avatar: "https://i.pravatar.cc/150?img=5",
     },
   ],
   faqSection: {
@@ -420,7 +371,7 @@ export const en: Dictionary = {
     {
       question: "Can I request a child seat?",
       answer:
-        "Yes, child and booster seats are available on request at no additional charge. Simply add the details when you book your quote.",
+        "You can request child and booster seats when you ask for a quote. Availability and any charge are confirmed with your quote.",
     },
     {
       question: "How and when do I pay?",
@@ -446,12 +397,12 @@ export const en: Dictionary = {
   ctaSection: {
     title: "Ready for a Stress-Free Transfer in Spain?",
     description:
-      "Get your fixed-price quote in under a minute. No account, no obligation, just a confirmed price and a driver you can count on.",
-    cta: "Get My Instant Quote",
+      "Send your trip details in a couple of minutes. No account and no obligation: we reply by email with a fixed price.",
+    cta: "Request My Quote",
   },
   footer: {
     tagline:
-      "Premium, fixed-price private transfers across Spain's airports, cities, and coastal resorts, 24 hours a day.",
+      "Fixed-price private transfers across Spain's airports, cities and coastal resorts, arranged with local transport providers.",
     quickLinksTitle: "Quick Links",
     servicesTitle: "Services",
     airportsTitle: "Airports",

@@ -47,6 +47,7 @@ export function ServiceHero({
             variant="dark"
             items={[
               { label: breadcrumbHome, href: localeHome(locale) },
+              ...(dict.breadcrumb.parent ? [dict.breadcrumb.parent] : []),
               { label: dict.breadcrumb.current },
             ]}
           />

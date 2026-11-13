@@ -1,6 +1,7 @@
 import type { RouteRecord } from "@/lib/routes/types";
 import { getRoutePageDictionary } from "@/lib/routes/dictionary";
 import { buildRouteRelatedLinks } from "@/lib/routes/related-links";
+import { getRouteParentCrumb } from "@/lib/routes/breadcrumbs";
 import { buildRouteJsonLd } from "@/lib/i18n/structured-data";
 import { processContentHtml } from "@/lib/shared/html-content";
 import { getServiceSharedContent } from "@/lib/i18n/service-shared-content";
@@ -58,8 +59,7 @@ export function RoutePageContent({
     dict: dict.relatedLabels,
   });
 
-  const originHref =
-    route.direction === "to-airport" || route.direction === "to-city" ? cityHref ?? airportHref : undefined;
+  const parentCrumb = getRouteParentCrumb(locale, route);
 
   const quoteHref = getPrefilledQuoteHref(locale, {
     pickup: isEs ? route.originNameEs : route.originNameEn,
@@ -74,7 +74,7 @@ export function RoutePageContent({
         route={route}
         locale={locale}
         breadcrumbHome={breadcrumbHome}
-        originHref={originHref}
+        parentCrumb={parentCrumb}
         quoteHref={quoteHref}
         quoteLabel={dict.factsPanel.quoteButton}
       />

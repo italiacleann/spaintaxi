@@ -29,7 +29,7 @@ const descriptionTemplates: ((label: string) => string)[] = [
   (label) =>
     `Book a private taxi, chauffeur, and airport transfer service in ${label}. Professional drivers, fixed prices, flight monitoring, and 24/7 availability.`,
   (label) =>
-    `Private transfers and professional chauffeur service in ${label}. Fixed prices, licensed drivers, flight monitoring, and door-to-door comfort, 24/7.`,
+    `Private transfers and professional chauffeur service in ${label}. Fixed prices, professional drivers, flight monitoring and door-to-door service.`,
   (label) =>
     `Reliable private transfers and taxi service in ${label}. Professional drivers, fixed prices, flight monitoring, and availability around the clock.`,
   (label) =>
@@ -86,20 +86,20 @@ const whySlot1: ((city: string) => WhyVariant)[] = [
 ];
 
 const whySlot2: ((city: string) => WhyVariant)[] = [
-  (city) => ({ title: "Licensed, Professional Drivers", description: `Every driver serving ${city} is professionally licensed and background-checked.` }),
+  (city) => ({ title: "Professional Drivers", description: `Transfers in ${city} are carried out by professional drivers from local transport providers.` }),
   (city) => ({ title: "Experienced Local Drivers", description: `Our drivers in ${city} know the roads, the traffic patterns, and the shortcuts.` }),
-  (city) => ({ title: "Vetted, Insured Drivers", description: `All drivers operating in ${city} are fully licensed, insured, and vetted.` }),
+  (city) => ({ title: "Local Transport Providers", description: `Your transfer in ${city} is arranged with a local transport provider and confirmed with your quote.` }),
 ];
 
 const whySlot3: (() => WhyVariant)[] = [
-  () => ({ title: "Available 24/7", description: "Early flight or late-night arrival, our drivers are ready around the clock." }),
+  () => ({ title: "Available 24/7", description: "Early-morning and late-night pickups can be requested; availability is confirmed with your quote." }),
   () => ({ title: "Round-the-Clock Service", description: "Book a transfer any time, day or night, with no extra call-out fee." }),
-  () => ({ title: "Always On Call", description: "Our drivers operate 24 hours a day, 7 days a week, across Spain." }),
+  () => ({ title: "Requests Any Time", description: "Send a quote request whenever suits you, for any time of day or night." }),
 ];
 
 const whySlot4: (() => WhyVariant)[] = [
   () => ({ title: "Door-to-Door Comfort", description: "Every transfer is door-to-door, with help loading and unloading your luggage." }),
-  () => ({ title: "Child Seats Available", description: "Request a child or booster seat for your transfer at no additional charge." }),
+  () => ({ title: "Child Seats on Request", description: "Ask for a child or booster seat in your quote request; availability and any charge are confirmed with your quote." }),
   () => ({ title: "Families & Groups Welcome", description: "Larger vehicles and extra luggage space are available on request." }),
 ];
 
@@ -145,7 +145,7 @@ function buildFaq(city: CityRecord, airportName: string) {
     },
     {
       question: "Can I request a child seat?",
-      answer: "Yes, child and booster seats are available on request at no additional charge. Just add the details when you book.",
+      answer: "You can request child and booster seats when you ask for a quote. Availability and any charge are confirmed with your quote.",
     },
     {
       question: `Do you serve hotels in ${name}?`,
@@ -208,6 +208,7 @@ export function composeCityEn(city: CityRecord): CityPageDictionary {
     },
     breadcrumb: {
       current: `${name} Transfers`,
+      parent: { label: "Cities", href: "/cities/" },
     },
     hero: {
       badge: `${name} Transfers`,

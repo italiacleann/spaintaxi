@@ -60,9 +60,6 @@ export default async function Image({
         <div style={{ display: "flex", fontSize: 60, fontWeight: 800, maxWidth: 950, lineHeight: 1.15 }}>
           {dict.hero.title}
         </div>
-        <div style={{ display: "flex", fontSize: 28, marginTop: 28, color: "#CBD9E0" }}>
-          {dict.hero.ratingSuffix}
-        </div>
       </div>
     ),
     { ...size }

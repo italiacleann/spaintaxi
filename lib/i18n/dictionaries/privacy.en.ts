@@ -16,7 +16,7 @@ export const privacyEn: LegalPageDictionary = {
     description:
       "Your privacy matters to us. This policy explains what information we collect, how we use it, and the rights you have over it.",
     lastUpdatedLabel: "Last updated",
-    lastUpdatedDate: "July 24, 2026",
+    lastUpdatedDate: "November 13, 2026",
   },
   tocTitle: "On This Page",
   sections: [
@@ -37,7 +37,7 @@ export const privacyEn: LegalPageDictionary = {
       bullets: [
         "Booking information: name, email, phone number, pickup and drop-off addresses, flight or train details, and passenger count",
         "Contact form submissions: name, email, and the content of your message",
-        "Payment information: processed securely by our payment providers (see Payment Information below)",
+        "Payment information: the website does not collect card details (see Payment Information below)",
         "Technical data: IP address, browser type, device information, and pages visited, collected automatically via cookies and similar technologies",
       ],
     },
@@ -83,8 +83,8 @@ export const privacyEn: LegalPageDictionary = {
       id: "payment-information",
       title: "Payment Information",
       paragraphs: [
-        "Online payments are processed by third-party, PCI-DSS-compliant payment providers. We do not store your full card number, expiry date, or CVV on our servers.",
-        "Payment providers process your payment data under their own privacy policies and security standards.",
+        "The website does not take card payments or collect card details.",
+        "How you pay for a booking is set out in your quote and booking confirmation. Any payment provider involved processes your payment data under its own privacy policy.",
       ],
     },
     {
@@ -122,7 +122,7 @@ export const privacyEn: LegalPageDictionary = {
       id: "security",
       title: "Security",
       paragraphs: [
-        "We use industry-standard technical and organizational measures, including encryption in transit, access controls, and regular security reviews, to protect your personal data against unauthorized access, loss, or misuse.",
+        "We use industry-standard technical and organizational measures, including encryption in transit and access controls, to protect your personal data against unauthorized access, loss, or misuse.",
         "No method of transmission or storage is completely secure, and we cannot guarantee absolute security, but we work continuously to protect your information.",
       ],
     },

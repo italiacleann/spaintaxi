@@ -5,7 +5,6 @@ import { buildAboutJsonLd } from "@/lib/i18n/structured-data";
 
 import { AboutHero } from "@/components/about/about-hero";
 import { AboutStory } from "@/components/about/about-story";
-import { AboutStats } from "@/components/about/about-stats";
 import { AboutWhyChoose } from "@/components/about/about-why-choose";
 import { AboutServices } from "@/components/about/about-services";
 import { AboutCoverage } from "@/components/about/about-coverage";
@@ -37,7 +36,6 @@ export function AboutPageContent({
       />
       <AboutHero dict={dict} homeDict={homeDict} locale={locale} />
       <AboutStory dict={dict} />
-      <AboutStats dict={dict} />
       <AboutWhyChoose dict={dict} />
       <AboutServices dict={dict} />
       <AboutCoverage dict={dict} />

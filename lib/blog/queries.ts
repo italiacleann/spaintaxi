@@ -2,6 +2,7 @@ import type { Locale } from "@/lib/i18n/config";
 import { createSupabasePublicClient } from "@/lib/supabase/public";
 import { processContentHtml } from "@/lib/shared/html-content";
 import type { BlogPost, LocalizedBlogPost } from "@/lib/blog/types";
+import { getContentUpdatedAt } from "@/lib/blog/content-dates";
 
 const SELECT_COLUMNS = "*";
 
@@ -68,6 +69,7 @@ export function localizePost(post: BlogPost, locale: Locale): LocalizedBlogPost 
   return {
     id: post.id,
     publishedAt: post.publishedAt,
+    updatedAt: getContentUpdatedAt(post.slugEn),
     isFeatured: post.isFeatured,
     category: post.category,
     categoryLabel: (locale === "es" ? post.categoryLabelEs : post.categoryLabelEn) ?? post.categoryLabelEn,
@@ -151,6 +153,30 @@ export async function getAllSlugsForStaticParams(): Promise<{ locale: Locale; sl
     if (row.slug_es) params.push({ locale: "es", slug: row.slug_es });
   }
   return params;
+}
+
+/** Published posts with both language slugs and their content dates, for the sitemap. */
+export async function getSitemapPosts(): Promise<
+  { slugEn: string | null; slugEs: string | null; publishedAt: string | null; updatedAt: string | null }[]
+> {
+  const supabase = createSupabasePublicClient();
+  if (!supabase) return [];
+
+  const { data, error } = await supabase
+    .from("blog_posts")
+    .select("slug_en, slug_es, published_at")
+    .eq("status", "published")
+    .lte("published_at", new Date().toISOString());
+
+  if (error || !data) return [];
+
+  return (data as { slug_en: string | null; slug_es: string | null; published_at: string | null }[]).map((row) => ({
+    slugEn: row.slug_en,
+    slugEs: row.slug_es,
+    publishedAt: row.published_at,
+    // Content date from git history, not the database updated_at (see content-dates.ts).
+    updatedAt: getContentUpdatedAt(row.slug_en),
+  }));
 }
 
 export async function getRelatedPosts(
